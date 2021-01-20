@@ -1,0 +1,87 @@
+@charset "UTF-8";
+@import url("./drinks.css");
+
+ul {
+	padding:0;
+}
+
+/*--------------------------------------------------------------
+# 화면상 메뉴
+--------------------------------------------------------------*/
+.menu {
+  position: relative;
+  overflow: hidden;
+  padding:69px 0 0 0;
+}
+.menu__container {
+	height: 65vh;
+
+}
+.menu__container .container {
+	padding-top:172px;
+}
+
+.menu__container .container .menu__title {
+	color:#FFFFFF;
+	text-align: center;
+
+}
+.menu__container .container .menu__title .menu__maintitle {
+	font-size: 50px;
+	margin:0;
+	
+}
+
+.menu__container .container .menu__title .menu__subtitle {
+	font-size: 30px;
+}
+
+.menu__list .menu__list-table {
+	border: 1px solid #F6F6F6;
+	color:white;
+	margin-top:20px;
+}
+
+.menu__list .menu__list-table td {
+
+    border: 1px solid #F6F6F6;
+    padding: 0;
+
+}
+.menu__list .menu__list-table tr td .menu__list-title {
+	padding:10px 70px;
+	cursor: pointer;
+	
+}
+.menu__list .menu__list-table tr td .menu__list-title:hover {
+	background-color: #ffffff;
+	color:#222222;
+}
+
+
+/*--------------------------------------------------------------
+# 음식 메뉴
+--------------------------------------------------------------*/
+.menu-search{
+	padding: 20px 50px;
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+}
+
+.menu-search .menu-search-title {
+	font-weight: 700;
+	align-items: center;
+}
+.menu-search .menu-search-form {
+	border: 1px solid #cccccc;
+	border-radius: 2px;
+}
+.menu-search .menu-search-form input {
+	border: none;
+	height: 40px;
+}
+.menu-search .menu-search-form i {
+	padding: 10px;
+	font-weight: 900;
+	color:#002f6c;
+}
