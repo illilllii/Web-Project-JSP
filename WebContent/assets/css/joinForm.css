@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#contentWrap {
+	padding-top: 90px;
+	position: relative;
+}
+
+.join_bg {
+	position: relative;
+	background-image: url("../img/user/join_bg.jpg");
+	background-size: cover;
+	width: 100%;
+	height: 800px;
+}
+
+h1.con_tt {
+	color: #FFF;
+}
+
+.join_content {
+	text-align: center;
+	color: #FFF;
+	width: auto;
+	margin: auto;
+	font-size: 18px ;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.join_con {
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 36px 0 40px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.join_con {
+    padding: 44px 0 50px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.join_con h2.join_tt {
+    font-size: 24px;
+    text-align: center;
+    color: #202022;
+    line-height: 1.4em;
+}
+
+.join_box {
+    margin-top: 10px;
+    margin-bottom: 100px;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+}
+
+.box_btn {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.submit_btn {
+    width: 100%;
+    height: 58px;
+    border: solid 1px #002f6c;
+    background: #002f6c;
+    border-radius: 3px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
