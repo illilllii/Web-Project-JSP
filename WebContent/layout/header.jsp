@@ -12,22 +12,22 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/ediya/assets/img/favicon.png" rel="icon">
+  <link href="/ediya/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/ediya/assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="/ediya/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: BizLand - v1.2.0
@@ -64,7 +64,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <div><a href="index.html"><img src="assets/img/top_logo.gif"></a></div>
+      <div><a href="/ediya/index.html"><img src="/ediya/assets/img/top_logo.gif"></a></div>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
