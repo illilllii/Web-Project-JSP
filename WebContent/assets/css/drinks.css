@@ -17,5 +17,6 @@
 #drinks__container {
 	background: url("/ediya/assets/img/menu/drink_visual.jpg");
 	background-repeat: no-repeat;
-	background-position: center bottom;
+	background-size:cover;
+	background-position: center center;
 }
