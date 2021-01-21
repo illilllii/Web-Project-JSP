@@ -16,7 +16,7 @@
 
 <div class="join_box">
 	<div class="join_con">
-		<h2 class="join_tt ns">회원정보입력</h2>
+		<h2 class="join_tt ns">회원정보 입력!</h2>
 
 		<fieldset>
 			<div class="join_form top_form">
