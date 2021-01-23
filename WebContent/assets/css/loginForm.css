@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+div {
+	display: block;
+}
+
+.login_bg {
+	background-image: url("../img/user/login_bg.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
+	background-size: cover;
+}
+
+.login_con {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	padding: 360px 0 200px;
+}
+
+body, input, textarea, select, table, a, p {
+	font-family: 'Noto Sans KR', '나눔고딕', NanumGothic, '맑은 고딕', MalgunGothic,
+		'돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #464646;
+	line-height: 1.7em;
+}
+
+.login_con h1.login_tt {
+	text-align: center;
+	margin-bottom: 83px;
+}
+
+.login_con p.login_txt {
+	font-size: 18px;
+	margin-bottom: 96px;
+	text-align: center;
+	color: #e5e3e0;
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+}
+
+.mem_info {
+	width: 62.5%;
+	padding: 70px 18.75%;
+	background: #FFF;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.mem_info h2 {
+	font-size: 28px;
+	color: #202023;
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+	margin-bottom: 39px;
+}
+
+.mem_info p {
+	font-size: 15px;
+	margin-bottom: 38px;
+	color: #707070;
+	line-height: 1.5em;
+}
+
+.mem_info a {
+	height: 66px;
+	line-height: 66px;
+	display: block;
+	width: 100%;
+	border: solid 1px #002f6c;
+	background: #002f6c;
+	font-size: 18px;
+	font-weight: 600;
+	color: #FFF;
+	border-radius: 3px 3px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.login_box {
+	width: 62.5%;
+	padding: 70px 18.75%;
+	background: #FFF;
+}
+
+form {
+	display: block;
+}
+
+.login_box input {
+	width: 100%;
+	border: solid 1px #CCCCCC;
+	border-radius: 3px 3px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+
+input[type="hidden" i] {
+	display: none;
+	appearance: initial;
+	background-color: initial;
+	cursor: default;
+}
+
+input {
+	-webkit-writing-mode: horizontal-tb !important;
+	text-rendering: auto;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	text-align: start;
+	-webkit-rtl-ordering: logical;
+}
+
+img, fieldset {
+	border: 0px;
+	vertical-align: top;
+}
+
+fieldset {
+	display: block;
+	margin-inline-start: 2px;
+	margin-inline-end: 2px;
+	padding-block-start: 0.35em;
+	padding-inline-start: 0.75em;
+	padding-inline-end: 0.75em;
+	padding-block-end: 0.625em;
+	min-inline-size: min-content;
+}
+
+.login_box input.login_btn {
+	border: solid 1px #002f6c;
+	background: #002f6c;
+	height: 68px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #FFF;
+	padding-left: 0;
+}

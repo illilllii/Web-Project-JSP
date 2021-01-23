@@ -7,12 +7,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>이디야 커피</title>
+  <title>EDIYA COFFEE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/ediya/assets/img/favicon.png" rel="icon">
+  <link href="/ediya/assets/img/favicon.ico" rel="icon">
   <link href="/ediya/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -29,6 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="/ediya/assets/css/style.css" rel="stylesheet">
   <link href="/ediya/assets/css/joinForm.css" rel="stylesheet">
+  <link href="/ediya/assets/css/loginForm.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: BizLand - v1.2.0

@@ -11,6 +11,26 @@
 	position: relative;
 }
 
+div {
+	display: block;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+body, input, textarea, select, table, a, p {
+    font-family: 'Noto Sans KR', '나눔고딕', NanumGothic, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-size: 13px;
+    color: #464646;
+    line-height: 1.7em;
+}
+
+
 .join_bg {
 	position: relative;
 	background-image: url("../img/user/join_bg.jpg");
@@ -64,8 +84,10 @@ h2 {
     line-height: 1.4em;
 }
 
+
+
 .join_box {
-    margin-top: 10px;
+    margin-top: 100px;
     margin-bottom: 100px;
     border: 1px solid #ebebeb;
     box-sizing: border-box;
@@ -89,4 +111,25 @@ h2 {
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
+}
+
+
+
+
+
+.join_form dt {
+	float: left;
+    width: 140px;
+    height: 58px;
+    line-height: 58px;
+}
+
+.join_form dd {
+    float: left;
+    width: 79%;
+}
+
+.join_form dl {
+	width: 100%;
+	display: table;
 }
