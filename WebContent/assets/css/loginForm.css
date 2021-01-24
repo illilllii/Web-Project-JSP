@@ -25,30 +25,33 @@ div {
 	padding: 360px 0 200px;
 }
 
-body, input, textarea, select, table, a, p {
-	font-family: 'Noto Sans KR', '나눔고딕', NanumGothic, '맑은 고딕', MalgunGothic,
-		'돋움', Dotum, sans-serif;
-	font-size: 13px;
-	color: #464646;
+.login_title {
+	font-size: 80px;
+	font-weight: 500;
+	margin-bottom: 65px;
+	color: white;
+	text-align: center;
+}
+
+.login_txt {
+	text-align: center;
+	margin-bottom: 96px;
+	color: white;
+	font-size: 18px;
 	line-height: 1.7em;
 }
 
-.login_con h1.login_tt {
-	text-align: center;
-	margin-bottom: 83px;
-}
-
-.login_con p.login_txt {
-	font-size: 18px;
-	margin-bottom: 96px;
+.login_txt em {
 	text-align: center;
 	color: #e5e3e0;
-	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
-		Dotum;
+	font-size: 38px;
+	font-weight: 600;
+	font-style: normal;
+	
 }
 
 .mem_info {
-	width: 62.5%;
+	width: 100%;
 	padding: 70px 18.75%;
 	background: #FFF;
 	margin-top: 20px;
@@ -88,7 +91,7 @@ a {
 }
 
 .login_box {
-	width: 62.5%;
+	width: 100%;
 	padding: 70px 18.75%;
 	background: #FFF;
 }
