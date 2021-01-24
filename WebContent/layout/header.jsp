@@ -18,6 +18,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/ediya/assets/css/fonts.css">
 
   <!-- Vendor CSS Files -->
   <link href="/ediya/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
