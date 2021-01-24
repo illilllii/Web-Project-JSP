@@ -191,6 +191,23 @@ ul {
 	font-size: 25px;
 	font-weight: 600;
 }
+.recomm-menu-content {
+	display:none;
+    position: absolute;
+    top: 0;
+    text-align:initial;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding:30px 30px 0 30px;
+    background-color: rgba( 255, 255, 255, 0.8 );
+    border: 1px solid #ccc;
+}
+.als-item:hover .recomm-menu-content {
+	display:block;
+}
+
 /*.carousel-control-prev-icon {
 	background: none;
 }
@@ -349,9 +366,7 @@ ul {
 .menu-items .menu-item img {
 	width: 270px;
 }
-.menu-content {
-	
-}
+
 .menu-items .menu-item:hover .menu-content {
 	display:block;
 }
@@ -372,28 +387,22 @@ ul {
 	background-color: rgba( 255, 255, 255, 0.8 );
 	
 }
-.menu-content hr {
+.content-hr {
 	border:0;
 	height:2px;
 	background: #353535;
 }
-.menu-content .menu-content__content{
+.menu-content__content{
 
 	font-size:12px;
 	font-weight:600;
 }
-.menu-content .menu-content__title .menu-content__title-right {
-	margin-top:-20px;
-	margin-right:-20px;
-}
-.menu-content .menu-content__title .menu-content__title-right i {
-	font-size:20px;
-}
-.menu-content .menu-content__title .menu-content__title-left .menu-content__maintitle {
+
+.menu-content__maintitle {
 	font-size:20px;
 	font-weight:600;
 }
-.menu-content .menu-content__title .menu-content__title-left .menu-content__subtitle {
+.menu-content__subtitle {
 	color:#8C8C8C;
 }
 
