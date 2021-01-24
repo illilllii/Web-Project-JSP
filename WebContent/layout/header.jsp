@@ -32,6 +32,8 @@
   <link href="/ediya/assets/css/style.css" rel="stylesheet">
   <link href="/ediya/assets/css/joinForm.css" rel="stylesheet">
   <link href="/ediya/assets/css/loginForm.css" rel="stylesheet">
+  <link href="/ediya/assets/css/myPage.css" rel="stylesheet">
+  <link href="/ediya/assets/css/editPage.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: BizLand - v1.2.0

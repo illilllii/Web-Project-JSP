@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+div {
+	display: block;
+}
+
+body, input, textarea, select, table, a, p {
+	font-family: 'Noto Sans KR', '나눔고딕', NanumGothic, '맑은 고딕', MalgunGothic,
+		'돋움', Dotum, sans-serif;
+	font-size: 13px;
+	color: #464646;
+	line-height: 1.7em;
+}
+
+#contentWrap {
+	padding-top: 90px;
+	position: relative;
+}
+
+.editPage_bg {
+	position: relative;
+	background-image: url("../img/user/join_edit_bg.jpg");
+	background-size: cover;
+	width: 100%;
+	height: 850px;
+}
+
+.editPage_content {
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	padding: 226px 0 75px;
+	font-weight: lighter;
+}
+
+.editPage_title {
+	font-size: 80px;
+	font-weight: 500;
+	margin-bottom: 50px;
+	color: white;
+	text-align: center;
+}
+
+.editPage_txt1 {
+	letter-spacing: 0;
+	color: #FFF;
+	display: block;
+	width: auto;
+	margin: -10px auto 4px;
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+	text-align: center;
+	font-size: 38px;
+}
+
+.editPage_txt2 {
+	color: #b9b8b8;
+	display: block;
+	width: auto;
+	margin: auto;
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+	text-align: center;
+	font-size: 18px;
+}
