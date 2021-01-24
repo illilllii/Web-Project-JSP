@@ -1,6 +1,5 @@
 @charset "UTF-8"; 
 
- @charset "UTF-8";
 
 /*@media (max-height: 500px) {
 	.menu__container {
@@ -19,4 +18,8 @@
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position: center center;
+}
+#drinks__container .menu__list-content .active {
+	background-color:#fff;
+	color:#222;
 }

@@ -10,14 +10,13 @@
 				<p class="menu__subtitle">ALWAYS BESIDE YOU, EDIYA COFFEE</p>
 			</div>
 			<div class="menu__list d-flex justify-content-center">
-				<!--<table class="menu__list-table">
-					<tr>
-						<td><div class="menu__list-title" onclick="location.href ='#'">음료</div></td>
-						<td><div class="menu__list-title" onclick="location.href ='#'">음료</div></td>
-						<td><div class="menu__list-title" onclick="location.href ='#'">음료</div></td>
-						<td><div class="menu__list-title" onclick="location.href ='#'">음료</div></td>
-					</tr>
-				</table>-->
+				<ul class="d-flex menu__list-content">
+					<li onclick="location.href ='drinks.jsp'" class="active">음료</li>
+					<li onclick="location.href ='bakery.jsp'">베이커리</li>
+					<li onclick="location.href ='snack.jsp'">스낵</li>
+					<li onclick="location.href ='md.jsp'">MD</li>
+				</ul>
+
 			</div>
 		</div>
 	</div>
@@ -44,6 +43,29 @@
 
 	<section class="main__container">
 		<div class="container">
+			<div class="menu-recomm">
+				<h1>추천 상품</h1>
+			</div>
+			
+			<div class="als-container" id="demo3">
+			  <span class="als-prev"><i class="icofont-thin-left"></i></span>
+			  <div class="als-viewport">
+			    <ul class="als-wrapper">
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/자몽에이드.png" /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/청포도에이드.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  /></li>
+			       <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/자몽에이드.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/청포도에이드.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  /></li>
+			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  /></li>
+			
+			    </ul>
+			  </div>
+			  <span class="als-next"><i class="icofont-thin-right"></i></span>
+			</div>
 			<div class="menu-search">
 				<ul class="d-flex justify-content-between">
 					<li class="menu-search-title d-flex">메뉴 검색</li>
@@ -51,22 +73,114 @@
 						class="icofont-search"></i></li>
 				</ul>
 				<hr />
-				<label><input type="checkbox" name="coffee" value="coffee" />COFFEE</label>
-				<label><input type="checkbox" name="beverage"
-					value="beverage" />BEVERAGE</label> <label><input type="checkbox"
-					name="blending tea" value="blending tea" />BLENDING TEA</label> <label><input
-					type="checkbox" name="flatccino" value="flatccino" />FLATCCINO</label> <label><input
-					type="checkbox" name="shake" value="shake" />SHAKE & ADE</label> <label><input
-					type="checkbox" name="iceFlakes" value="iceFlakes" />ICE FLAKES</label> <label><input
-					type="checkbox" name="rtd" value="rtd" />RTD</label>
+				<label class="menu-search-form-label"><input type="checkbox"
+					name="coffee" value="coffee" />COFFEE</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="beverage" value="beverage" />BEVERAGE</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="blending tea" value="blending tea" />BLENDING TEA</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="flatccino" value="flatccino" />FLATCCINO</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="shake" value="shake" />SHAKE & ADE</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="iceFlakes" value="iceFlakes" />ICE FLAKES</label> <label
+					class="menu-search-form-label"><input type="checkbox"
+					name="rtd" value="rtd" />RTD</label>
 			</div>
 
+		</div>
+		<div class="menu-items container">
+			<div class="menu-item">
+				<div id="menu-item1">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+					<div class="menu-item-title">ICED딸기라떼</div>
+				</div>
+				<div class="menu-content">
+					<div class="menu-content__title d-flex justify-content-between">
+						<div class="menu-content__title-left">
+							<div class="menu-content__maintitle">ICED딸기라떼</div>
+							<div class="menu-content__subtitle">Strawberry Latte</div>
+						</div>
+					</div>
+					<hr />
+					<div class="menu-content__content">
+						새콤달콤 딸기와 우유가 맛있게<br />어우러진 음료
+					</div>
+				</div>
+			</div>
+
+			<div class="menu-item">
+				<div id="menu-item2">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+					<div class="menu-item-title">ICED딸기라떼</div>
+				</div>
+				<div class="menu-content">
+					<div class="menu-content__title d-flex justify-content-between">
+						<div class="menu-content__title-left">
+							<div class="menu-content__maintitle">ICED딸기라떼</div>
+							<div class="menu-content__subtitle">Strawberry Latte</div>
+						</div>
+					</div>
+					<hr />
+					<div class="menu-content__content">
+						새콤달콤 딸기와 우유가 맛있게<br />어우러진 음료
+					</div>
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item3">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item4">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item5">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item6">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item7">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			<div class="menu-item">
+				<div id="menu-item8">
+					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="more-button container">
+				<button>더보기 +</button>
 		</div>
 	</section>
 
 </main>
 <!-- End #main -->
 <!-- ======= Footer ======= -->
+<script>
+$("#demo3").als({
+	visible_items: 3,
+	scrolling_items: 1,
+	orientation: "horizontal",
+	circular: "yes",
+	autoscroll: "yes",
+	interval: 3000
+});
+</script>
 <%@ include file="../layout/footer.jsp"%>
+
+
 </body>
 </html>
