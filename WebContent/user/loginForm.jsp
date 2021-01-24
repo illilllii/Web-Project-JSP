@@ -39,7 +39,7 @@
 						<input type="submit" name="Submit" value="로그인" class="login_btn">
 
 						<div class="join_btn">
-							<a href="./join.html">회원가입</a> 
+							<a href="./joinForm.jsp">회원가입</a> 
 							<a href="#c" onclick="open_login_pop('email_find')">이메일 찾기</a> 
 							<a href="#c" onclick="open_login_pop('passwd_find')">비밀번호 찾기</a>
 						</div>
