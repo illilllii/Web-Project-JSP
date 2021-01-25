@@ -52,16 +52,20 @@
 			  <span class="als-prev"><i class="icofont-thin-left"></i></span>
 			  <div class="als-viewport">
 			    <ul class="als-wrapper">
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/자몽에이드.png" /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/청포도에이드.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  /></li>
-			       <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/자몽에이드.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/청포도에이드.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  /></li>
-			      <li class="als-item"><img src="../assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  /></li>
+			     <c:forEach var="md" items="${mds}">
+			    		<c:if test="${md.recommend eq 'Y' }">
+			    			<li class="als-item">
+			      				<img src="${md.imageSrc}"  />
+			      				<div class="recomm-menu-content">
+			      					<div class="menu-content__maintitle">${md.name}</div>
+									<hr class="content-hr"/>
+									<div class="menu-content__content">
+										${md.content}
+									</div>
+			      				</div>
+			     			 </li>
+			    		</c:if>
+			    	</c:forEach>
 			
 			    </ul>
 			  </div>
