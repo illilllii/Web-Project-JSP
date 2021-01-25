@@ -75,7 +75,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <div><a href="/ediya/index.html"><img src="/ediya/assets/img/top_logo.gif"></a></div>
       <div><a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a></div>
 
       <!-- Uncomment below if you prefer to use an image logo -->
