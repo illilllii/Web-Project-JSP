@@ -1,4 +1,4 @@
-package com.cos.ediya.domain.drinks;
+package com.cos.ediya.domain.bakery;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,19 +8,19 @@ import java.util.List;
 
 import com.cos.ediya.config.DB;
 
-public class DrinksDao {
-	public List<Drinks> findAll() {
+public class BakeryDao {
+	public List<Bakery> findAll() {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM drinks ORDER BY id";
-		List<Drinks> drinks = new ArrayList<Drinks>();
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM bakery ORDER BY id";
+		List<Bakery> bakerys = new ArrayList<Bakery>();
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Drinks drink = Drinks.builder()
+				Bakery bakery = Bakery.builder()
 						.id(rs.getInt("id"))
 						.name(rs.getString("name"))
 						.subname(rs.getString("subname"))
@@ -29,10 +29,10 @@ public class DrinksDao {
 						.kind(rs.getString("kind"))
 						.recommend(rs.getString("recommend"))
 						.build();
-				drinks.add(drink);
+				bakerys.add(bakery);
 				
 			}
-			return drinks;
+			return bakerys;
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -12,10 +12,10 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='drinks.jsp'">음료</li>
-					<li onclick="location.href ='bakery.jsp'"  class="active">베이커리</li>
-					<li onclick="location.href ='snack.jsp'">스낵</li>
-					<li onclick="location.href ='md.jsp'">MD</li>
+					<li onclick="location.href ='/ediya/menu?cmd=drinks'">음료</li>
+					<li onclick="location.href ='/ediya/menu?cmd=bakery'">베이커리</li>
+					<li onclick="location.href ='/ediya/menu?cmd=snack'">스낵</li>
+					<li onclick="location.href ='/ediya/menu?cmd=md'">MD</li>
 				</ul>
 
 			</div>
