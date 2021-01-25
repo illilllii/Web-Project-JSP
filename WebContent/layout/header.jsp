@@ -7,16 +7,18 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>이디야 커피</title>
+  <title>EDIYA COFFEE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/ediya/assets/img/favicon.png" rel="icon">
+  <link href="/ediya/assets/img/favicon.ico" rel="icon">
   <link href="/ediya/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/ediya/assets/css/fonts.css">
 
   <!-- Vendor CSS Files -->
   <link href="/ediya/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +30,13 @@
 
   <!-- Template Main CSS File -->
   <link href="/ediya/assets/css/style.css" rel="stylesheet">
+
+  <!-- User CSS -->
+  <link href="/ediya/assets/css/joinForm.css" rel="stylesheet">
+  <link href="/ediya/assets/css/loginForm.css" rel="stylesheet">
+  <link href="/ediya/assets/css/myPage.css" rel="stylesheet">
+  <link href="/ediya/assets/css/editPage.css" rel="stylesheet">
+
 
   <!-- =======================================================
   * Template Name: BizLand - v1.2.0
@@ -54,7 +63,7 @@
           <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
           <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
           <a href="#" class="skype"><i class="icofont-skype"></i></a>
-          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
         </div>
       </div>
     </div>
@@ -65,6 +74,7 @@
     <div class="container d-flex align-items-center">
 
       <div><a href="/ediya/index.html"><img src="/ediya/assets/img/top_logo.gif"></a></div>
+
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
