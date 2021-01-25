@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.menu {
+  position: relative;
+  overflow: hidden;
+}
+
+/*@media (max-height: 500px) {
+	.menu__container {
+    	height: 120vh;
+	}
+	
+}
+@media (max-width: 768px) {
+  .menu__container {
+    height: 100vh;
+  }
+ 
+}*/
+.menu__container {
+	height: 75vh;
+	background: url("/ediya/assets/img/menu/drink_visual.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+}

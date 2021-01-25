@@ -1,3 +1,4 @@
+@import url("./menu.css");
 /**
 * Template Name: BizLand - v1.2.0
 * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
@@ -25,7 +26,9 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
-
+li {
+	list-style: none;
+}
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -588,7 +591,6 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
   overflow: hidden;
 }
 
@@ -640,9 +642,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
-  background-color: #f1f6fe;
   min-height: 40px;
-  margin-top: 134px;
 }
 
 @media (max-width: 992px) {
@@ -670,6 +670,7 @@ section {
   padding: 0;
   margin: 0;
   font-size: 14px;
+  align-items: baseline;
 }
 
 .breadcrumbs ol li + li {
@@ -680,7 +681,7 @@ section {
   display: inline-block;
   padding-right: 10px;
   color: #6c757d;
-  content: "/";
+  content: "\eab8";
 }
 
 @media (max-width: 768px) {
@@ -975,16 +976,14 @@ section {
 # Testimonials
 --------------------------------------------------------------*/
 .testimonials {
-  padding: 80px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
-  background-position: center center;
-  background-size: cover;
+
   position: relative;
+ 
+  padding-top:130px;
 }
 
 .testimonials::before {
   content: "";
-  position: absolute;
   left: 0;
   right: 0;
   top: 0;
@@ -1048,8 +1047,9 @@ section {
 .testimonials .owl-nav, .testimonials .owl-dots {
   margin-top: 5px;
   text-align: center;
+  top:-50px;
+  position:relative;
 }
-
 .testimonials .owl-dot {
   display: inline-block;
   margin: 0 5px;
@@ -1057,15 +1057,16 @@ section {
   height: 12px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4) !important;
+
 }
 
 .testimonials .owl-dot.active {
   background-color: #106eea !important;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 992px) {
   .testimonials {
-    background-attachment: fixed;
+    top:0;
   }
 }
 
@@ -1384,7 +1385,31 @@ section {
     transform: rotate(360deg);
   }
 }
+/*--------------------------------------------------------------
+# menu-block
+--------------------------------------------------------------*/
+.menu-block {
+	background: url("/ediya/assets/img/block02_bg.jpg") no-repeat;
+	text-align:center;
+	color:#fff;
+	margin-top:-30px;
+	padding:20vh 0;
 
+}
+.menu-block .menu-block-text li{
+	margin: 40px 0;
+}
+.menu-block .menu-block-text li span {
+	border: 1px solid #fff;
+	padding: 10px 20px;
+	
+}
+.menu-block .menu-block-text li span:hover {
+	
+	background-color: #fff;
+	color:#222;
+	cursor: pointer;
+}
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -1430,3 +1455,6 @@ section {
     padding: 2px 0;
   }
 }
+
+
+@import url("menu.css");
