@@ -29,6 +29,8 @@
   <!-- Template Main CSS File -->
   <link href="/ediya/assets/css/style.css" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="/ediya/assets/vendor/jquery/jquery.als-2.1.min.js"></script>
   <!-- =======================================================
   * Template Name: BizLand - v1.2.0
   * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
@@ -63,19 +65,20 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-
       <div><a href="/ediya/index.html"><img src="/ediya/assets/img/top_logo.gif"></a></div>
+      <div><a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a></div>
+
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="drop-down"><a href="index.html">메뉴</a>
+          <li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
             <ul>
-              <li><a href="#">음료</a></li>
-              <li><a href="#">베이커리</a></li>
-              <li><a href="#">스낵</a></li>
-              <li><a href="#">MD</a></li>
+              <li><a href="/ediya/menu?cmd=drinks">음료</a></li>
+              <li><a href="/ediya/menu/bakery.jsp">베이커리</a></li>
+              <li><a href="/ediya/menu/snack.jsp">스낵</a></li>
+              <li><a href="/ediya/menu/md.jsp">MD</a></li>
             </ul>
           </li>
           <li><a href="#">이디야 멤버스</a></li>
