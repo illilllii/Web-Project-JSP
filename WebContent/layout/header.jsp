@@ -30,6 +30,8 @@
 
   <!-- Template Main CSS File -->
   <link href="/ediya/assets/css/style.css" rel="stylesheet">
+  
+  <!-- User CSS -->
   <link href="/ediya/assets/css/joinForm.css" rel="stylesheet">
   <link href="/ediya/assets/css/loginForm.css" rel="stylesheet">
   <link href="/ediya/assets/css/myPage.css" rel="stylesheet">

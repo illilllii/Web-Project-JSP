@@ -18,6 +18,10 @@ body, input, textarea, select, table, a, p {
 	line-height: 1.7em;
 }
 
+ul {
+	list-style-type: none;
+}
+
 #contentWrap {
 	padding-top: 90px;
 	position: relative;
@@ -68,4 +72,233 @@ body, input, textarea, select, table, a, p {
 		Dotum;
 	text-align: center;
 	font-size: 18px;
+}
+
+.inform_container {
+	width: 100%;
+	max-width: 1180px;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+
+.inform_bg {
+	padding: 0 4%;
+	max-width: 1180px;
+	background: #f4f4f4;
+	border-radius: 13px;
+}
+
+.inform_content {
+	padding: 70px;
+	box-sizing: border-box;
+	width: 100%;
+	overflow: hidden;
+}
+
+.user_inform {
+	width: 52.4%;
+	float: left;
+}
+
+.user_inform_title {
+	width: 100%;
+	max-width: 550px;
+	display: table;
+}
+
+.level_logo {
+	display: table-cell;
+	width: 30%;
+	max-width: 195px;
+	vertical-align: middle;
+}
+
+.level_txt {
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+	font-size: 30px;
+	padding-left: 10px;
+	vertical-align: middle;
+	display: table-cell;
+	width: 70%;
+}
+
+.user_inform_content {
+	padding: 30px 20px 45px 30px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-sizing: border-box;
+	margin-top: 50px;
+}
+
+.inform_txt {
+	color: #7a7a7a;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+
+.userEdit_btn {
+	display: block;
+	float: right;
+	width: 120px;
+	padding-left: 20px;
+	height: 30px;
+	line-height: 30px;
+	background: #253b84;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 500;
+	box-sizing: border-box;
+}
+
+.user_mileage {
+	width: 38%;
+	padding-bottom: 0px;
+	float: right;
+}
+
+.mileage_status {
+	display: table;
+	margin: 0 auto;
+}
+
+.status_icon {
+	display: table-cell;
+	width: 39.47px;
+	vertical-align: middle;
+}
+
+.status_ico img {
+	width: 150px;
+	border: 0px;
+	vertical-align: top;
+}
+
+.status_content {
+	display: table-cell;
+	width: 220px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+dt {
+	display: block;
+}
+
+.now_tt {
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #202023;
+	width: 100%;
+}
+
+.now_txt {
+	font-size: 30px;
+	width: 220px;
+}
+
+.status_blue_txt {
+	font-size: 45px;
+	color: #2396ef;
+}
+
+.status_bold_txt {
+	font-weight: 700;
+}
+
+.status_condition_title {
+	padding-bottom: 15px;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #d9d9d9;
+	position: relative;
+}
+
+.status_condition_title h3 {
+	font-size: 25px;
+	font-family: '나눔스퀘어', NanumSquare, NS, '맑은 고딕', MalgunGothic, '돋움',
+		Dotum;
+	font-weight: normal;
+}
+
+.status_condition_title h3 span {
+	display: inline-block;
+	padding-top: 0px;
+	padding-left: 20px;
+	font-size: 16px;
+	color: #848484;
+}
+
+.stamp_list {
+	padding: 37.5px 20px;
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.stamp_list li {
+	width: 16.666%;
+	padding: 12.5px 20px;
+	float: left;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.stamp_notice {
+	padding: 20px 40px;
+	padding-bottom: 50px;
+	margin-top: 50px;
+	background: #f5f5f5;
+	margin-top: 50px;
+}
+
+.stamp_notice dt {
+	width: 100%;
+	font-size: 16px;
+	color: #202023;
+	font-size: 16px;
+}
+
+.stamp_notice dd {
+	width: 100%;
+	height: 20px;
+	padding-left: 10px;
+	font-size: 13px;
+	color: #7a7a7a;
+	padding-left: 10px;
+}
+
+.status_btn {
+	display: block;
+	float: right;
+	width: 120px;
+	padding-left: 20px;
+	height: 30px;
+	line-height: 30px;
+	background: #253b84;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 500;
+	box-sizing: border-box;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.coupon_no {
+	padding: 136px 0 105px;
+	width: 100%;
+	text-align: center;
+}
+
+.coupon_no dt {
+	font-size: 20px;
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+.coupon_no dd {
+    font-size: 16px;
+    width: 100%;
 }
