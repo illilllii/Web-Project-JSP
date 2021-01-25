@@ -355,6 +355,7 @@ ul {
 }
 
 .menu-items .menu-item {
+	display:none;
 	background-color: #f5f5f5;
 	text-align: center;
 	cursor: Pointer;

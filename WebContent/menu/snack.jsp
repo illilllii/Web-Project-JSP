@@ -112,23 +112,15 @@
 		</div>
 
 		<div class="more-button container">
-			<button>더보기 +</button>
+				<button id="more-button">더보기 +</button>
 		</div>
 	</section>
 
 </main>
 <!-- End #main -->
 <!-- ======= Footer ======= -->
-<script>
-	$("#demo3").als({
-		visible_items : 3,
-		scrolling_items : 1,
-		orientation : "horizontal",
-		circular : "yes",
-		autoscroll : "yes",
-		interval : 3000
-	});
-</script>
+<script src="/ediya/assets/js/menuCarousel.js"></script>
+<script src="/ediya/assets/js/moreButton.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 
 
