@@ -53,8 +53,8 @@
 			  <span class="als-prev"><i class="icofont-thin-left"></i></span>
 			  <div class="als-viewport">
 			    <ul class="als-wrapper">
-			    	<c:forEach var="drink" items="${drinks}">
-			    		<c:if test="${drink.recommend eq 'Y' }">
+			    	<c:forEach var="drink" items="${dto}">
+			    		
 			    			<li class="als-item">
 			      				<img src="${drink.imageSrc}"  />
 			      				<div class="recomm-menu-content">
@@ -66,7 +66,7 @@
 									</div>
 			      				</div>
 			     			 </li>
-			    		</c:if>
+			    		
 			    	</c:forEach>
 			     
 			
@@ -77,8 +77,14 @@
 			<div class="menu-search">
 				<ul class="d-flex justify-content-between">
 					<li class="menu-search-title d-flex">메뉴 검색</li>
-					<li class="menu-search-form"><input type="text" /><i
-						class="icofont-search"></i></li>
+					<li class="menu-search-form">
+					<form class="form-inline d-flex justify-content-end" action="/ediya/menu?cmd=drink">
+						<input type="hidden" name="cmd" value="drinkSearch" />
+						<input type="text"name="keyword" />
+						<button><i class="icofont-search"></i></button>
+					</form>
+					
+					</li>
 				</ul>
 				<hr />
 				<label class="menu-search-form-label"><input type="checkbox"
