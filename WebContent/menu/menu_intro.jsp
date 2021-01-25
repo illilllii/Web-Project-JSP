@@ -29,7 +29,7 @@
 				<p class="menu__subtitle-kr">오직 품질에 대한 열정,<br />이디야의 노력을 음료 한 잔에 가득 담았습니다.</p>
 			</div>
 			<div class="menu__href-button ta-left">
-				<span onclick="location.href ='drinks.jsp'">자세히 보기</span>
+				<span onclick="location.href ='/ediya/menu?cmd=drinks'">자세히 보기</span>
 			</div>
 		</div>
 	</div>
@@ -41,7 +41,7 @@
 				<p class="menu__subtitle-kr">좋은 재료를 엄선해 만든 빵으로 든든한 하루를 시작하세요.</p>
 			</div>
 			<div class="menu__href-button ta-right">
-				<span onclick="location.href ='bakery.jsp'">자세히 보기</span>
+				<span onclick="location.href ='/ediya/menu?cmd=bakery'">자세히 보기</span>
 			</div>
 			
 		</div>
@@ -54,7 +54,7 @@
 				<p class="menu__subtitle-kr">이디야 커피의 다양한 컬렉션으로 당신의 일상을 더 특별하게!</p>
 			</div>
 			<div class="menu__href-button ta-left">
-				<span onclick="location.href ='md.jsp'">자세히 보기</span>
+				<span onclick="location.href ='/ediya/menu?cmd=md'">자세히 보기</span>
 			</div>
 		</div>
 	</div>
