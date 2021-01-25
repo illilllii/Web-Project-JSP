@@ -1,4 +1,4 @@
-package com.cos.ediya.domain.drinks;
+package com.cos.ediya.domain.bakery;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,10 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Drinks {
+public class Bakery {
 	private int id;
 	private String name;
 	private String subname;
@@ -17,5 +17,4 @@ public class Drinks {
 	private String imageSrc;
 	private String kind;
 	private String recommend;
-	
 }

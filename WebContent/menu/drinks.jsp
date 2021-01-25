@@ -13,10 +13,10 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='drinks.jsp'" class="active">음료</li>
-					<li onclick="location.href ='bakery.jsp'">베이커리</li>
-					<li onclick="location.href ='snack.jsp'">스낵</li>
-					<li onclick="location.href ='md.jsp'">MD</li>
+					<li onclick="location.href ='?cmd=drinks'" class="active">음료</li>
+					<li onclick="location.href ='?cmd=bakery'">베이커리</li>
+					<li onclick="location.href ='?cmd=snack'">스낵</li>
+					<li onclick="location.href ='?cmd=md'">MD</li>
 				</ul>
 
 			</div>
@@ -53,99 +53,22 @@
 			  <span class="als-prev"><i class="icofont-thin-left"></i></span>
 			  <div class="als-viewport">
 			    <ul class="als-wrapper">
-			    	
-			      <li class="als-item">
-			      	<img src="/ediya/assets/img/menu/drinks/beverage/ICED딸기 라떼.png"  />
-			      	<div class="recomm-menu-content">
-			      		<div class="menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="menu-content__subtitle">Strawberry Latte</div>
-						<hr class="content-hr"/>
-						<div class="menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div>
-			      </li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/자몽에이드.png" />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/청포도에이드.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/beverage/ICED딸기 라떼.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/자몽에이드.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/청포도에이드.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/초코쿠키쉐이크.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
-			      <li class="als-item"><img src="/ediya/assets/img/menu/drinks/shake&ade/딸기쉐이크.png"  />
-			      <div class="recomm-menu-content">
-			      		<div class="recomm-menu-content__maintitle">ICED딸기 라떼</div>
-						<div class="recomm-menu-content__subtitle">Strawberry Latte</div>
-						<hr />
-						<div class="recomm-menu-content__content">
-							새콤달콤한 딸기와 우유가 맛있게 어우러진 음료
-						</div>
-			      	</div></li>
+			    	<c:forEach var="drink" items="${drinks}">
+			    		<c:if test="${drink.recommend eq 'Y' }">
+			    			<li class="als-item">
+			      				<img src="${drink.imageSrc}"  />
+			      				<div class="recomm-menu-content">
+			      					<div class="menu-content__maintitle">${drink.name}</div>
+									<div class="menu-content__subtitle">${drink.subname}</div>
+									<hr class="content-hr"/>
+									<div class="menu-content__content">
+										${drink.content}
+									</div>
+			      				</div>
+			     			 </li>
+			    		</c:if>
+			    	</c:forEach>
+			     
 			
 			    </ul>
 			  </div>

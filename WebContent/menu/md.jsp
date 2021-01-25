@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../layout/header.jsp"%>
 
 <section id="menu" class="menu">
@@ -11,10 +12,10 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='drinks.jsp'">음료</li>
-					<li onclick="location.href ='bakery.jsp'">베이커리</li>
-					<li onclick="location.href ='snack.jsp'">스낵</li>
-					<li onclick="location.href ='md.jsp'" class="active">MD</li>
+					<li onclick="location.href ='?cmd=drinks'">음료</li>
+					<li onclick="location.href ='?cmd=bakery'">베이커리</li>
+					<li onclick="location.href ='?cmd=snack'">스낵</li>
+					<li onclick="location.href ='?cmd=md'" class="active">MD</li>
 				</ul>
 
 			</div>
@@ -70,73 +71,26 @@
 
 		</div>
 		<div class="menu-items container">
-			<div class="menu-item">
-				<div id="menu-item1">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-					<div class="menu-item-title">ICED딸기라떼</div>
+			<c:forEach var="md" items="${mds}">
+				<div class="menu-item">
+				<div id="menu-item${md.id}">
+					<img src="${md.imageSrc}" />
+					<div class="menu-item-title">${md.name}</div>
 				</div>
 				<div class="menu-content">
 					<div class="menu-content__title d-flex justify-content-between">
 						<div class="menu-content__title-left">
-							<div class="menu-content__maintitle">ICED딸기라떼</div>
-							<div class="menu-content__subtitle">Strawberry Latte</div>
+							<div class="menu-content__maintitle">${md.name}</div>
 						</div>
 					</div>
-					<hr />
+					<hr class="content-hr"/>
 					<div class="menu-content__content">
-						새콤달콤 딸기와 우유가 맛있게<br />어우러진 음료
+						${md.content}
 					</div>
 				</div>
 			</div>
-
-			<div class="menu-item">
-				<div id="menu-item2">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-					<div class="menu-item-title">ICED딸기라떼</div>
-				</div>
-				<div class="menu-content">
-					<div class="menu-content__title d-flex justify-content-between">
-						<div class="menu-content__title-left">
-							<div class="menu-content__maintitle">ICED딸기라떼</div>
-							<div class="menu-content__subtitle">Strawberry Latte</div>
-						</div>
-					</div>
-					<hr />
-					<div class="menu-content__content">
-						새콤달콤 딸기와 우유가 맛있게<br />어우러진 음료
-					</div>
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item3">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item4">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item5">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item6">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item7">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
-			<div class="menu-item">
-				<div id="menu-item8">
-					<img src="../assets/img/menu/drinks/shake&ade/딸기라떼.png" />
-				</div>
-			</div>
+			</c:forEach>
+			
 			
 		</div>
 
