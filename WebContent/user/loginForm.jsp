@@ -30,16 +30,16 @@
 		<div class="login_box" id="login_wrap">
 			<div id="login_form">
 			
-				<form method="POST" action="" name="login_form">
+				<form method="POST" action="/ediya/user?cmd=login" name="login_form">
 						<div>
-						<input type="email" name="user_id" id="user_id" value="" placeholder="이메일을 입력하세요" required="required"> 
-						<input type="password" name="pwd" id="pwd" value="" placeholder="비밀번호를 입력하세요" required="required">
+						<input type="email" name="email" id="user_id"  placeholder="이메일을 입력하세요" required="required"> 
+						<input type="password" name="password" id="pwd"  placeholder="비밀번호를 입력하세요" required="required">
 						</div>
 						<br>
 						<input type="submit" name="Submit" value="로그인" class="login_btn">
 
 						<div class="join_btn">
-							<a href="./joinForm.jsp">회원가입</a> 
+							<a href="/ediya/user?cmd=joinForm">회원가입</a> 
 							<a href="#c" onclick="open_login_pop('email_find')">이메일 찾기</a> 
 							<a href="#c" onclick="open_login_pop('passwd_find')">비밀번호 찾기</a>
 						</div>
@@ -53,8 +53,6 @@
 
 <%@ include file="../layout/footer.jsp"%>
 
-<!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
 
 </body>
 </html>
