@@ -155,7 +155,7 @@ public class UserController extends HttpServlet {
 			String email = request.getParameter("email");
 			String phone = request.getParameter("phone");
 			FindPwdReqDto dto = new FindPwdReqDto();
-			dto.setPhone(email);
+			dto.setEmail(email);
 			dto.setPhone(phone);
 			User userEntity = userService.비밀번호찾기(dto);
 			if (userEntity != null) {
