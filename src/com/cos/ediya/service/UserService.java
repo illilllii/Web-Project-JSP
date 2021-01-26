@@ -33,4 +33,12 @@ public class UserService {
 		return result;
 	}
 	
+	public User 회원정보불러오기(String email) {
+		return userDao.findByEmailAfterUpdate(email);
+	}
+	
+	public int 회원탈퇴(String email) {
+		return userDao.deleteByEmail(email);
+	}
+	
 }
