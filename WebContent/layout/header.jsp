@@ -62,9 +62,8 @@
 </head>
 
 <body>
-
-	<!-- ======= Top Bar ======= -->
-	<div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
 		<div class="container">
 			<div class="contact-info d-flex justify-content-end">
 				<!-- <a href="mailto:contact@example.com">contact@example.com</a> -->
@@ -85,47 +84,44 @@
 					</c:otherwise>
 				</c:choose>
 
-				<div class="social-links">
-					<a href="#" class="twitter"><i class="icofont-twitter"></i></a> <a
-						href="#" class="facebook"><i class="icofont-facebook"></i></a> <a
-						href="#" class="instagram"><i class="icofont-instagram"></i></a> <a
-						href="#" class="skype"><i class="icofont-skype"></i></a> <a
-						href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-				</div>
-			</div>
-		</div>
-	</div>
+        
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+          <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+          <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+          <a href="#" class="skype"><i class="icofont-skype"></i></a>
+          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top">
-		<div class="container d-flex align-items-center">
-			<div>
-				<a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a>
-			</div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <div><a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a></div>
 
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
-			<nav class="nav-menu d-none d-lg-block">
-				<ul>
-					<li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
-						<ul>
-							<li><a href="/ediya/menu?cmd=drinks">음료</a></li>
-							<li><a href="/ediya/menu/bakery.jsp">베이커리</a></li>
-							<li><a href="/ediya/menu/snack.jsp">스낵</a></li>
-							<li><a href="/ediya/menu/md.jsp">MD</a></li>
-						</ul></li>
-					<li><a href="#">이디야 멤버스</a></li>
-					<li><a href="#">기프트카드</a></li>
-					<li><a href="#">이디야커피랩</a></li>
-					<li><a href="#">이디야컬쳐랩</a></li>
-					<li><a href="#">이디야 소식</a></li>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
+            <ul>
+              <li><a href="/ediya/menu?cmd=drinks">음료</a></li>
+              <li><a href="/ediya/menu/bakery.jsp">베이커리</a></li>
+              <li><a href="/ediya/menu/snack.jsp">스낵</a></li>
+              <li><a href="/ediya/menu/md.jsp">MD</a></li>
+            </ul>
+          </li>
+          <li><a href="#">이디야 멤버스</a></li>
+          <li><a href="#">기프트카드</a></li>
+          <li><a href="#">이디야커피랩</a></li>
+          <li><a href="#">이디야컬쳐랩</a></li>
+          <li><a href="#">이디야 소식</a></li>
 
-				</ul>
-			</nav>
-			<!-- .nav-menu -->
+        </ul>
+      </nav><!-- .nav-menu -->
 
-		</div>
-	</header>
-	<!-- End Header -->
-
+    </div>
+  </header><!-- End Header -->

@@ -52,8 +52,7 @@
 				<span class="als-prev"><i class="icofont-thin-left"></i></span>
 				<div class="als-viewport">
 					<ul class="als-wrapper">
-			    	<c:forEach var="snack" items="${snacks}">
-			    		<c:if test="${snack.recommend eq 'Y' }">
+			    	<c:forEach var="snack" items="${dto}">
 			    			<li class="als-item">
 			      				<img src="${snack.imageSrc}"  />
 			      				<div class="recomm-menu-content">
@@ -65,7 +64,6 @@
 									</div>
 			      				</div>
 			     			 </li>
-			    		</c:if>
 			    	</c:forEach>
 			     
 			    </ul>
@@ -75,8 +73,13 @@
 			<div class="menu-search">
 				<ul class="d-flex justify-content-between">
 					<li class="menu-search-title d-flex">메뉴 검색</li>
-					<li class="menu-search-form"><input type="text" /><i
-						class="icofont-search"></i></li>
+					<li class="menu-search-form">
+					<form class="form-inline d-flex justify-content-end" action="/ediya/menu?cmd=snack">
+						<input type="hidden" name="cmd" value="snackSearch" />
+						<input type="text"name="keyword" />
+						<button><i class="icofont-search"></i></button>
+					</form>
+					</li>
 				</ul>
 				<hr />
 				<label class="menu-search-form-label"><input type="checkbox"
@@ -112,23 +115,15 @@
 		</div>
 
 		<div class="more-button container">
-			<button>더보기 +</button>
+				<button id="more-button">더보기 +</button>
 		</div>
 	</section>
 
 </main>
 <!-- End #main -->
 <!-- ======= Footer ======= -->
-<script>
-	$("#demo3").als({
-		visible_items : 3,
-		scrolling_items : 1,
-		orientation : "horizontal",
-		circular : "yes",
-		autoscroll : "yes",
-		interval : 3000
-	});
-</script>
+<script src="/ediya/assets/js/menuCarousel.js"></script>
+<script src="/ediya/assets/js/moreButton.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 
 
