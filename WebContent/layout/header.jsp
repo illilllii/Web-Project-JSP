@@ -57,8 +57,8 @@
       <div class="contact-info d-flex justify-content-end">
         <!-- <a href="mailto:contact@example.com">contact@example.com</a> -->
         <div class="topbar__submenu">
-          <a class="topbar__submenu__login" href="#">로그인</a>
-          <a class="topbar__submenu__join" href="#">회원가입</a>  
+          <a class="topbar__submenu__login" href="/ediya/user?cmd=loginForm">로그인</a>
+          <a class="topbar__submenu__join" href="/ediya/user?cmd=joinForm">회원가입</a>  
         </div>
         
         <div class="social-links">
@@ -75,7 +75,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <div><a href="/ediya/index.html"><img src="/ediya/assets/img/top_logo.gif"></a></div>
       <div><a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a></div>
 
       <!-- Uncomment below if you prefer to use an image logo -->
