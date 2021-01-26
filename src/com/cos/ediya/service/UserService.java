@@ -1,5 +1,7 @@
 package com.cos.ediya.service;
 
+import com.cos.ediya.domain.user.dto.FindEmailReqDto;
+import com.cos.ediya.domain.user.dto.FindPwdReqDto;
 import com.cos.ediya.domain.user.dto.JoinReqDto;
 import com.cos.ediya.domain.user.User;
 import com.cos.ediya.domain.user.dto.LoginReqDto;
@@ -33,4 +35,19 @@ public class UserService {
 		return result;
 	}
 	
+	public User 회원정보불러오기(String email) {
+		return userDao.findByEmailAfterUpdate(email);
+	}
+	
+	public int 회원탈퇴(String email) {
+		return userDao.deleteByEmail(email);
+	}
+	
+	public User 이메일찾기(FindEmailReqDto dto) {
+		return userDao.findEmail(dto);
+	}
+	
+	public User 비밀번호찾기(FindPwdReqDto dto) {
+		return userDao.findPwd(dto);
+	}
 }

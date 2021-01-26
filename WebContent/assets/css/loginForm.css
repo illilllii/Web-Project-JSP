@@ -108,7 +108,7 @@ body, input, textarea, select, table, a, p {
 
 .login_box {
 	width: 100%;
-	padding: 70px 18.75%;
+	padding: 60px 15%;
 	background: #FFF;
 }
 
@@ -153,4 +153,37 @@ body, input, textarea, select, table, a, p {
 	text-align: center;
 	border: solid 1px #ccd5e2;
 	cursor: pointer;
+}
+
+.login_popup .certify_form dd input {
+	height: 58px;
+	padding-left: 20px;
+	font-size: 15px;
+	width: 100%; border : solid 1px #CCCCCC;
+	border-radius: 3px 3px;
+	box-sizing: border-box;
+	border: solid 1px #CCCCCC;
+}
+
+.login_popup .certify_form dd {
+	float: left;
+	width: 400px;
+}
+
+.login_popup h2.pop_con_tt {
+	font-size: 28px;
+	margin: 45px auto 37px;
+	width: 86%;
+	text-align: center;
+	color: #202023;
+	font-weight: 400;
+}
+
+.login_popup p.pop_txt {
+	font-size: 15px;
+	margin: -15px auto 36px;
+	width: 80%;
+	text-align: center;
+	color: #707070;
+	line-height: 1.5em;
 }

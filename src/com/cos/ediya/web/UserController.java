@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import com.cos.ediya.domain.user.User;
 import com.cos.ediya.domain.user.dto.LoginReqDto;
 import com.cos.ediya.domain.user.dto.UpdateReqDto;
+import com.cos.ediya.domain.user.dto.FindEmailReqDto;
+import com.cos.ediya.domain.user.dto.FindPwdReqDto;
 import com.cos.ediya.domain.user.dto.JoinReqDto;
 import com.cos.ediya.util.Script;
 import com.cos.ediya.service.UserService;
@@ -88,10 +90,10 @@ public class UserController extends HttpServlet {
 			RequestDispatcher dis = request.getRequestDispatcher("user/loginForm.jsp");
 			dis.forward(request, response);
 		} else if (cmd.equals("login")) { // 로그인
-			String eamil = request.getParameter("email");
+			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			LoginReqDto dto = new LoginReqDto();
-			dto.setEmail(eamil);
+			dto.setEmail(email);
 			dto.setPassword(password);
 			User userEntity = userService.로그인(dto);
 			if (userEntity != null) {
@@ -112,19 +114,54 @@ public class UserController extends HttpServlet {
 			String phone = request.getParameter("phone");
 			String password = request.getParameter("password");
 			String nickname = request.getParameter("nickname");
-			
+	
 			UpdateReqDto dto = new UpdateReqDto();
 			dto.setEmail(email);
 			dto.setPhone(phone);
 			dto.setPassword(password);
 			dto.setNickname(nickname);
-			
-			System.out.println("회원수정 : " + dto);
 			int result = userService.회원수정(dto);
-			if (result == 1) {
-				Script.back(response, "회원정보가 수정되었습니다.");
-			} else {
+
+			// update 성공 -> 세션등록
+			if(result == 1) {
+				User userEntity= userService.회원정보불러오기(email);
+				HttpSession session = request.getSession();
+				session.setAttribute("principal", userEntity); 
+				Script.back(response, "수정 되었습니다");
+			}else {
 				Script.back(response, "회원수정 실패");
+			}
+		} else if (cmd.equals("delete")) { // 회원탈퇴
+			String email = request.getParameter("email");
+			int result =  userService.회원탈퇴(email);
+			if (result == 1) {
+				HttpSession session = request.getSession();
+				session.invalidate();
+				response.sendRedirect("index.jsp");
+			} else {
+				Script.back(response, "회원탈퇴 실패");
+			}
+		} else if (cmd.equals("findEmail")) { // 이메일찾기
+			String phone = request.getParameter("phone");
+			FindEmailReqDto dto = new FindEmailReqDto();
+			dto.setPhone(phone);
+			User userEntity = userService.이메일찾기(dto);
+			if (userEntity != null) {
+				Script.back(response, userEntity.getEmail());
+			} else {
+				Script.back(response, "회원정보를 찾을 수 없습니다.");
+			}
+		} else if (cmd.equals("findPwd")) { // 비밀번호 찾기
+			String email = request.getParameter("email");
+			String phone = request.getParameter("phone");
+			FindPwdReqDto dto = new FindPwdReqDto();
+			dto.setPhone(email);
+			dto.setPhone(phone);
+			User userEntity = userService.비밀번호찾기(dto);
+			if (userEntity != null) {
+				Script.back(response, userEntity.getPassword()); // utf-8필터 만들기!!!
+			} else {
+				Script.back(response, "회원정보를 찾을 수 없습니다.");
 			}
 		}
 	}
