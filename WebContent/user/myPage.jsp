@@ -24,18 +24,18 @@
 								style="width: 100%; max-width: 130px;">
 						</div>
 						<p class="level_txt">
-							<span style="font-weight: 700; font-size: 28px;">유혜지</span> 회원님은<br>
+							<span style="font-weight: 700; font-size: 28px;">${sessionScope.principal.username}</span> 회원님은<br>
 							<span style="font-size: 38px; font-weight: 900; color: #59606b;">
 								Family Level</span> 입니다.
 						</p>
 					</div>
 					<div class="user_inform_content">
 						<ul class="inform_txt" style="list-style-type: none;">
-							<li>아이디 : hjin7270@naver.com</li>
-							<li>닉네임 : 회원</li>
-							<li>휴대폰 : 01083727270</li>
+							<li>아이디 : ${sessionScope.principal.email}</li>
+							<li>닉네임 : ${sessionScope.principal.nickname}</li>
+							<li>휴대폰 : ${sessionScope.principal.phone}</li>
 						</ul>
-						<a href="./editPage.jsp" class="userEdit_btn">회원정보 수정</a>
+						<a href="<%=request.getContextPath()%>/user?cmd=updateForm" class="userEdit_btn">회원정보 수정</a>
 					</div>
 				</div>
 

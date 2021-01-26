@@ -15,15 +15,15 @@
 
 <div class="edit_box_bg">
 	<div class="edit_box">
-		<form method="POST" action="" name="edit_form">
+		<form method="POST" action="/ediya/user?cmd=update" name="edit_form">
 			<h2 class="edit_form_txt">회원정보수정</h2>
-			<span class="info_btn"><a href="#c" class="delete_btn" onclick="">회원탈퇴</a></span>
+			<span class="info_btn"><a href="#c" class="delete_btn" onclick="" style="margin-top: -50px">회원탈퇴</a></span>
 			<dl>
 				<dt>
 					<label for="id">아이디(이메일)</label>
 				</dt>
 				<dd>
-					hjin7270@naver.com 
+					<input type="text" name="email" id="email" value="${sessionScope.principal.email}"  style= "border-style: none; padding-left: 10px"readonly="readonly">
 				</dd>
 			</dl>
 
@@ -32,7 +32,7 @@
 					<label for="phone">휴대폰</label>
 				</dt>
 				<dd>
-					<input type="text" name="phone" id="phone" value="01083727270"
+					<input type="text" name="phone" id="phone" value="${sessionScope.principal.phone}"
 						placeholder="휴대폰 번호" required="required">
 				</dd>
 			</dl>
@@ -42,7 +42,7 @@
 					<label for="pw">비밀번호</label>
 				</dt>
 				<dd>
-					<input type="password" name="password" id="password" value="1234"
+					<input type="password" name="password" id="password" value="${sessionScope.principal.password}"
 						placeholder="비밀번호" required="required">
 				</dd>
 			</dl>
@@ -53,13 +53,11 @@
 					<label for="nickname">닉네임</label>
 				</dt>
 				<dd>
-					<input type="text" name="nickname" id="nickname" value="회원"
-						placeholder="한글, 숫자 5자 이내로 입력하세요" required="required">
+					<input type="text" name="nickname" id="nickname" value="${sessionScope.principal.nickname}"
+						placeholder="닉네임" required="required">
 				</dd>
 			</dl>
 			<p class="info_txt">욕설 등 부적절한 단어는 제한을 받습니다.</p>
-
-
 
 
 			<div class="box_btn">
