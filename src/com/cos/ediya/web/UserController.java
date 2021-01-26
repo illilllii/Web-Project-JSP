@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import com.cos.ediya.domain.user.User;
 import com.cos.ediya.domain.user.dto.LoginReqDto;
 import com.cos.ediya.domain.user.dto.UpdateReqDto;
+import com.cos.ediya.domain.user.dto.FindEmailReqDto;
+import com.cos.ediya.domain.user.dto.FindPwdReqDto;
 import com.cos.ediya.domain.user.dto.JoinReqDto;
 import com.cos.ediya.util.Script;
 import com.cos.ediya.service.UserService;
@@ -129,7 +131,7 @@ public class UserController extends HttpServlet {
 			}else {
 				Script.back(response, "회원수정 실패");
 			}
-		} else if (cmd.equals("delete")) {
+		} else if (cmd.equals("delete")) { // 회원탈퇴
 			String email = request.getParameter("email");
 			int result =  userService.회원탈퇴(email);
 			if (result == 1) {
@@ -138,6 +140,28 @@ public class UserController extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			} else {
 				Script.back(response, "회원탈퇴 실패");
+			}
+		} else if (cmd.equals("findEmail")) { // 이메일찾기
+			String phone = request.getParameter("phone");
+			FindEmailReqDto dto = new FindEmailReqDto();
+			dto.setPhone(phone);
+			User userEntity = userService.이메일찾기(dto);
+			if (userEntity != null) {
+				Script.back(response, userEntity.getEmail());
+			} else {
+				Script.back(response, "회원정보를 찾을 수 없습니다.");
+			}
+		} else if (cmd.equals("findPwd")) { // 비밀번호 찾기
+			String email = request.getParameter("email");
+			String phone = request.getParameter("phone");
+			FindPwdReqDto dto = new FindPwdReqDto();
+			dto.setPhone(email);
+			dto.setPhone(phone);
+			User userEntity = userService.비밀번호찾기(dto);
+			if (userEntity != null) {
+				Script.back(response, userEntity.getPassword()); // utf-8필터 만들기!!!
+			} else {
+				Script.back(response, "회원정보를 찾을 수 없습니다.");
 			}
 		}
 	}

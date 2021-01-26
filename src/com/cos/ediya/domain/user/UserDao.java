@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 
 import com.cos.ediya.domain.user.dto.LoginReqDto;
 import com.cos.ediya.domain.user.dto.UpdateReqDto;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Find;
 import com.cos.ediya.config.DB;
+import com.cos.ediya.domain.user.dto.FindEmailReqDto;
+import com.cos.ediya.domain.user.dto.FindPwdReqDto;
 import com.cos.ediya.domain.user.dto.JoinReqDto;
 
 public class UserDao {
@@ -64,9 +67,14 @@ public class UserDao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				User user = User.builder().id(rs.getInt("id")).email(rs.getString("email"))
-						.username(rs.getString("username")).phone(rs.getString("phone"))
-						.password(rs.getString("password")).nickname(rs.getString("nickname")).build();
+				User user = User.builder()
+						.id(rs.getInt("id"))
+						.email(rs.getString("email"))
+						.username(rs.getString("username"))
+						.phone(rs.getString("phone"))
+						.password(rs.getString("password"))
+						.nickname(rs.getString("nickname"))
+						.build();
 				return user;
 			}
 		} catch (Exception e) {
@@ -110,9 +118,14 @@ public class UserDao {
 			// if 돌려서 rs -> java오브젝트에 집어넣기
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				User user = User.builder().id(rs.getInt("id")).email(rs.getString("email"))
-						.username(rs.getString("username")).phone(rs.getString("phone"))
-						.password(rs.getString("password")).nickname(rs.getString("nickname")).build();
+				User user = User.builder()
+						.id(rs.getInt("id"))
+						.email(rs.getString("email"))
+						.username(rs.getString("username"))
+						.phone(rs.getString("phone"))
+						.password(rs.getString("password"))
+						.nickname(rs.getString("nickname"))
+						.build();
 				return user;
 			}
 		} catch (Exception e) {
@@ -138,6 +151,64 @@ public class UserDao {
 			DB.close(conn, pstmt);
 		}
 		return -1;
+	}
+	
+	public User findEmail(FindEmailReqDto dto) { // 이메일 찾기
+		String sql = "SELECT id, email, username, phone, password, nickname FROM user WHERE phone = ?";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPhone());
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				User user = User.builder()
+						.id(rs.getInt("id"))
+						.email(rs.getString("email"))
+						.username(rs.getString("username"))
+						.phone(rs.getString("phone"))
+						.password(rs.getString("password"))
+						.nickname(rs.getString("nickname"))
+						.build();
+				return user;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
+	public User findPwd(FindPwdReqDto dto) { // 비밀번호 찾기
+		String sql = "SELECT id, email, username, phone, password, nickname FROM user WHERE email = ? AND phone = ?";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getPhone());
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				User user = User.builder()
+						.id(rs.getInt("id"))
+						.email(rs.getString("email"))
+						.username(rs.getString("username"))
+						.phone(rs.getString("phone"))
+						.password(rs.getString("password"))
+						.nickname(rs.getString("nickname"))
+						.build();
+				return user;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
 	}
 
 }

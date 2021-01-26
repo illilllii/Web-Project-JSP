@@ -12,8 +12,8 @@
 				<img src="/ediya/assets/img/user/mypage_pop_close.gif" width="17" height="16" alt="창닫기">
 				</a>
 			</div>
+			
 			<h2 class="pop_con_tt">회원탈퇴 안내</h2>
-
 			<form name="drawalForm" id="drawalForm" action="/ediya/user?cmd=delete" method="post" style="margin-top: -50px">
 					<div class="certify_form">
 						<div class="leave_info">
