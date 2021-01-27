@@ -1,87 +1,471 @@
 @charset "UTF-8";
-@import url("./drinks.css");
 
 ul {
-	padding:0;
+	padding: 0;
 }
 
+#menu-intro__container {
+	background: url("/ediya/assets/img/menu/menu_intro_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+}
+
+#menu-intro-drinks__container {
+	background: url("/ediya/assets/img/menu/menu_intro_bg01.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+}
+
+#menu-intro-bakery__container {
+	background: url("/ediya/assets/img/menu/menu_intro_bg02.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+}
+
+#menu-intro-md__container {
+	background: url("/ediya/assets/img/menu/menu_intro_bg03.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 600px;
+}
+
+#drinks__container {
+	background: url("/ediya/assets/img/menu/drink_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#drinks__container .menu__list-content .active {
+	background-color: #fff;
+	color: #222;
+}
+
+#bakery__container {
+	background: url("/ediya/assets/img/menu/bakery_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#bakery__container .menu__list-content .active {
+	background-color: #fff;
+	color: #222;
+}
+
+#snack__container {
+	background: url("/ediya/assets/img/menu/snack_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#snack__container .menu__list-content .active {
+	background-color: #fff;
+	color: #222;
+}
+
+#md__container {
+	background: url("/ediya/assets/img/menu/product_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#md__container .menu__list-content .active {
+	background-color: #fff;
+	color: #222;
+}
 /*--------------------------------------------------------------
 # 화면상 메뉴
 --------------------------------------------------------------*/
-.menu {
-  position: relative;
-  overflow: hidden;
-  padding:69px 0 0 0;
+.main__container {
+	margin-bottom: 30px;
 }
-.menu__container {
-	height: 65vh;
 
+.menu {
+	position: relative;
+	overflow: hidden;
+	padding: 69px 0 0 0;
 }
+
+.menu__container {
+	height: 460px;
+}
+
 .menu__container .container {
-	padding-top:172px;
+	padding-top: 172px;
+}
+
+.menu__container .pt-100 {
+	padding-top: 100px;
+}
+
+#menu-intro__container .container {
+	padding-top: 200px;
 }
 
 .menu__container .container .menu__title {
-	color:#FFFFFF;
+	color: #FFFFFF;
 	text-align: center;
-
 }
+
+.ta-left {
+	text-align: left;
+}
+
+.ta-right {
+	text-align: right;
+}
+
+.menu__container .container .ta-left {
+	text-align: left;
+	color: #222;
+}
+
+.menu__container .container .ta-right {
+	text-align: right;
+}
+
+.menu__href-button {
+	margin-top: 50px;
+}
+
+.menu__container .container .ta-left span {
+	border: 1px solid #222;
+	text-align: center;
+	padding: 10px 20px;
+	color: #222;
+}
+
+.menu__container .container .ta-left span:hover {
+	color: #fff;
+	background-color: #222;
+	cursor: pointer;
+}
+
+.menu__container .container .ta-right span {
+	border: 1px solid #fff;
+	text-align: center;
+	padding: 10px 20px;
+	color: #fff;
+}
+
+.menu__container .container .ta-right span:hover {
+	color: #222;
+	background-color: #fff;
+	cursor: pointer;
+}
+
 .menu__container .container .menu__title .menu__maintitle {
 	font-size: 50px;
-	margin:0;
-	
+	margin: 0;
 }
 
 .menu__container .container .menu__title .menu__subtitle {
 	font-size: 30px;
 }
 
-.menu__list .menu__list-table {
-	border: 1px solid #F6F6F6;
-	color:white;
-	margin-top:20px;
+.menu__container .container .menu__title .menu__subtitle-kr {
+	font-size: 17px;
 }
 
-.menu__list .menu__list-table td {
-
-    border: 1px solid #F6F6F6;
-    padding: 0;
-
-}
-.menu__list .menu__list-table tr td .menu__list-title {
-	padding:10px 70px;
-	cursor: pointer;
-	
-}
-.menu__list .menu__list-table tr td .menu__list-title:hover {
-	background-color: #ffffff;
-	color:#222222;
+.menu__list-content {
+	margin-top: 20px;
+	color: #fff;
 }
 
+.menu__list-content li {
+	width: 150px;
+	padding: 10px 0;
+	border: 1px solid #fff;
+	border-left: none;
+	text-align: center;
+}
+
+.menu__list-content li:hover {
+	background-color: #fff;
+	color: #222;
+	cursor: Pointer;
+}
+
+.menu__list-content li:first-child {
+	border-left: 1px solid #fff;
+}
 
 /*--------------------------------------------------------------
-# 음식 메뉴
+# 추천메뉴
 --------------------------------------------------------------*/
-.menu-search{
+.menu-recomm {
+	background: url(/ediya/assets/img/menu/menu_line.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.menu-recomm h1 {
+	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
+}
+
+.recomm-menu-content {
+	display: none;
+	position: absolute;
+	top: 0;
+	text-align: initial;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 30px 30px 0 30px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid #ccc;
+}
+
+.als-item:hover .recomm-menu-content {
+	display: block;
+}
+
+/*.carousel-control-prev-icon {
+	background: none;
+}
+.carousel-control-next-icon {
+	background: none;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+	background-color: #ccc;
+    width: 50px;
+    height: 50px;
+}
+.icofont-thin-left {
+	font-size:50px;
+}
+.icofont-thin-right {
+	font-size:50px;
+}
+.carousel-item .menu-recomm-items {
+	padding: 0 30px;
+}
+.carousel-item .menu-recomm-items img {
+	width:300px;
+	height: 300px;
+}*/
+
+/*************************************
+ * generic styling for ALS elements
+ ************************************/
+.als-container {
+	position: relative;
+	width: 100%;
+	margin: 0px auto;
+	z-index: 0;
+}
+
+.als-viewport {
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+}
+
+.als-wrapper {
+	position: relative;
+	list-style: none;
+}
+
+.als-item {
+	position: relative;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+}
+
+.als-prev, .als-next {
+	position: absolute;
+	cursor: pointer;
+	clear: both;
+	z-index: 10;
+}
+/*************************************
+ * specific styling for #demo3
+ ************************************/
+#demo3 {
+	margin: 40px auto;
+}
+
+#demo3 .als-item {
+	margin: 0px 5px;
+	padding: 4px 0px;
+	min-height: 120px;
+	min-width: 100px;
+	text-align: center;
+}
+
+#demo3 .als-item img {
+	display: block;
+	margin: 0 auto;
+	width: 300px;
+}
+
+#demo3 .als-prev, #demo3 .als-next {
+	top: 40%;
+	font-size: 50px;
+}
+
+#demo3 .als-prev {
+	left: 2%;
+}
+
+#demo3 .als-next {
+	right: 2%;
+}
+/*--------------------------------------------------------------
+# 음식 메뉴 search
+--------------------------------------------------------------*/
+.menu-search {
 	padding: 20px 50px;
 	border: 1px solid #cccccc;
 	border-radius: 2px;
 }
-
+.menu-search hr {
+	width:100%;
+}
+.menu-search #kind-input {
+	width:100%;
+}
+.menu-search .menu-search-top {
+	width: 100%;
+	margin: 0;
+}
 .menu-search .menu-search-title {
 	font-weight: 700;
 	align-items: center;
 }
+
 .menu-search .menu-search-form {
 	border: 1px solid #cccccc;
 	border-radius: 2px;
 }
+
 .menu-search .menu-search-form input {
 	border: none;
 	height: 40px;
 }
+
+.menu-search .menu-search-form button {
+	height: 100%;
+	background: none;
+	border: none;
+}
+
 .menu-search .menu-search-form i {
 	padding: 10px;
 	font-weight: 900;
-	color:#002f6c;
+	color: #002f6c;
 }
+
+.menu-search .menu-search-form-label {
+	margin-right: 20px;
+}
+
+.menu-search .menu-search-form-label input {
+	margin-right: 10px;
+}
+
+/*--------------------------------------------------------------
+# 음식 메뉴 아이템
+--------------------------------------------------------------*/
+.menu-items {
+	margin-top: 30px;
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	/*grid-template-columns: auto auto auto auto;*/
+	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+	/*display: grid;*/
+}
+
+.menu-items .menu-item {
+	display: none;
+	background-color: #f5f5f5;
+	text-align: center;
+	cursor: Pointer;
+	height: 310px;
+	position: relative;
+	border: 1px solid #ccc;
+}
+
+.menu-items .menu-item img {
+	width: 270px;
+}
+
+.menu-items .menu-item:hover .menu-content {
+	display: block;
+}
+
+.menu-items .menu-item .menu-item-title {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.menu-content {
+	display: none;
+	cursor: Default;
+	text-align: initial;
+	padding: 30px 30px 0 30px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.content-hr {
+	border: 0;
+	height: 2px;
+	background: #353535;
+}
+
+.menu-content__content {
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.menu-content__maintitle {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.menu-content__subtitle {
+	color: #8C8C8C;
+}
+
+.more-button {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.more-button button {
+	background: none;
+	padding: 10px 50px;
+	border-radius: 50px;
+	outline: none;
+}
+/*@media ( max-width : 1192px) {
+	.menu-items .menu-item img {
+		width: 225px;
+	}
+}
+
+@media ( max-width : 992px) {
+	.menu-items .menu-item img {
+		width: 165px;
+	}
+}*/

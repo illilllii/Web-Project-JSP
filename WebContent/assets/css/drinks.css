@@ -1,6 +1,5 @@
 @charset "UTF-8"; 
 
- @charset "UTF-8";
 
 /*@media (max-height: 500px) {
 	.menu__container {
@@ -17,5 +16,10 @@
 #drinks__container {
 	background: url("/ediya/assets/img/menu/drink_visual.jpg");
 	background-repeat: no-repeat;
-	background-position: center bottom;
+	background-size:cover;
+	background-position: center center;
+}
+#drinks__container .menu__list-content .active {
+	background-color:#fff;
+	color:#222;
 }

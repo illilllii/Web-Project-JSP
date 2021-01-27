@@ -35,6 +35,7 @@
 
 <!-- Vendor JS Files -->
 <script src="/ediya/assets/vendor/jquery/jquery.min.js"></script>
+
 <script src="/ediya/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/ediya/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
 <script src="/ediya/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
