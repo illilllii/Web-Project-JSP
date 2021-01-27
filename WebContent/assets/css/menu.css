@@ -334,7 +334,16 @@ ul {
 	border: 1px solid #cccccc;
 	border-radius: 2px;
 }
-
+.menu-search hr {
+	width:100%;
+}
+.menu-search #kind-input {
+	width:100%;
+}
+.menu-search .menu-search-top {
+	width: 100%;
+	margin: 0;
+}
 .menu-search .menu-search-title {
 	font-weight: 700;
 	align-items: center;
@@ -380,7 +389,7 @@ ul {
 	grid-row-gap: 10px;
 	/*grid-template-columns: auto auto auto auto;*/
 	grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-	display: grid;
+	/*display: grid;*/
 }
 
 .menu-items .menu-item {
