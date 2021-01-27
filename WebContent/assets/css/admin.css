@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+.userAdmin {
+	padding-top: 200px;
+}
+
+@media ( max-width : 992px) {
+	.userAdmin {
+		padding: 60px 0 0 0;
+		overflow-x: scroll;
+	}
+	.table {
+		width: 100%;
+	}
+	.table tr th {
+		white-space: nowrap;
+	}
+	.table tr td {
+		white-space: nowrap;
+	}
+}
+
+.table tr td {
+	vertical-align: middle;
+}
+.table {
+	table-layout: fixed;
+}
+
+.menuAdmin {
+	padding-top: 200px;
+}
+.menuAdmin table img {
+	width: 50px;
+	
+}
+.menuAdmin table tr td {
+	overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
+
+} 
+.menuAdmin table tr th {
+	overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
+}
+
+@media ( max-width : 992px) {
+	.menuAdmin {
+		padding: 60px 0 0 0;
+	}
+		.table {
+		width: 100%;
+	}
+	.table tr th {
+		white-space: nowrap;
+	}
+	.table tr td {
+		white-space: nowrap;
+	}
+}
+ul.tabs {
+	display:flex;
+	justify-content: center;
+}
+ul.tabs li {
+	padding: 10px 0;
+	width: 100px;
+	border: 1px solid #ccc;
+	border-left:none;
+	text-align: center;
+}
+ul.tabs li.current {
+	background-color: #222;
+	color: #fff;
+}
+ul.tabs li:hover {
+	background-color: #222;
+	color: #fff;
+	cursor: pointer;
+}
+
+ul.tabs li:first-child {
+	border-left: 1px solid #ccc;
+}
+.tab-content{
+	display: none;
+
+}
+
+.tab-content.current{
+	display: inherit;
+}

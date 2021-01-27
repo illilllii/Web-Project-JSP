@@ -5,7 +5,7 @@
 <section id="menu" class="menu">
 	<div class="menu__container" id="menu-intro__container">
 		<div class="container">
-			<div class="menu__title">
+			<div class="menu__title menu__title-intro">
 				<p class="menu__maintitle">메뉴</p>
 				<p class="menu__subtitle">ALWAYS BESIDE YOU, EDIYA COFFEE</p>
 				<p class="menu__subtitle-kr">한 잔의 커피 그 이상의 감동을 경험하세요.</p>

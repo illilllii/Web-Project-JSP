@@ -79,7 +79,7 @@
 					<label class="menu-search-form-label"><input
 						type="checkbox" name="kind" value="DESSERT" />DESSERT</label> <label
 						class="menu-search-form-label"><input type="checkbox"
-						name="kind" value="COFFEE&ETC" />COFFEE&ETC</label>
+						name="kind" value="COOKIE&ETC" />COOKIE&ETC</label>
 				</div>
 			</div>
 		</div>

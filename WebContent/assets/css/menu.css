@@ -95,7 +95,12 @@ ul {
 	overflow: hidden;
 	padding: 69px 0 0 0;
 }
+@media ( max-width : 992px) {
+	.menu {
 
+	padding: 0 0 0 0;
+	}
+}
 .menu__container {
 	height: 460px;
 }
@@ -112,11 +117,13 @@ ul {
 	padding-top: 200px;
 }
 
-.menu__container .container .menu__title {
+.menu__container .container .menu__title p{
 	color: #FFFFFF;
 	text-align: center;
 }
-
+.menu__container .container .menu__title-intro p {
+	color: #FFFFFF;
+}
 .ta-left {
 	text-align: left;
 }
@@ -125,13 +132,14 @@ ul {
 	text-align: right;
 }
 
-.menu__container .container .ta-left {
+.menu__container .container .ta-left p{
 	text-align: left;
 	color: #222;
 }
 
-.menu__container .container .ta-right {
+.menu__container .container .ta-right p{
 	text-align: right;
+	color: #fff;
 }
 
 .menu__href-button {
