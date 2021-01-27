@@ -5,7 +5,7 @@
 <!-- 이메일찾기 팝업 -->
 <div class="popup_wrap" id="join_email_info" style="top: 900px; left: 0px; display: none;" >
 	<div class="popup_blind">
-		<div class="login_popup">
+		<div class="login_popup" style="padding-bottom: 120px">
 			<h1 class="pop_tt">가입 정보 확인</h1>
 			<div class="pop_close">
 				<a href="#c" onclick="close_login_pop()">
@@ -13,7 +13,7 @@
 			</div>
 
 			<h2 class="pop_con_tt">가입 시 입력한 정보를 입력하세요.</h2>
-			<p class="pop_txt" style="text-align: center; font-size: 15px">
+			<p class="pop_txt" style="text-align: center; font-size: 15px; margin: -15px auto 60px;">
 				타인의 개인정보를 도용 할 경우<br> 서비스 이용 제한 및 법적 제재를 받으실 수 있습니다.
 			</p>
 
@@ -41,7 +41,7 @@
 <!-- 비밀번호찾기 팝업 -->
 <div class="popup_wrap" id="passwd_find" style="top: 900px; left: 0px; display: none;" >
 	<div class="popup_blind">
-		<div class="login_popup">
+		<div class="login_popup" style="padding-bottom: 120px">
 			<h1 class="pop_tt">가입 정보 확인</h1>
 			<div class="pop_close">
 				<a href="#c" onclick="close_login_pop()">
@@ -49,7 +49,7 @@
 			</div>
 
 			<h2 class="pop_con_tt">가입 시 입력한 정보를 입력하세요.</h2>
-			<p class="pop_txt" style="text-align: center; font-size: 15px">
+			<p class="pop_txt" style="text-align: center; font-size: 15px; margin: -15px auto 60px;">
 				타인의 개인정보를 도용 할 경우<br> 서비스 이용 제한 및 법적 제재를 받으실 수 있습니다.
 			</p>
 

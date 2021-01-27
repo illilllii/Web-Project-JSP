@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+#notice__container {
+	background: url("/ediya/assets/img/notice/news_visual.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#notice__container .menu__subtitle {
+	font-size: 18px;
+}
+
+#notice__container li {
+	border: solid 1px #84847c;
+	color: #464646;
+}
+
+#notice__container .active {
+	background: #84847c;
+	color: white;
+}
+
+.noticePage_box {
+	width: 1000px;
+	margin: auto;
+}
+
+/*noticeForm CSS*/
+.noticeForm_board_top {
+	overflow: hidden;
+	width: 100%;
+	border-bottom: 2px solid #002f6c;
+	margin: 20px 0 30px;
+}
+
+.save_noticeForm_btn {
+	float: right;
+	padding: 0 9px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	color: #acacac;
+}
+
+/*noticeList CSS*/
+.notice_search_container {
+	padding: 20px 0 20px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.notice_search_container .seach_box {
+	width: 100%;
+	max-width: 375px;
+	float: right;
+	overflow: hidden;
+}
+
+.search_bar {
+	float: left;
+	width: 68%;
+	height: 40px;
+	border: solid 1px #d9d9d9;
+	border-radius: 3px;
+	margin-left: 115px;
+}
+
+.search_txt {
+	width: 81%;
+	height: 38px;
+	border: none;
+}
+
+.search_bar .search_btn {
+	width: 34px;
+	height: 38px;
+	background: url(/ediya/assets/img/notice/icon_search.gif) no-repeat 10px
+		center;
+	float: right;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.board_notice_List {
+	border-top: 2px solid #002f6c;
+}
+
+.board_notice_List li {
+	display: table;
+	width: 100%;
+	border-bottom: 1px solid #d9d9d9;
+	padding: 20px 0;
+	overflow: hidden;
+}
+
+.board_notice_List li .board_notice_logo {
+	width: 150px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background: url(/ediya/assets/img/notice/notice_icon.gif) no-repeat center center;
+}
+
+.board_notice_List li .board_notice_content {
+	position: relative;
+    padding-right: 200px;
+    vertical-align: middle;
+    height: 135px;
+    display: table-cell;
+}
+
+.board_notice_content h5 a {
+	font-size: 20px;
+    font-weight: 500;
+    color: #202023;
+    vertical-align: top;
+}
+
+.board_notice_content p:nth-child(2) {
+	height: 60px;
+    margin: 30px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.board_notice_content p .btn_area {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -11px;
+    color: #898989;
+}
+
+.board_num {
+    width: 150px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #202023;
+    font-weight: 700;
+    font-size: 20px;
+}
