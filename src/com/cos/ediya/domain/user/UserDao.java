@@ -56,7 +56,7 @@ public class UserDao {
 	}
 
 	public User findByEmailAndPassword(LoginReqDto dto) { // 로그인
-		String sql = "SELECT id, email, username, phone, password, nickname FROM user WHERE email = ? AND password = ?";
+		String sql = "SELECT id, email, username, phone, password, nickname, userRole FROM user WHERE email = ? AND password = ?";
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -74,6 +74,7 @@ public class UserDao {
 						.phone(rs.getString("phone"))
 						.password(rs.getString("password"))
 						.nickname(rs.getString("nickname"))
+						.userRole(rs.getString("userRole"))
 						.build();
 				return user;
 			}

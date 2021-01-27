@@ -13,7 +13,7 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='?cmd=notice'" class="active">공지사항</li>
+					<li onclick="location.href ='?cmd=noticeList'" class="active">공지사항</li>
 					<li onclick="location.href ='?cmd=event">이벤트</li>
 					<li onclick="location.href ='?cmd=youtube'">이디야 유튜브</li>
 				</ul>
@@ -47,80 +47,73 @@
 <div class="noticePage_box">
 	<div class="notice_search_container">
 		<div class="seach_box">
-			<form name="search_form" action="/ediya/notice?cmd=noticelist">
+			<form name="search_form" action="/ediya/notice?cmd=noticeList">
 				<div class="search_bar">
-					<input type="hidden" name="cmd" value="searchNotice" /> <input
-						type="text" name="keyword" class="search_txt" />
+					<input type="hidden" name="cmd" value="searchNotice" /> 
+					<input type="hidden" name="page" value="0" />
+					<input type="text" name="keyword" class="search_txt" />
 					<button class="search_btn"></button>
 				</div>
 			</form>
 		</div>
 	</div>
-	
+
 	<ul class="board_notice_List">
-			<li>
+		<!-- 제일 중요한 공지사항 -->
+		<c:forEach var="notice" items="${notices}">
+			<c:if test="${notice.importantNotice eq 'Y'}">
+				<li>
 					<div class="board_notice_logo"></div>
 					<div class="board_notice_content">
+						<h5>
+							<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.title}</a>
+						</h5>
+						<p>
+							<a href="">${notice.content}</a>
+						</p>
+						<p class="btn_area">
+							<span class="board_saveDate">${notice.createDate}</span>
+						</p>
+					</div>
+				</li>
+			</c:if>
+		</c:forEach>
+
+		<c:forEach var="notice" items="${notices}">
+			<li>
+				<div class="board_num">${notice.id}</div>
+				<div class="board_notice_content">
 					<h5>
-					<a href="/ediya/notice?cmd=detail&id=${notice.id}">연습</a></h5>
-					<p><a href="">2020년 5월 25일부터 이디야커피랩의 영업시간이 아래와같이 &nbsp;변경되오니 참고부탁드립니다.감사합니다.&nbsp;&nbsp;</a></p>	
-                    <p class="btn_area">
-					<span class="board_saveDate">2020.05.21</span>
+						<a href="">${notice.title}</a>
+					</h5>
+					<p>
+						<a href="">${notice.content}</a>
 					</p>
-				</div>
-			</li>
-			
-			<li>
-				<div class="board_num">79</div>
-				<div class="board_notice_content">
-					<h5><a href="">EDIYA COFFEE X SUBSUB 2021다이어리세트 상세페이지 &amp; 판매...</a></h5>
-					<p><a href="">※ 판매매장 리스트는 상세이미지 하단에서 확인 하실 수 있습니다. 판매매장 바로보기&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>	
 					<p class="btn_area">
-						<span class="board_saveDate">2020.09.14</span>
+						<span class="board_saveDate">${notice.createDate}</span>
 					</p>
 				</div>
 			</li>
-			
-			
-			<li>
-				<div class="board_num">79</div>
-				<div class="board_notice_content">
-					<h5><a href="">EDIYA COFFEE X SUBSUB 2021다이어리세트 상세페이지 &amp; 판매...</a></h5>
-					<p><a href="">※ 판매매장 리스트는 상세이미지 하단에서 확인 하실 수 있습니다. 판매매장 바로보기&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>	
-					<p class="btn_area">
-						<span class="board_saveDate">2020.09.14</span>
-					</p>
-				</div>
-			</li>
-			
-			
-			<li>
-				<div class="board_num">79</div>
-				<div class="board_notice_content">
-					<h5><a href="">EDIYA COFFEE X SUBSUB 2021다이어리세트 상세페이지 &amp; 판매...</a></h5>
-					<p><a href="">※ 판매매장 리스트는 상세이미지 하단에서 확인 하실 수 있습니다. 판매매장 바로보기&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>	
-					<p class="btn_area">
-						<span class="board_saveDate">2020.09.14</span>
-					</p>
-				</div>
-			</li>
-			
-			
-			<li>
-				<div class="board_num">79</div>
-				<div class="board_notice_content">
-					<h5><a href="">EDIYA COFFEE X SUBSUB 2021다이어리세트 상세페이지 &amp; 판매...</a></h5>
-					<p><a href="">※ 판매매장 리스트는 상세이미지 하단에서 확인 하실 수 있습니다. 판매매장 바로보기&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>	
-					<p class="btn_area">
-						<span class="board_saveDate">2020.09.14</span>
-					</p>
-				</div>
-			</li>
-			
+		</c:forEach>
 	</ul>
+
+	<c:if test="${sessionScope.principal.userRole eq 'ADMIN'}">
+		<button class="btn btn-primary"
+			style="float: right; background-color: #002f6c; border: #002f6c;"
+			onClick="location.href ='?cmd=noticeForm'">글쓰기</button>
+	</c:if>
+
+	<br />
+	<div class="page_wrap">
+		<span><a href="/ediya/notice?cmd=noticeList&page=${param.page-1}
+		"><img
+				src="/ediya/assets/img/notice/page_prev.gif" width="26" height="26"
+				alt="이전"></a></span> <span><a href="/ediya/notice?cmd=noticeList&page=${param.page+1}"><img
+				src="/ediya/assets/img/notice/page_next.gif" width="26" height="26"
+				alt="다음"></a></span>
+	</div>
+
 </div>
-
-
 
 
 <%@ include file="../layout/footer.jsp"%>
