@@ -109,9 +109,9 @@
           <li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
             <ul>
               <li><a href="/ediya/menu?cmd=drinks">음료</a></li>
-              <li><a href="/ediya/menu/bakery.jsp">베이커리</a></li>
-              <li><a href="/ediya/menu/snack.jsp">스낵</a></li>
-              <li><a href="/ediya/menu/md.jsp">MD</a></li>
+              <li><a href="/ediya/menu?cmd=bakery">베이커리</a></li>
+              <li><a href="/ediya/menu?cmd=snack">스낵</a></li>
+              <li><a href="/ediya/menu?cmd=md">MD</a></li>
             </ul>
           </li>
           <li><a href="#">이디야 멤버스</a></li>

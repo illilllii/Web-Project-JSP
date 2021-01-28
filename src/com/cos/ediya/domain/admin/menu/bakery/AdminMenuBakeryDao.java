@@ -1,4 +1,4 @@
-package com.cos.ediya.domain.admin.menu;
+package com.cos.ediya.domain.admin.menu.bakery;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,44 +8,27 @@ import java.util.List;
 
 import com.cos.ediya.config.DB;
 import com.cos.ediya.domain.bakery.Bakery;
-import com.cos.ediya.domain.drinks.Drinks;
 
-public class AdminMenuDao {
-	public List<Drinks> drinksFindAll() {
+public class AdminMenuBakeryDao {
+	public int deleteById(int id) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<Drinks> drinks = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM drinks";
-	
+		String sql = "DELETE FROM bakery WHERE id = ?";
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Drinks drink = Drinks.builder()
-						.id(rs.getInt("id"))
-						.name(rs.getString("name"))
-						.subname(rs.getString("subname"))
-						.content(rs.getString("content"))
-						.imageSrc(rs.getString("imageSrc"))
-						.kind(rs.getString("kind"))
-						.recommend(rs.getString("recommend"))
-						.build();
-				drinks.add(drink);
-			}
-			return drinks;
-			
-			
+			pstmt.setInt(1, id);
+			int result = pstmt.executeUpdate();
+			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DB.close(conn, pstmt, rs);
+			DB.close(conn, pstmt);
 		}
-		return null;
+		return -1;
 	}
 	
-	public List<Bakery> bakeryFindAll() {
+	public List<Bakery> findAll() {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -78,4 +61,5 @@ public class AdminMenuDao {
 		}
 		return null;
 	}
+	
 }
