@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cos.ediya.domain.notice.Notice;
 import com.cos.ediya.domain.notice.NoticeDao;
+import com.cos.ediya.domain.notice.dto.DetailRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 
 public class NoticeService {
@@ -22,5 +23,12 @@ public class NoticeService {
 		return noticeDao.findAll(page);
 	}
 
+	public int 글개수() {
+		return noticeDao.count();
+	}
+	
+	public DetailRespDto 공지사항상세보기(int id) {
+			return noticeDao.findById(id);
+	}
 
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.ediya.config.DB;
+import com.cos.ediya.domain.notice.dto.DetailRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 
 public class NoticeDao {
@@ -58,6 +59,51 @@ public class NoticeDao {
 		}	
 		return null;
 	}
-
+	
+	public int count() { // 공지사항 글개수
+		String sql = "SELECT count(*), id FROM notice";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs  = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs =  pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+	}
+	
+	public DetailRespDto findById(int id){
+		String sql = "SELECT id, title, content, createDate  FROM notice WHERE id = ?";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs  = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs =  pstmt.executeQuery();
+			
+			// Persistence API
+			if(rs.next()) { // 커서를 이동하는 함수
+				DetailRespDto dto = new DetailRespDto();
+				dto.setId(rs.getInt("id"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setCreateDate(rs.getTimestamp("createDate"));
+				return dto;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
 
 }

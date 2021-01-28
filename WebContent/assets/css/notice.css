@@ -101,65 +101,158 @@
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
-	background: url(/ediya/assets/img/notice/notice_icon.gif) no-repeat center center;
+	background: url(/ediya/assets/img/notice/notice_icon.gif) no-repeat
+		center center;
 }
 
 .board_notice_List li .board_notice_content {
 	position: relative;
-    padding-right: 200px;
-    vertical-align: middle;
-    height: 135px;
-    display: table-cell;
+	padding-right: 200px;
+	vertical-align: middle;
+	height: 135px;
+	display: table-cell;
 }
 
 .board_notice_content h5 a {
 	font-size: 20px;
-    font-weight: 500;
-    color: #202023;
-    vertical-align: top;
+	font-weight: 500;
+	color: #202023;
+	vertical-align: top;
 }
 
 .board_notice_content p:nth-child(2) {
 	height: 60px;
-    margin: 30px 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	margin: 30px 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .board_notice_content p .btn_area {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    margin-top: -11px;
-    color: #898989;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	margin-top: -11px;
+	color: #898989;
 }
 
 .board_num {
-    width: 150px;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    color: #202023;
-    font-weight: 700;
-    font-size: 20px;
+	width: 150px;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: #202023;
+	font-weight: 700;
+	font-size: 20px;
 }
 
 /*페이징*/
 .page_wrap {
-    height: 26px;
-    text-align: center;
-    margin: 50px auto 0;
+	height: 26px;
+	text-align: center;
+	margin: 50px auto 0;
 }
 
 .page_wrap span {
-    margin: 0 19px;
+	margin: 0 19px;
 }
 
 .page_wrap a {
-    width: 26px;
-    display: inline-block;
-    height: 26px;
-    line-height: 26px;
-    font-size: 14px;
-    color: #898989;
+	width: 26px;
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	color: #898989;
+}
+
+/*noticeDetail CSS*/
+.board_view_title {
+	padding: 24px 0;
+	margin-top: 10px;
+	overflow: hidden;
+	border-top: 2px solid #002f6c;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.datail_txt {
+	display: inline-block;
+	width: 77.7%;
+	font-size: 20px;
+	margin-bottom: 0;
+	box-sizing: border-box;
+	font-weight: 500;
+	color: #202023;
+}
+
+.datail_s_txt {
+	display: inline-block;
+	width: 22%;
+	text-align: right;
+	box-sizing: border-box;
+	color: #898989;
+}
+
+.board_view_content {
+	padding-top: 70px;
+}
+
+.board_view_util a {
+	float: right;
+	width: 170px;
+	line-height: 38px;
+	margin-right: 0;
+	text-align: center;
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.board_view_util {
+	margin-top: 70px;
+	padding-top: 20px;
+	overflow: hidden;
+	border-top: 1px solid #002f6c;
+}
+
+.board_view_page {
+	width: 100%;
+	padding: 50px 0;
+}
+
+.board_view_page dl {
+	width: 100%;
+	border-top: 1px solid #d9d9d9;
+	clear: both;
+	overflow: hidden;
+	padding: 0;
+}
+
+.board_view_page dt {
+	float: left;
+	width: 80px;
+	text-align: center;
+	background: url(/ediya/assets/img/notice/board_veiw_bar.gif) no-repeat
+		right center;
+	font-size: 13px;
+}
+
+.board_view_page dd {
+	float: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 40px;
+}
+
+.board_view_page dd a {
+	color: #898989;
+}
+
+.list_date {
+	width: auto;
+	padding-left: 0;
+	padding-right: 20px;
+	float: right;
+	text-align: right;
+	color: #898989;
 }

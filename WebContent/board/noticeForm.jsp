@@ -15,7 +15,7 @@
 				<ul class="d-flex menu__list-content">
 					<li onclick="location.href ='?cmd=noticeList'" class="active">공지사항</li>
 					<li onclick="location.href ='?cmd=event">이벤트</li>
-					<li onclick="location.href ='?cmd=youtube'">이디아 유튜브</li>
+					<li onclick="location.href ='?cmd=youtube'">이디야 유튜브</li>
 				</ul>
 
 			</div>

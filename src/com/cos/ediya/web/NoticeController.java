@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.cos.ediya.util.Script;
 import com.cos.ediya.domain.user.User;
 import com.cos.ediya.domain.notice.Notice;
+import com.cos.ediya.domain.notice.dto.DetailRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 import com.cos.ediya.service.NoticeService;
 
@@ -45,15 +46,21 @@ public class NoticeController extends HttpServlet {
 
 		String cmd = request.getParameter("cmd");
 		NoticeService noticeService = new NoticeService();
-		
+
 		if (cmd.equals("noticeList")) { // 공지사항
 			int page = Integer.parseInt(request.getParameter("page"));
 			List<Notice> notices = noticeService.공지사항목록보기(page);
 			request.setAttribute("notices", notices);
-			request.setAttribute("page", page);
+
+			int noticeCount = noticeService.글개수();
+			int lastPage = (noticeCount - 1) / 4; // 2/4 = 0, 3/4 = 0, 4/4 = 1, 9/4 = 2 ( 0page, 1page, 2page)
+			double currentPosition = (double) page / (lastPage) * 100;
+
+			request.setAttribute("lastPage", lastPage);
+			request.setAttribute("currentPosition", currentPosition);
 			RequestDispatcher dis = request.getRequestDispatcher("board/noticeList.jsp");
 			dis.forward(request, response);
-			
+
 		} else if (cmd.equals("noticeForm")) { // 공지사항 글쓰기페이지로 이동(관리자만!!)
 			RequestDispatcher dis = request.getRequestDispatcher("board/noticeForm.jsp");
 			dis.forward(request, response);
@@ -67,10 +74,20 @@ public class NoticeController extends HttpServlet {
 
 			int result = noticeService.공지사항등록(dto);
 			if (result == 1) { // 등록성공
-				RequestDispatcher dis = request.getRequestDispatcher("board/noticeList.jsp");
+				RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 				dis.forward(request, response);
 			} else {
 				Script.back(response, "글쓰기실패");
+			}
+		} else if (cmd.equals("detail")) { // 공지사항 상세보기
+			int id = Integer.parseInt(request.getParameter("id"));
+			DetailRespDto dto = noticeService.공지사항상세보기(id); // board테이블+user테이블 = 조인된 데이터!!
+			if (dto == null) {
+				Script.back(response, "상세보기에 실패하였습니다");
+			} else {
+				request.setAttribute("dto", dto);
+				RequestDispatcher dis = request.getRequestDispatcher("board/noticeDetail.jsp");
+				dis.forward(request, response);
 			}
 		}
 

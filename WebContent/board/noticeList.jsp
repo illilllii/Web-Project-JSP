@@ -13,7 +13,7 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='?cmd=noticeList'" class="active">공지사항</li>
+					<li onclick="location.href ='/ediya/notice?cmd=noticeList'" class="active">공지사항</li>
 					<li onclick="location.href ='?cmd=event">이벤트</li>
 					<li onclick="location.href ='?cmd=youtube'">이디야 유튜브</li>
 				</ul>
@@ -25,16 +25,16 @@
 
 <!-- ======= Breadcrumbs ======= -->
 <section class="breadcrumbs">
-	<div class="container">
+	<div class="container" style="width: 1000px;">
 
-		<div class="d-flex justify-content-end align-items-center">
+		<div class="d-flex justify-content-end align-items-center" >
 			<ol>
 				<li><a href="index.html">Home</a></li>
 				<li class="icofont-simple-right"><a
-					href="<%=request.getContextPath()%>/notice?cmd=noticeList">이디야
+					href="/ediya/notice?cmd=noticeList&page=0">이디야
 						소식</a></li>
 				<li class="icofont-simple-right"><a
-					href="<%=request.getContextPath()%>/notice?cmd=noticeList">공지사항</a></li>
+					href="/ediya/notice?cmd=noticeList&page=0">공지사항</a></li>
 			</ol>
 		</div>
 
@@ -69,7 +69,7 @@
 							<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.title}</a>
 						</h5>
 						<p>
-							<a href="">${notice.content}</a>
+							<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.content}</a>
 						</p>
 						<p class="btn_area">
 							<span class="board_saveDate">${notice.createDate}</span>
@@ -84,10 +84,10 @@
 				<div class="board_num">${notice.id}</div>
 				<div class="board_notice_content">
 					<h5>
-						<a href="">${notice.title}</a>
+						<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.title}</a>
 					</h5>
 					<p>
-						<a href="">${notice.content}</a>
+						<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.content}</a>
 					</p>
 					<p class="btn_area">
 						<span class="board_saveDate">${notice.createDate}</span>

@@ -121,9 +121,9 @@
           <li><a href="#">기프트카드</a></li>
           <li><a href="#">이디야커피랩</a></li>
           <li><a href="#">이디야컬쳐랩</a></li>
-          <li class="drop-down"><a href="#">이디야 소식</a>
+          <li class="drop-down"><a href="/ediya/notice?cmd=noticeList&page=0">이디야 소식</a>
           	<ul>
-              <li><a href="/ediya/notice?cmd=noticeList">공지사항</a></li>
+              <li><a href="/ediya/notice?cmd=noticeList&page=0">공지사항</a></li>
               <li><a href="/ediya/menu?cmd=event">이벤트</a></li>
               <li><a href="/ediya/menu/snack.jsp">이디야 유튜브</a></li>
               <li><a href="https://blog.naver.com/ediya-coffee">이디야 블로그</a></li>
