@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import com.cos.ediya.util.Script;
 import com.cos.ediya.domain.user.User;
 import com.cos.ediya.domain.user.dto.FindPwdReqDto;
-import com.cos.ediya.config.CommonRespDto;
 import com.cos.ediya.domain.drinks.dto.DrinksRecommendRespDto;
 import com.cos.ediya.domain.notice.Notice;
 import com.cos.ediya.domain.notice.dto.DetailRespDto;

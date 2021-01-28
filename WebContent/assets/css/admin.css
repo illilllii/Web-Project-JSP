@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+.table tr td {
+	vertical-align: middle;
+}
+
+.table {
+	table-layout: fixed;
+	text-align: center;
+}
+
+@media ( max-width : 992px) {
+	.table {
+		width: 100%;
+	}
+	.table tr th {
+		white-space: nowrap;
+	}
+	.table tr td {
+		white-space: nowrap;
+	}
+}
+
+/*--------------------------------------------------------------
+# userList
+--------------------------------------------------------------*/
+.userAdmin {
+	padding-top: 200px;
+}
+
+@media ( max-width : 992px) {
+	.userAdmin {
+		padding: 60px 0 0 0;
+		overflow-x: scroll;
+	}
+}
+
+/*--------------------------------------------------------------
+# menuList
+--------------------------------------------------------------*/
+.btn-add {
+	float: right;
+	margin-bottom: 10px;
+}
+ul.tabs {
+	display: flex;
+	justify-content: center;
+}
+
+ul.tabs li {
+	padding: 10px 0;
+	width: 100px;
+	border: 1px solid #ccc;
+	border-left: none;
+	text-align: center;
+}
+
+ul.tabs li.current {
+	background-color: #222;
+	color: #fff;
+}
+
+ul.tabs li:hover {
+	background-color: #222;
+	color: #fff;
+	cursor: pointer;
+}
+
+ul.tabs li:first-child {
+	border-left: 1px solid #ccc;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.current {
+	display: inherit;
+}
+
+.menuAdmin {
+	padding-top: 200px;
+}
+
+.menuAdmin table img {
+	width: 50px;
+}
+
+.menuAdmin table tr td {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.menuAdmin table tr.menu-item:hover {
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+.menuAdmin table tr th {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@media ( max-width : 992px) {
+	.menuAdmin {
+		padding: 60px 0 0 0;
+	}
+}
+
+/*--------------------------------------------------------------
+# menuAdiminDetail
+--------------------------------------------------------------*/
+.menuAdmin-detail {
+	padding-top: 200px;
+}
+.menuAdmin-detail .btn-wrap {
+	display: flex;
+	justify-content: center;
+}
+.menuAdmin-detail .btn-wrap button {
+	margin-right: 10px;
+}
+@media ( max-width : 992px) {
+	.menuAdmin-detail {
+		padding: 60px 0 0 0;
+	}
+}
+.card img {
+	margin: 0 auto;
+}
+.card-title-form {
+	padding: 1.25rem;
+}
+.menuAdmin-detail .menuAdmin-detail__content {
+	display: flex;
+	justify-content: center;
+}
+
+.menuAdmin-detail .menuAdmin-detail__content .menuAdmin-detail__kind {
+	width:80%;
+}
+
+.kind-radio-form {
+	display: flex;
+	justify-content: space-between;
+}
+
+.kind-radio-form-title {
+	width:20%;
+}
+
+.menuAdmin-detail .menuAdmin-detail__content .menuAdmin-detail__recommend {
+	display: flex;
+	justify-content: space-around;
+	align-items: baseline;
+	width:80%;
+}
+
+.recommend-radio-form {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recommend-radio-form-title {
+	width:20%;
+}

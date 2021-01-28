@@ -1,4 +1,4 @@
-package com.cos.ediya.config;
+package com.cos.ediya.domain.common;
 
 import lombok.Data;
 

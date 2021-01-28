@@ -48,13 +48,49 @@ public class MenuService {
 	public List<Md> md목록보기(){
 		return mdDao.findAll();
 	}
-	public List<Drinks> 음료메뉴검색(String keyword) {
-		return drinksDao.findByKeyword(keyword);
+
+
+	public List<Bakery> 베이커리메뉴검색(String keyword, String[] kinds) {
+		if(keyword == null || keyword == "") {
+			if(kinds.length != 0) {
+				return bakeryDao.findByKind(kinds);
+			} else {
+				return bakeryDao.findByKeyword(keyword);
+			} 
+ 		} else if(kinds.length == 0) {
+ 			return bakeryDao.findByKeyword(keyword);
+		}
+		return bakeryDao.findByKeywordKind(keyword, kinds);
 	}
-	public List<Bakery> 베이커리메뉴검색(String keyword) {
-		return bakeryDao.findByKeyword(keyword);
+
+	public List<Snack> 스낵메뉴검색(String keyword, String[] kinds) {
+		if(keyword == null || keyword == "") {
+			if(kinds.length != 0) {
+				return snackDao.findByKind(kinds);
+			} else {
+				return snackDao.findByKeyword(keyword);
+			} 
+ 		} else if(kinds.length == 0) {
+ 			return snackDao.findByKeyword(keyword);
+		}
+		return snackDao.findByKeywordKind(keyword, kinds);
 	}
-	public List<Snack> 스낵메뉴검색(String keyword) {
-		return snackDao.findByKeyword(keyword);
+	
+	
+	public List<Drinks> 음료메뉴검색(String keyword, String[] kinds) {
+		if(keyword == null || keyword == "") {
+			if(kinds.length != 0) {
+				return drinksDao.findByKind(kinds);
+			} else {
+				return drinksDao.findByKeyword(keyword);
+			} 
+ 		} else if(kinds.length == 0) {
+ 			return drinksDao.findByKeyword(keyword);
+		}
+		return drinksDao.findByKeywordKind(keyword, kinds);
+		
+
 	}
+
+	
 }
