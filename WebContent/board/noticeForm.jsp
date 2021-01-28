@@ -52,7 +52,7 @@
 
 		<div class="form-group">
 			<label for="content">내용:</label>
-			<textarea id="summernote" class="form-control" rows="11" id="content" name="content"></textarea>
+			<textarea id="summernote" class="form-control " rows="11" id="content" name="content"></textarea>
 		</div>
 
 		<button type="submit" class="btn btn-primary"  style="float: right; background-color:#002f6c; border: #002f6c;">등록하기</button>
@@ -63,7 +63,7 @@
 <%@ include file="../layout/footer.jsp"%>
 
 <script>
-  	$('#summernote').summernote({
+	$('#summernote').summernote({
         placeholder: '내용을 입력하세요.',
         tabsize: 2,
         height: 400

@@ -5,6 +5,7 @@ import java.util.List;
 import com.cos.ediya.domain.notice.Notice;
 import com.cos.ediya.domain.notice.NoticeDao;
 import com.cos.ediya.domain.notice.dto.DetailRespDto;
+import com.cos.ediya.domain.notice.dto.ImportantNoticeRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 
 public class NoticeService {
@@ -31,4 +32,7 @@ public class NoticeService {
 			return noticeDao.findById(id);
 	}
 
+	public List<ImportantNoticeRespDto> 주요공지사항(){
+		return noticeDao.findByImportant();
+	}
 }

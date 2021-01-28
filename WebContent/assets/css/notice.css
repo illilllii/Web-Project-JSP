@@ -113,6 +113,22 @@
 	display: table-cell;
 }
 
+.board_notice_List_normal li {
+	display: table;
+	width: 100%;
+	border-bottom: 1px solid #d9d9d9;
+	padding: 20px 0;
+	overflow: hidden;
+}
+
+.board_notice_List_normal .board_notice_content {
+	position: relative;
+	padding-right: 200px;
+	vertical-align: middle;
+	height: 135px;
+	display: table-cell;
+}
+
 .board_notice_content h5 a {
 	font-size: 20px;
 	font-weight: 500;

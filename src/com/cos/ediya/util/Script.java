@@ -6,9 +6,9 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
 
 public class Script {
-	
-public static void responseData(HttpServletResponse response, String jsonData) {
-		
+
+	public static void responseData(HttpServletResponse response, String jsonData) {
+
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -18,7 +18,7 @@ public static void responseData(HttpServletResponse response, String jsonData) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void back(HttpServletResponse response, String msg) {
 		PrintWriter out;
 		try {

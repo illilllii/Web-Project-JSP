@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.ediya.config.DB;
+import com.cos.ediya.domain.drinks.dto.DrinksRecommendRespDto;
 import com.cos.ediya.domain.notice.dto.DetailRespDto;
+import com.cos.ediya.domain.notice.dto.ImportantNoticeRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 
 public class NoticeDao {
@@ -101,6 +103,34 @@ public class NoticeDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally { // 무조건 실행
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
+	public List<ImportantNoticeRespDto> findByImportant() { // 주요공지사항
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT id, title, content, createDate FROM notice WHERE  importantNotice= 'Y'";
+		List<ImportantNoticeRespDto> importants = new ArrayList<ImportantNoticeRespDto>();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				ImportantNoticeRespDto importantNoticeRespDto = new ImportantNoticeRespDto();
+				importantNoticeRespDto.setId(rs.getInt("id"));
+				importantNoticeRespDto.setTitle(rs.getString("title"));
+				importantNoticeRespDto.setContent(rs.getString("content"));
+				importantNoticeRespDto.setCreateDate(rs.getTimestamp("createDate"));
+				importants.add(importantNoticeRespDto);
+
+			}
+			return importants;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			DB.close(conn, pstmt, rs);
 		}
 		return null;

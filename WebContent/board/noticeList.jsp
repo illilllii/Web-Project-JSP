@@ -13,7 +13,8 @@
 			</div>
 			<div class="menu__list d-flex justify-content-center">
 				<ul class="d-flex menu__list-content">
-					<li onclick="location.href ='/ediya/notice?cmd=noticeList'" class="active">공지사항</li>
+					<li onclick="location.href ='/ediya/notice?cmd=noticeList'"
+						class="active">공지사항</li>
 					<li onclick="location.href ='?cmd=event">이벤트</li>
 					<li onclick="location.href ='?cmd=youtube'">이디야 유튜브</li>
 				</ul>
@@ -27,12 +28,11 @@
 <section class="breadcrumbs">
 	<div class="container" style="width: 1000px;">
 
-		<div class="d-flex justify-content-end align-items-center" >
+		<div class="d-flex justify-content-end align-items-center">
 			<ol>
 				<li><a href="index.html">Home</a></li>
 				<li class="icofont-simple-right"><a
-					href="/ediya/notice?cmd=noticeList&page=0">이디야
-						소식</a></li>
+					href="/ediya/notice?cmd=noticeList&page=0">이디야 소식</a></li>
 				<li class="icofont-simple-right"><a
 					href="/ediya/notice?cmd=noticeList&page=0">공지사항</a></li>
 			</ol>
@@ -49,9 +49,9 @@
 		<div class="seach_box">
 			<form name="search_form" action="/ediya/notice?cmd=noticeList">
 				<div class="search_bar">
-					<input type="hidden" name="cmd" value="searchNotice" /> 
-					<input type="hidden" name="page" value="0" />
-					<input type="text" name="keyword" class="search_txt" />
+					<input type="hidden" name="cmd" value="searchNotice" /> <input
+						type="hidden" name="page" value="0" /> <input type="text"
+						name="keyword" class="search_txt" />
 					<button class="search_btn"></button>
 				</div>
 			</form>
@@ -60,25 +60,25 @@
 
 	<ul class="board_notice_List">
 		<!-- 제일 중요한 공지사항 -->
-		<c:forEach var="notice" items="${notices}">
-			<c:if test="${notice.importantNotice eq 'Y'}">
-				<li>
-					<div class="board_notice_logo"></div>
-					<div class="board_notice_content">
-						<h5>
-							<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.title}</a>
-						</h5>
-						<p>
-							<a href="/ediya/notice?cmd=detail&id=${notice.id}">${notice.content}</a>
-						</p>
-						<p class="btn_area">
-							<span class="board_saveDate">${notice.createDate}</span>
-						</p>
-					</div>
-				</li>
-			</c:if>
+		<c:forEach var="important" items="${importants}">
+			<li>
+				<div class="board_notice_logo"></div>
+				<div class="board_notice_content">
+					<h5>
+						<a href="/ediya/notice?cmd=detail&id=${important.id}">${important.title}</a>
+					</h5>
+					<p>
+						<a href="/ediya/notice?cmd=detail&id=${important.id}">${important.content}</a>
+					</p>
+					<p class="btn_area">
+						<span class="board_saveDate">${important.createDate}</span>
+					</p>
+				</div>
+			</li>
 		</c:forEach>
+	</ul>
 
+	<ul class="board_notice_List_normal">
 		<c:forEach var="notice" items="${notices}">
 			<li>
 				<div class="board_num">${notice.id}</div>
@@ -104,16 +104,35 @@
 	</c:if>
 
 	<br />
-	<div class="page_wrap">
-		<span><a href="/ediya/notice?cmd=noticeList&page=${param.page-1}
-		"><img
-				src="/ediya/assets/img/notice/page_prev.gif" width="26" height="26"
-				alt="이전"></a></span> <span><a href="/ediya/notice?cmd=noticeList&page=${param.page+1}"><img
-				src="/ediya/assets/img/notice/page_next.gif" width="26" height="26"
-				alt="다음"></a></span>
-	</div>
+	<div class="container" style="padding: 0 45%;">
+	<ul class="pagination">
+		<c:choose>
+			<c:when test="${param.page == 0}">
+				<li class="page-item disabled"><a style="color:#002f6c;" class="page-link" href="#">◁</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a style="color:#002f6c;" class="page-link"
+					href="/ediya/notice?cmd=noticeList&page=${param.page-1}">◀</a></li>
+			</c:otherwise>
+		</c:choose>
 
+		<c:choose>
+			<c:when test="${lastPage == param.page}">
+				<li class="page-item disabled"><a style="color:#002f6c;"class="page-link" href="#">▷</a></li>
+			</c:when>
+			<c:otherwise>
+				<li class="page-item"><a style="color:#002f6c;" class="page-link"
+					href="/ediya/notice?cmd=noticeList&page=${param.page+1}">▶</a></li>
+			</c:otherwise>
+		</c:choose>
+	</ul>
 </div>
+</div>
+
+
+
+
+
 
 
 <%@ include file="../layout/footer.jsp"%>
