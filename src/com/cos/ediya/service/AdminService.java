@@ -3,6 +3,7 @@ package com.cos.ediya.service;
 import java.util.List;
 
 import com.cos.ediya.domain.admin.menu.bakery.AdminMenuBakeryDao;
+import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryDetailRespDto;
 import com.cos.ediya.domain.admin.menu.drinks.AdminMenuDrinksDao;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.admin.menu.md.AdminMenuMdDao;
@@ -59,6 +60,14 @@ public class AdminService {
 	}
 	public int 베이커리삭제(int id) {
 		return adminMenuBakeryDao.deleteById(id);
+	}
+	public int 베이커리메뉴수정(int id, String name, String subname, String content,
+			String imageSrc, String kind, String recommend) {
+		
+		return adminMenuBakeryDao.updateById(id, name, subname, content, imageSrc, kind, recommend);
+	}
+	public BakeryDetailRespDto 베이커리상세보기(int id) {
+		return adminMenuBakeryDao.findById(id);
 	}
 	public List<Snack> 스낵목록보기() {
 		return adminMenuSnackDao.findAll();

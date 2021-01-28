@@ -85,7 +85,8 @@
 					</thead>
 					<tbody>
 						<c:forEach var="bakery" items="${bakerys}">
-							<tr id="bakery-${bakery.id}" class="menu-item">
+							<tr id="bakery-${bakery.id}" class="menu-item"
+								onclick="location.href ='/ediya/admin?cmd=bakeryDetail&id=${bakery.id}'">
 								<td>${bakery.id}</td>
 								<td>${bakery.name}</td>
 								<td>${bakery.subname}</td>

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryDetailRespDto;
+import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryUpdateReqDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksUpdateReqDto;
 import com.cos.ediya.domain.admin.user.dto.UpdateRespDto;
@@ -169,6 +171,16 @@ public class AdminController extends HttpServlet {
 			} else {
 				Script.back(response, "상세보기에 실패하였습니다");
 			}
+		} else if (cmd.equals("bakeryDetail")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			BakeryDetailRespDto dto = adminService.베이커리상세보기(id);
+			if (dto != null) {
+				request.setAttribute("dto", dto);
+				RequestDispatcher dis = request.getRequestDispatcher("admin/menuBakeryDetail.jsp");
+				dis.forward(request, response);
+			} else {
+				Script.back(response, "상세보기에 실패하였습니다");
+			}
 		} else if (cmd.equals("drinksUpdate")) {
 			BufferedReader br = request.getReader(); // http body 데이터 순수하게 읽기
 			String requestData = br.readLine();
@@ -195,7 +207,30 @@ public class AdminController extends HttpServlet {
 			out.print(respData);
 			out.flush();
 		} else if (cmd.equals("bakeryUpdate")) {
+			BufferedReader br = request.getReader(); // http body 데이터 순수하게 읽기
+			String requestData = br.readLine();
+
+			Gson gson = new Gson();
+			BakeryUpdateReqDto dto = gson.fromJson(requestData, BakeryUpdateReqDto.class);
+
+			int id = dto.getId();
+			String name = dto.getName();
+			String subname = dto.getSubname();
+			String content = dto.getContent();
+			String imageSrc = dto.getImageSrc();
+			String kind = dto.getKind();
+			String recommend = dto.getRecommend();
 			
+			int result = adminService.베이커리메뉴수정(id, name, subname, content, imageSrc, kind, recommend);
+
+			CommonRespDto<String> commonRespDto = new CommonRespDto<>();
+			commonRespDto.setStatusCode(result);
+			commonRespDto.setData("성공");
+
+			String respData = gson.toJson(commonRespDto);
+			PrintWriter out = response.getWriter();
+			out.print(respData);
+			out.flush();
 		} else if (cmd.equals("snackUpdate")) {
 			
 		} else if (cmd.equals("mdUpdate")) {
