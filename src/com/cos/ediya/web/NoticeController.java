@@ -1,7 +1,6 @@
 package com.cos.ediya.web;
 
 import java.io.IOException;
-import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -10,16 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.cos.ediya.util.Script;
-import com.cos.ediya.domain.user.User;
-import com.cos.ediya.domain.user.dto.FindPwdReqDto;
-import com.cos.ediya.config.CommonRespDto;
-import com.cos.ediya.domain.drinks.dto.DrinksRecommendRespDto;
 import com.cos.ediya.domain.notice.Notice;
 import com.cos.ediya.domain.notice.dto.DetailRespDto;
 import com.cos.ediya.domain.notice.dto.ImportantNoticeRespDto;
+import com.cos.ediya.domain.notice.dto.NextRespDto;
+import com.cos.ediya.domain.notice.dto.PreviousRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 import com.cos.ediya.service.NoticeService;
 
@@ -80,16 +76,21 @@ public class NoticeController extends HttpServlet {
 			int result = noticeService.공지사항등록(dto);
 			if (result == 1) { // 등록성공	
 			RequestDispatcher dis = request.getRequestDispatcher("board/noticeList.jsp"); // 나중에 수정하기
+			dis.forward(request, response);
 			} else {
 				Script.back(response, "글쓰기실패");
 			}
 		} else if (cmd.equals("detail")) { // 공지사항 상세보기
 			int id = Integer.parseInt(request.getParameter("id"));
 			DetailRespDto dto = noticeService.공지사항상세보기(id); 
+			PreviousRespDto previous = noticeService. 이전글보기(id);
+			NextRespDto next = noticeService.다음글보기(id);
 			if (dto == null) {
 				Script.back(response, "상세보기에 실패하였습니다");
 			} else {
 				request.setAttribute("dto", dto);
+				request.setAttribute("previous", previous);
+				request.setAttribute("next", next);
 				RequestDispatcher dis = request.getRequestDispatcher("board/noticeDetail.jsp");
 				dis.forward(request, response);
 			}

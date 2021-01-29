@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.ediya.config.DB;
-import com.cos.ediya.domain.drinks.dto.DrinksRecommendRespDto;
 import com.cos.ediya.domain.notice.dto.DetailRespDto;
 import com.cos.ediya.domain.notice.dto.ImportantNoticeRespDto;
+import com.cos.ediya.domain.notice.dto.NextRespDto;
+import com.cos.ediya.domain.notice.dto.PreviousRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
 
 public class NoticeDao {
@@ -82,7 +83,7 @@ public class NoticeDao {
 	}
 	
 	public DetailRespDto findById(int id){
-		String sql = "SELECT id, title, content, createDate  FROM notice WHERE id = ?";
+		String sql = "SELECT id, title, content, createDate, importantNotice FROM notice WHERE id = ?";
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs  = null;
@@ -98,6 +99,7 @@ public class NoticeDao {
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setCreateDate(rs.getTimestamp("createDate"));
+				dto.setImportantNotice(rs.getString("importantNotice"));
 				return dto;
 			}
 		} catch (Exception e) {
@@ -136,4 +138,58 @@ public class NoticeDao {
 		return null;
 	}
 
+	public PreviousRespDto findPrevious(int id){ // 이전글
+		String sql = "SELECT *  FROM notice WHERE id < ?  ORDER BY id DESC LIMIT 1";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs  = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs =  pstmt.executeQuery();
+			
+			// Persistence API
+			if(rs.next()) { // 커서를 이동하는 함수
+				PreviousRespDto previous = new PreviousRespDto();
+				previous.setId(rs.getInt("id"));
+				previous.setTitle(rs.getString("title"));
+				previous.setContent(rs.getString("content"));
+				previous.setCreateDate(rs.getTimestamp("createDate"));
+				return previous;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
+	public NextRespDto findNext(int id){ // 다음글
+		String sql = "SELECT *  FROM notice WHERE id > ?  ORDER BY id  LIMIT 1";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs  = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs =  pstmt.executeQuery();
+			
+			// Persistence API
+			if(rs.next()) { // 커서를 이동하는 함수
+				NextRespDto next= new NextRespDto();
+				next.setId(rs.getInt("id"));
+				next.setTitle(rs.getString("title"));
+				next.setContent(rs.getString("content"));
+				next.setCreateDate(rs.getTimestamp("createDate"));
+				return next;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally { // 무조건 실행
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
 }

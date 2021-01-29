@@ -47,12 +47,13 @@
 		<a href="/ediya/notice?cmd=updateNotice&id=${dto.id}"
 			class="btn btn-primary"
 			style="background-color: #002f6c; border: #002f6c;"> 수정</a>
-		<button onClick="deleteById(${dto.id})" class="btn btn-danger" style="height: 36px;">삭제</button>
+		<button onClick="deleteById(${dto.id})" class="btn btn-danger"
+			style="height: 36px;">삭제</button>
 	</c:if>
 </div>
 
 <div class="detail_container"
-	style="margin-bottom: 100px; width: 1110px; margin: auto;">
+	style="margin-bottom: 100px; width: 1110px; margin: auto; margin-bottom: 20px;">
 	<div class="board_view_title">
 		<p class="datail_txt">${dto.title}</p>
 		<p class="datail_s_txt">${dto.createDate}</p>
@@ -63,19 +64,25 @@
 	<div class="board_view_util">
 		<a href="/ediya/notice?cmd=noticeList&page=0">목록보기</a>
 	</div>
-	
-	<div class="board_view_page">
-			<dl>
-				<dt>이전글</dt>
-				<dd style="width: 800px;"><a href="이전글 id" class="pn_ac" >제목</a></dd>
-				<dd class="list_date">날짜</dd>
-			</dl>
-			<dl>
-				<dt>다음글</dt>
-				<dd style="width: 800px;"><a href="다음글 id" class="pn_ac">제목 </a></dd>
-				<dd class="list_date">날짜</dd>
-			</dl>
-	</div>
+
+	<c:if test="${dto.importantNotice eq 'N'}">
+			<div class="board_view_page">
+				<dl>
+					<dt>이전글</dt>
+					<dd style="width: 800px;">
+						<a href="/ediya/notice?cmd=detail&id=${previous.id}" class="pn_ac">${previous.title}</a>
+					</dd>
+					<dd class="list_date">${previous.createDate}</dd>
+				</dl>
+				<dl>
+					<dt>다음글</dt>
+					<dd style="width: 800px;">
+						<a href="/ediya/notice?cmd=detail&id=${next.id}" class="pn_ac">${next.title} </a>
+					</dd>
+					<dd class="list_date">${next.createDate}</dd>
+				</dl>
+			</div>
+	</c:if>
 
 </div>
 

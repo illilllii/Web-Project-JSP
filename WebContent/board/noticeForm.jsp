@@ -30,8 +30,11 @@
 		<div class="d-flex justify-content-end align-items-center">
 			<ol>
 				<li><a href="index.html">Home</a></li>
-				<li class="icofont-simple-right"><a href="<%=request.getContextPath()%>/notice?cmd=noticeList">이디야 소식</a></li>
-				<li class="icofont-simple-right"><a href="<%=request.getContextPath()%>/notice?cmd=noticeList">공지사항</a></li>
+				<li class="icofont-simple-right"><a
+					href="<%=request.getContextPath()%>/notice?cmd=noticeList">이디야
+						소식</a></li>
+				<li class="icofont-simple-right"><a
+					href="<%=request.getContextPath()%>/notice?cmd=noticeList">공지사항</a></li>
 			</ol>
 		</div>
 
@@ -39,36 +42,43 @@
 </section>
 <!-- End Breadcrumbs -->
 
-
-
 <div class="container" style="margin-bottom: 100px;">
 	<div class="noticeForm_board_top"></div>
-	
-	<form action="/ediya/notice?cmd=saveNotice"  method="POST">
+
+	<form action="/ediya/notice?cmd=saveNotice" method="POST">
 		<div class="form-group">
-			<label for="title">제목:</label> 
-			<input type="text" class="form-control" placeholder="제목을 입력하세요" id="title" name="title">
+			<label for="title">제목:</label> <input type="text"
+				class="form-control" placeholder="제목을 입력하세요" id="title" name="title">
 		</div>
 
 		<div class="form-group">
 			<label for="content">내용:</label>
-			<textarea id="summernote" class="form-control " rows="11" id="content" name="content"></textarea>
+			<textarea id="summernote" class="form-control " rows="11"
+				id="content" name="content"></textarea>
 		</div>
 
-		<button type="submit" class="btn btn-primary"  style="float: right; background-color:#002f6c; border: #002f6c;">등록하기</button>
+		<button type="submit" class="btn btn-primary"
+			style="float: right; background-color: #002f6c; border: #002f6c;">등록하기</button>
 	</form>
 </div>
-
 
 <%@ include file="../layout/footer.jsp"%>
 
 <script>
+
+$(document).ready(function() {
+	//여기 아래 부분
 	$('#summernote').summernote({
-        placeholder: '내용을 입력하세요.',
-        tabsize: 2,
-        height: 400
-      });
-  </script>
+		              // 에디터 높이
+		  minHeight: null,             // 최소 높이
+		  maxHeight: null,             // 최대 높이
+		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		  lang: "ko-KR"				// 한글 설정
+          
+	});
+
+});
+</script>
 
 </body>
 </html>
