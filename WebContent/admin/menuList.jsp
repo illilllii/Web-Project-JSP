@@ -11,9 +11,8 @@
 				<li class="tab-link" data-tab="tab-3">스낵</li>
 				<li class="tab-link" data-tab="tab-4">MD</li>
 			</ul>
-
 			<div id="tab-1" class="tab-content current">
-				<button type="button" class="btn btn-primary btn-add" onclick="">추가하기</button>
+				<button type="button" class="btn btn-primary btn-add" onclick="location.href ='/ediya/admin?cmd=drinksInsertForm'">추가하기</button>
 				<table class="table table-striped">
 					<colgroup>
 						<col width="5%" />
@@ -45,7 +44,7 @@
 								<td>${drink.id}</td>
 								<td>${drink.name}</td>
 								<td>${drink.subname}</td>
-								<td>${drink.content}</td>
+								<td class="menuList-content">${drink.content}</td>
 								<td><img src="${drink.imageSrc}" /></td>
 								<td>${drink.kind}</td>
 								<td>${drink.recommend}</td>
@@ -59,7 +58,7 @@
 
 
 			<div id="tab-2" class="tab-content">
-				<button type="button" class="btn btn-primary btn-add" onclick="">추가하기</button>
+				<button type="button" class="btn btn-primary btn-add" onclick="location.href ='/ediya/admin?cmd=bakeryInsertForm'">추가하기</button>
 				<table class="table table-striped">
 					<colgroup>
 						<col width="5%" />
@@ -90,7 +89,7 @@
 								<td>${bakery.id}</td>
 								<td>${bakery.name}</td>
 								<td>${bakery.subname}</td>
-								<td>${bakery.content}</td>
+								<td class="menuList-content">${bakery.content}</td>
 								<td><img src="${bakery.imageSrc}" /></td>
 								<td>${bakery.kind}</td>
 								<td>${bakery.recommend}</td>
@@ -104,7 +103,7 @@
 
 
 			<div id="tab-3" class="tab-content">
-				<button type="button" class="btn btn-primary btn-add" onclick="">추가하기</button>
+				<button type="button" class="btn btn-primary btn-add"  onclick="location.href ='/ediya/admin?cmd=snackInsertForm'">추가하기</button>
 				<table class="table table-striped">
 					<colgroup>
 						<col width="5%" />
@@ -130,11 +129,11 @@
 					</thead>
 					<tbody>
 						<c:forEach var="snack" items="${snacks}">
-							<tr id="snack-${snack.id}" class="menu-item">
+							<tr id="snack-${snack.id}" class="menu-item" onclick="location.href ='/ediya/admin?cmd=snackDetail&id=${snack.id}'">
 								<td>${snack.id}</td>
 								<td>${snack.name}</td>
 								<td>${snack.subname}</td>
-								<td>${snack.content}</td>
+								<td class="menuList-content">${snack.content}</td>
 								<td><img src="${snack.imageSrc}" /></td>
 								<td>${snack.kind}</td>
 								<td>${snack.recommend}</td>
@@ -147,7 +146,7 @@
 			</div>
 
 			<div id="tab-4" class="tab-content">
-				<button type="button" class="btn btn-primary btn-add" onclick="">추가하기</button>
+				<button type="button" class="btn btn-primary btn-add" onclick="location.href ='/ediya/admin?cmd=mdInsertForm'">추가하기</button>
 				<table class="table table-striped">
 					<colgroup>
 						<col width="5%" />
@@ -169,10 +168,10 @@
 					</thead>
 					<tbody>
 						<c:forEach var="md" items="${mds}">
-							<tr id="md-${md.id}" class="menu-item">
+							<tr id="md-${md.id}" class="menu-item" onclick="location.href ='/ediya/admin?cmd=mdDetail&id=${md.id}'">
 								<td>${md.id}</td>
 								<td>${md.name}</td>
-								<td>${md.content}</td>
+								<td class="menuList-content">${md.content}</td>
 								<td><img src="${md.imageSrc}" /></td>
 								<td>${md.recommend}</td>
 								<td><button type="button" class="btn btn-danger"

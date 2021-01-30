@@ -12,6 +12,27 @@ import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.bakery.Bakery;
 
 public class AdminMenuBakeryDao {
+	public int insertAll(String name, String subname, String content, String imageSrc, String kind, String recommend) {
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = "INSERT INTO bakery(name, subname, content, imageSrc, kind, recommend) VALUES (?,?,?,?,?,?)";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, subname);
+			pstmt.setString(3, content);
+			pstmt.setString(4, imageSrc);
+			pstmt.setString(5, kind);
+			pstmt.setString(6, recommend);
+			int result = pstmt.executeUpdate();
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt);
+		}
+		return -1;
+	}
 	public int updateById(int id, String name, String subname, String content,
 			String imageSrc, String kind, String recommend) {
 		Connection conn = DB.getConnection();
@@ -89,7 +110,7 @@ public class AdminMenuBakeryDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Bakery> bakerys = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM bakery";
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM bakery ORDER BY id DESC";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);

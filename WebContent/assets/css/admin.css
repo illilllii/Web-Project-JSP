@@ -44,6 +44,7 @@
 	float: right;
 	margin-bottom: 10px;
 }
+
 ul.tabs {
 	display: flex;
 	justify-content: center;
@@ -110,38 +111,97 @@ ul.tabs li:first-child {
 		padding: 60px 0 0 0;
 	}
 }
-
+.menuList-content {
+	text-align:initial;
+}
 /*--------------------------------------------------------------
 # menuAdiminDetail
 --------------------------------------------------------------*/
 .menuAdmin-detail {
 	padding-top: 200px;
 }
+
 .menuAdmin-detail .btn-wrap {
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
 }
+
 .menuAdmin-detail .btn-wrap button {
 	margin-right: 10px;
 }
+
 @media ( max-width : 992px) {
 	.menuAdmin-detail {
 		padding: 60px 0 0 0;
 	}
 }
+
 .card img {
 	margin: 0 auto;
 }
+
 .card-title-form {
 	padding: 1.25rem;
 }
+
 .menuAdmin-detail .menuAdmin-detail__content {
 	display: flex;
 	justify-content: center;
 }
 
 .menuAdmin-detail .menuAdmin-detail__content .menuAdmin-detail__kind {
-	width:80%;
+	width: 80%;
+}
+
+.kind-radio-form {
+	display: flex;
+	justify-content: flex-start;
+}
+.menuAdmin-detail__recommend {
+	display:flex;
+}
+.kind-radio-form-title {
+	width: 20%;
+}
+/*--------------------------------------------------------------
+# menuAdiminInsert
+--------------------------------------------------------------*/
+.menuAdmin-insert {
+	padding-top: 200px;
+}
+
+.menuAdmin-insert .btn-wrap {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.menuAdmin-insert .btn-wrap button {
+	margin-right: 10px;
+}
+
+@media ( max-width : 992px) {
+	.menuAdmin-detail {
+		padding: 60px 0 0 0;
+	}
+}
+
+.card img {
+	margin: 0 auto;
+}
+
+.card-title-form {
+	padding: 1.25rem;
+}
+
+.menuAdmin-insert .menuAdmin-insert__content {
+	display: flex;
+	justify-content: center;
+}
+
+.menuAdmin-insert .menuAdmin-insert__content .menuAdmin-insert__kind {
+	width: 80%;
 }
 
 .kind-radio-form {
@@ -150,21 +210,23 @@ ul.tabs li:first-child {
 }
 
 .kind-radio-form-title {
-	width:20%;
+	width: 20%;
 }
 
-.menuAdmin-detail .menuAdmin-detail__content .menuAdmin-detail__recommend {
+.menuAdmin-insert .menuAdmin-insert__content .menuAdmin-insert__recommend
+{
 	display: flex;
-	justify-content: space-around;
 	align-items: baseline;
-	width:80%;
+	width: 80%;
 }
-
+input[type=radio] {
+	margin: 5px;
+}
 .recommend-radio-form {
 	display: flex;
-	justify-content: space-between;
+	
 }
 
 .recommend-radio-form-title {
-	width:20%;
+	width: 20%;
 }

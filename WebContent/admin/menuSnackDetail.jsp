@@ -4,7 +4,7 @@
 
 <main class="main" id="main">
 	<section id="menuAdmin-detail" class="menuAdmin-detail"
-		data-menu="drinks">
+		data-menu="snack">
 		<div class="container menuAdmin-detail__content">
 			<div class="card" style="width: 400px">
 				<div class="card-title-form">
@@ -29,33 +29,13 @@
 						<div class="kind-radio-form-title">종류</div>
 						<div class="menuAdmin-detail__kind">
 							<ul>
-								<li><input type="radio" id="coffee" name="kind"
-									value="COFFEE" data-kind="coffee"
-									<c:if test="${dto.kind eq 'COFFEE' }">checked</c:if> /> <label
-									for="coffee">COFFEE</label> <input type="radio" id="beverage"
-									name="kind" value="BEVERAGE" data-kind="beverage"
-									<c:if test="${dto.kind eq 'BEVERAGE' }">checked</c:if> /> <label
-									for="beverage">BEVERAGE</label></li>
-								<li><input type="radio" id="blending-tea" name="kind"
-									value="BLENDING TEA" data-kind="blending_tea"
-									<c:if test="${dto.kind eq 'BLENDING TEA' }">checked</c:if> />
-									<label for="blending-tea">BLENDING TEA</label> <input
-									type="radio" id="flatccino" name="kind" value="FLATCCINO"
-									data-kind="flatccino"
-									<c:if test="${dto.kind eq 'FLATCCINO' }">checked</c:if> /> <label
-									for="flatccino">FLATCCINO</label></li>
-								<li><input type="radio" id="shake-ade" name="kind"
-									value="SHAKE & ADE" data-kind="shake&ade"
-									<c:if test="${dto.kind eq 'SHAKE & ADE' }">checked</c:if> /> <label
-									for="shake-ade">SHAKE & ADE</label> <input type="radio"
-									id="ice-flakes" name="kind" value="ICE FLAKES"
-									data-kind="ice_flakes"
-									<c:if test="${dto.kind eq 'ICE FLAKES' }">checked</c:if> /> <label
-									for="ice-flakes">ICE FLAKES</label></li>
-								<li><input type="radio" id="rtd" name="kind" value="RTD"
-									data-kind="rtd"
-									<c:if test="${dto.kind eq 'RTD' }">checked</c:if> /> <label
-									for="rtd">RTD</label></li>
+								<li><input type="radio" id="cookie-etc" name="kind"
+									value="COOKIE&ETC" data-kind="cookie-etc"
+									<c:if test="${dto.kind eq 'COOKIE&ETC' }">checked</c:if> /> <label
+									for="cookie-etc">COOKIE&ETC</label> <input type="radio" id="dessert"
+									name="kind" value="DESSERT" data-kind="dessert"
+									<c:if test="${dto.kind eq 'DESSERT' }">checked</c:if> /> <label
+									for="dessert">DESSERT</label></li>
 
 							</ul>
 						</div>
@@ -84,8 +64,5 @@
 </main>
 <%@ include file="../layout/footer.jsp"%>
 <script src="/ediya/assets/js/menuUpdate.js"></script>
-<script type="text/javascript">
-
-</script>
 </body>
 </html>

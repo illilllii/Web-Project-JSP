@@ -47,7 +47,8 @@
 <link href="/ediya/assets/css/loginForm.css" rel="stylesheet">
 <link href="/ediya/assets/css/myPage.css" rel="stylesheet">
 <link href="/ediya/assets/css/editPage.css" rel="stylesheet">
-
+<link rel="stylesheet"
+	href="/ediya/assets/css/summernote/summernote-lite.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"
 	integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 	crossorigin="anonymous"></script>
@@ -62,66 +63,85 @@
 </head>
 
 <body>
-  <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+	<!-- ======= Top Bar ======= -->
+	<div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
 		<div class="container">
 			<div class="contact-info d-flex justify-content-end">
 				<!-- <a href="mailto:contact@example.com">contact@example.com</a> -->
 				<c:choose>
 					<c:when test="${sessionScope.principal != null}">
 						<div class="topbar__submenu">
-							<a class="topbar__submenu__login"  href="<%=request.getContextPath()%>/user?cmd=myPage">My page</a> 
-							<a class="topbar__submenu__login"  style="margin-left: 10px;" href="<%=request.getContextPath()%>/user?cmd=logout"> 로그아웃</a>
-							<a class="topbar__submenu__join" href="">매장찾기</a>
+							<a class="topbar__submenu__login"
+								href="<%=request.getContextPath()%>/user?cmd=myPage">My page</a>
+							<a class="topbar__submenu__login" style="margin-left: 10px;"
+								href="<%=request.getContextPath()%>/user?cmd=logout"> 로그아웃</a> <a
+								class="topbar__submenu__join" href="">매장찾기</a>
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="topbar__submenu">
-							<a class="topbar__submenu__login" href="<%=request.getContextPath()%>/user?cmd=loginForm">로그인</a> 
-							<a class="topbar__submenu__login"  style="margin-left: 10px;" href="<%=request.getContextPath()%>/user?cmd=joinForm"> 회원가입</a>
+							<a class="topbar__submenu__login"
+								href="<%=request.getContextPath()%>/user?cmd=loginForm">로그인</a>
+							<a class="topbar__submenu__login" style="margin-left: 10px;"
+								href="<%=request.getContextPath()%>/user?cmd=joinForm"> 회원가입</a>
 							<a class="topbar__submenu__join" href="">매장찾기</a>
 						</div>
 					</c:otherwise>
 				</c:choose>
 
-        
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-          <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-          <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-          <a href="#" class="skype"><i class="icofont-skype"></i></a>
-          <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-      <div><a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a></div>
+				<div class="social-links">
+					<a href="#" class="twitter"><i class="icofont-twitter"></i></a> <a
+						href="#" class="facebook"><i class="icofont-facebook"></i></a> <a
+						href="#" class="instagram"><i class="icofont-instagram"></i></a> <a
+						href="#" class="skype"><i class="icofont-skype"></i></a> <a
+						href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+	<!-- ======= Header ======= -->
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center">
+			<div>
+				<a href="/ediya/"><img src="/ediya/assets/img/top_logo.gif"></a>
+			</div>
 
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
-            <ul>
-              <li><a href="/ediya/menu?cmd=drinks">음료</a></li>
-              <li><a href="/ediya/menu?cmd=bakery">베이커리</a></li>
-              <li><a href="/ediya/menu?cmd=snack">스낵</a></li>
-              <li><a href="/ediya/menu?cmd=md">MD</a></li>
-            </ul>
-          </li>
-          <li><a href="#">이디야 멤버스</a></li>
-          <li><a href="#">기프트카드</a></li>
-          <li><a href="#">이디야커피랩</a></li>
-          <li><a href="#">이디야컬쳐랩</a></li>
-          <li><a href="#">이디야 소식</a></li>
+			<!-- Uncomment below if you prefer to use an image logo -->
+			<!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
-        </ul>
-      </nav><!-- .nav-menu -->
+			<nav class="nav-menu d-none d-lg-block">
+				<ul>
+					<li class="drop-down"><a href="/ediya/menu/menu_intro.jsp">메뉴</a>
+						<ul>
+							<li><a href="/ediya/menu?cmd=drinks">음료</a></li>
+							<li><a href="/ediya/menu?cmd=bakery">베이커리</a></li>
+							<li><a href="/ediya/menu?cmd=snack">스낵</a></li>
+							<li><a href="/ediya/menu?cmd=md">MD</a></li>
+						</ul>
+						</li>
+					<li><a href="#">이디야 멤버스</a></li>
+					<li><a href="#">기프트카드</a></li>
+					<li><a href="#">이디야커피랩</a></li>
+					<li><a href="#">이디야컬쳐랩</a></li>
+					<li class="drop-down">
+					<a href="/ediya/notice?cmd=noticeList&page=0">이디야 소식</a>
+						<ul>
+							<li><a href="/ediya/notice?cmd=noticeList&page=0">공지사항</a></li>
+							<li><a href="/ediya/menu?cmd=event">이벤트</a></li>
+							<li><a href="/ediya/menu/snack.jsp">이디야 유튜브</a></li>
+							<li><a href="https://blog.naver.com/ediya-coffee">이디야
+									블로그</a></li>
+							<li><a href="https://www.instagram.com/ediya.coffee/">이디야
+									인스타그램</a></li>
+							<li><a href="https://www.facebook.com/iEDIYA">이디야 페이스북</a></li>
+						</ul></li>
 
-    </div>
-  </header><!-- End Header -->
+				</ul>
+			</nav>
+			<!-- .nav-menu -->
+
+		</div>
+	</header>
+	<!-- End Header -->
