@@ -45,16 +45,17 @@
 <div class="container" style="margin-bottom: 100px;">
 	<div class="noticeForm_board_top"></div>
 
-	<form action="/ediya/notice?cmd=saveNotice" method="POST">
+	<form action="/ediya/notice?cmd=update" method="POST">
+		<input type="hidden" name="id" value="${dto.id}" />
 		<div class="form-group">
 			<label for="title">제목:</label> <input type="text"
-				class="form-control" placeholder="제목을 입력하세요" id="title" name="title">
+				class="form-control" placeholder="제목을 입력하세요" id="title" name="title" value="${dto.title}">
 		</div>
 
 		<div class="form-group">
 			<label for="content">내용:</label>
 			<textarea id="summernote" class="form-control " rows="11"
-				id="content" name="content"></textarea>
+				id="content" name="content" >${dto.content}</textarea>
 		</div>
 
 		<button type="submit" class="btn btn-primary"

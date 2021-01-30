@@ -34,10 +34,9 @@
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="/ediya/assets/vendor/jquery/jquery.min.js"></script>
-
+<!-- <script src="/ediya/assets/vendor/jquery/jquery.min.js"></script> -->
+<!--<script src="/ediya/assets/vendor/jquery.easing/jquery.easing.min.js"></script>  -->
 <script src="/ediya/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/ediya/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
 <script src="/ediya/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
 <script src="/ediya/assets/vendor/counterup/counterup.min.js"></script>
 <script src="/ediya/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
