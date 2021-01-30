@@ -94,7 +94,7 @@ body, input, textarea, select, table, a, p {
 	margin-bottom: 40px;
 }
 
-form {
+.edit_box form {
 	padding: 44px 0 50px;
 	width: 100%;
 	max-width: 680px;

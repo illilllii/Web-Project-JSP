@@ -5,15 +5,15 @@
 <!-- 회원탈퇴 팝업 -->
 <div class="popup_wrap" id="join_email_info" style="top: 800px; left: 0px; display: none;">
 	<div class="popup_blind">
-		<div class="login_popup">
-			<h1 class="pop_tt">회원탈퇴</h1>
+		<div class="login_popup" style="padding-bottom: 120px">
+			<h1 class="pop_tt" >회원탈퇴</h1>
 			<div class="pop_close">
 				<a href="#c" onclick="close_login_pop()">
 				<img src="/ediya/assets/img/user/mypage_pop_close.gif" width="17" height="16" alt="창닫기">
 				</a>
 			</div>
 			
-			<h2 class="pop_con_tt">회원탈퇴 안내</h2>
+			<h2 class="pop_con_tt" style= "margin: 45px auto 70px;">회원탈퇴 안내</h2>
 			<form name="drawalForm" id="drawalForm" action="/ediya/user?cmd=delete" method="post" style="margin-top: -50px">
 					<div class="certify_form">
 						<div class="leave_info">
