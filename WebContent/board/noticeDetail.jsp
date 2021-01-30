@@ -43,8 +43,8 @@
 
 <!-- 관리자: 게시글 수정, 삭제 -->
 <div class="detail_container" style="width: 1110px; margin: auto;">
-	<c:if test="${sessionScope.principal.userRole eq 'ADMIN'}">
-		<a href="/ediya/notice?cmd=updateNotice&id=${dto.id}"
+	<c:if test="${sessionScope.principal.userRole eq 'BOARDADMIN'}">
+		<a href="/ediya/notice?cmd=updateForm&id=${dto.id}"
 			class="btn btn-primary"
 			style="background-color: #002f6c; border: #002f6c;"> 수정</a>
 		<button onClick="deleteById(${dto.id})" class="btn btn-danger"
@@ -65,27 +65,46 @@
 		<a href="/ediya/notice?cmd=noticeList&page=0">목록보기</a>
 	</div>
 
-	<c:if test="${dto.importantNotice eq 'N'}">
-			<div class="board_view_page">
-				<dl>
-					<dt>이전글</dt>
-					<dd style="width: 800px;">
-						<a href="/ediya/notice?cmd=detail&id=${previous.id}" class="pn_ac">${previous.title}</a>
-					</dd>
-					<dd class="list_date">${previous.createDate}</dd>
-				</dl>
-				<dl>
-					<dt>다음글</dt>
-					<dd style="width: 800px;">
-						<a href="/ediya/notice?cmd=detail&id=${next.id}" class="pn_ac">${next.title} </a>
-					</dd>
-					<dd class="list_date">${next.createDate}</dd>
-				</dl>
-			</div>
-	</c:if>
+
+	<div class="board_view_page">
+		<dl>
+			<dt>이전글</dt>
+			<dd style="width: 800px;">
+				<a href="/ediya/notice?cmd=detail&id=${previous.id}" class="pn_ac">${previous.title}</a>
+			</dd>
+			<dd class="list_date">${previous.createDate}</dd>
+		</dl>
+		<dl>
+			<dt>다음글</dt>
+			<dd style="width: 800px;">
+				<a href="/ediya/notice?cmd=detail&id=${next.id}" class="pn_ac">${next.title}
+				</a>
+			</dd>
+			<dd class="list_date">${next.createDate}</dd>
+		</dl>
+	</div>
 
 </div>
 
 <%@ include file="../layout/footer.jsp"%>
+
+<script>
+	function deleteById(id){
+		$.ajax({
+			type: "post",
+			url: "/ediya/notice?cmd=delete&id="+id,
+			dataType: "json"
+		}).done(function(result){
+			console.log(result);
+			if(result.statusCode == 1){
+				location.href="index.jsp";
+			}else{
+				alert("삭제에 실패하였습니다.");
+			}
+		});
+	}
+</script>
+
+
 </body>
 </html>

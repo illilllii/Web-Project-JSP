@@ -9,6 +9,7 @@ import com.cos.ediya.domain.notice.dto.ImportantNoticeRespDto;
 import com.cos.ediya.domain.notice.dto.NextRespDto;
 import com.cos.ediya.domain.notice.dto.PreviousRespDto;
 import com.cos.ediya.domain.notice.dto.SaveReqDto;
+import com.cos.ediya.domain.notice.dto.UpdateReqDto;
 
 public class NoticeService {
 
@@ -45,4 +46,13 @@ public class NoticeService {
 	public NextRespDto 다음글보기(int id) {
 		return noticeDao.findNext(id);
 	}
+	
+	public int 공지사항삭제(int id) {
+		return noticeDao.deleteById(id);
+	}
+	
+	public int 공지사항수정(UpdateReqDto dto) {
+		return noticeDao.update(dto);
+	}
+
 }
