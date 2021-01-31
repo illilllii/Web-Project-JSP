@@ -39,7 +39,7 @@
 <link href="/ediya/assets/vendor/aos/aos.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="/ediya/assets/css/style.css" rel="stylesheet">
+<link href="/ediya/assets/css/style.css" rel="stylesheet" >
 
 
 <!-- User CSS -->

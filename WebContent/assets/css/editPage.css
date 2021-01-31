@@ -103,8 +103,9 @@ body, input, textarea, select, table, a, p {
 }
 
 form p {
-	margin-left: 140px;
-	margin: -2px 0 18px 21%;
+	margin:0;
+	/*margin-left: 140px;
+	margin: -2px 0 18px 21%;*/
 	color: #707070;
 	line-height: 1.4em;
 }
