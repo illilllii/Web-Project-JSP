@@ -97,7 +97,7 @@
 		</c:forEach>
 	</ul>
 
-	<c:if test="${sessionScope.principal.userRole eq 'ADMIN'}">
+	<c:if test="${sessionScope.principal.userRole eq 'BOARDADMIN'}">
 		<button class="btn btn-primary"
 			style="float: right; background-color: #002f6c; border: #002f6c;"
 			onClick="location.href ='?cmd=noticeForm'">글쓰기</button>
