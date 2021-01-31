@@ -57,7 +57,7 @@
 
 <!-- summernote -->
 <script type="text/javascript">
-var jQuery =$.noConflict();
+//var jQuery =$.noConflict();
 </script>
 <script type="text/javascript" src="/ediya/assets/summernote/summernote-lite.js"></script>
 <script type="text/javascript" src="/ediya/assets/summernote/summernote-ko-KR.js"></script>
