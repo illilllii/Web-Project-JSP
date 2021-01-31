@@ -43,11 +43,11 @@ create table user(
 ### 공지사항 테이블
 ```sql
 create table notice(
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     title varchar(100) not null,
     content longtext not null,
     createDate timestamp,
-    importantNotice char(2)
+    importantNotice char(1)
 )engine=InnoDB default charset=utf8;
 ```
 - importantNotice : 중요 공지사항(Y, N)
