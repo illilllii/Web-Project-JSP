@@ -85,13 +85,13 @@
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item page-prev disabled"><span class="page-link"
-						>Previous</span></li>
+					<li class="page-item page-prev disabled"><a class="page-link"
+						href="#">Previous</a></li>
 					<c:forEach var="i" begin="0" end="${bakeryLastPage}">
 						<li class="page-number" id="bakery-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
 					</c:forEach>
-					<li class="page-item page-next" id="page-next"><span
-						class="page-link">Next</span></li>
+					<li class="page-item page-next" id="page-next"><a
+						class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -127,13 +127,13 @@
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item page-prev disabled"><span class="page-link"
-						>Previous</span></li>
+					<li class="page-item page-prev disabled"><a class="page-link"
+						href="#">Previous</a></li>
 					<c:forEach var="i" begin="0" end="${snackLastPage}">
 						<li class="page-number" id="md-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
 					</c:forEach>
-					<li class="page-item page-next" id="page-next"><span
-						class="page-link">Next</span></li>
+					<li class="page-item page-next" id="page-next"><a
+						class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -167,13 +167,13 @@
 				</table>
 
 				<ul class="pagination justify-content-center">
-					<li class="page-item page-prev disabled"><span class="page-link"
-						>Previous</span></li>
+					<li class="page-item page-prev disabled"><a class="page-link"
+						href="#">Previous</a></li>
 					<c:forEach var="i" begin="0" end="${mdLastPage}">
 						<li class="page-number" id="snack-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
 					</c:forEach>
-					<li class="page-item page-next" id="page-next"><span
-						class="page-link">Next</span></li>
+					<li class="page-item page-next" id="page-next"><a
+						class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -264,6 +264,7 @@ pagingAjax();
 	$('ul.tabs li').click(function() {
 		$('#'+cmd+'-page-'+page ).css( 'color', '#ccc' );
 		page = 0;
+		console.log('page:');
 		$('#'+cmd+'-page-'+page ).css( 'color', '#222' );
 		console.log(lastPage);
 		tab_id = "#"+($(this).attr('data-tab'));

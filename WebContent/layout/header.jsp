@@ -89,7 +89,7 @@
 								href="<%=request.getContextPath()%>/user?cmd=myPage">My page</a>
 							<a class="topbar__submenu__login" style="margin-left: 10px;"
 								href="<%=request.getContextPath()%>/user?cmd=logout"> 로그아웃</a> <a
-								class="topbar__submenu__join" style="margin-left: 10px;">매장찾기</a>
+								class="topbar__submenu__join" >매장찾기</a>
 
 							<c:if test="${sessionScope.principal.userRole eq 'MENUADMIN'}">
 								<a class="topbar__submenu__admin-menu"

@@ -132,11 +132,11 @@ public class AdminMenuSnackDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Snack> snacks = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM snack ORDER BY id ASC LIMIT ?, 4";
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM snack ORDER BY id ASC LIMIT ?, 8";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, page*4);
+			pstmt.setInt(1, page*8);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

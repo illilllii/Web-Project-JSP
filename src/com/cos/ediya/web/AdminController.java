@@ -111,7 +111,7 @@ public class AdminController extends HttpServlet {
 
 			int bakeryCount = adminService.베이커리개수();
 			System.out.println("bakeryCount: "+bakeryCount);
-			int bakeryLastPage = (bakeryCount-1)/4;
+			int bakeryLastPage = (bakeryCount-1)/8;
 			request.setAttribute("bakeryLastPage", bakeryLastPage);
 			
 			int drinksCount = adminService.음료개수();
@@ -120,12 +120,12 @@ public class AdminController extends HttpServlet {
 			request.setAttribute("drinksLastPage", drinksLastPage);
 			
 			int snackCount = adminService.스낵개수();
-			int snackLastPage = (snackCount-1)/4;
+			int snackLastPage = (snackCount-1)/8;
 			System.out.println("snackCount: "+snackCount);
 			request.setAttribute("snackLastPage", snackLastPage);
 			
 			int mdCount = adminService.MD개수();
-			int mdLastPage = (mdCount-1)/4;
+			int mdLastPage = (mdCount-1)/8;
 			System.out.println("mdCount: "+mdCount);
 			request.setAttribute("mdLastPage", mdLastPage);
 			

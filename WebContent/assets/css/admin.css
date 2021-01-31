@@ -164,6 +164,9 @@ ul.tabs li:first-child {
 .kind-radio-form-title {
 	width: 20%;
 }
+.card {
+	margin-bottom: 50px;
+}
 /*--------------------------------------------------------------
 # menuAdiminInsert
 --------------------------------------------------------------*/
