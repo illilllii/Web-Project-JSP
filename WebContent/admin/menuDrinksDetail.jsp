@@ -84,5 +84,8 @@
 </main>
 <%@ include file="../layout/footer.jsp"%>
 <script src="/ediya/assets/js/menuUpdate.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

@@ -27,12 +27,17 @@
 							<td>${user.phone}</td>
 							<td>${user.nickname}</td>
 							<td><select name="userRole">
-									<option value="USERADMIN"
-										<c:if test="${user.userRole == 'USERADMIN'}">selected</c:if>>USERADMIN</option>
-									<option value="MENUADMIN"
-										<c:if test="${user.userRole == 'MENUADMIN'}">selected</c:if>>MENUADMIN</option>
 									<option value="USER"
 										<c:if test="${user.userRole == 'USER'}">selected</c:if>>USER</option>
+										<option value="ADMIN"
+										<c:if test="${user.userRole == 'ADMIN'}">selected</c:if>>ADMIN</option>
+									<option value="USERADMIN"
+										<c:if test="${user.userRole == 'USERADMIN'}">selected</c:if>>USERADMIN</option>
+									<option value="BOARDADMIN"
+										<c:if test="${user.userRole == 'BOARDADMIN'}">selected</c:if>>BOARDADMIN</option>
+									<option value="MENUADMIN"
+										<c:if test="${user.userRole == 'MENUADMIN'}">selected</c:if>>MENUADMIN</option>
+
 							</select></td>
 							<td>${user.createDate}</td>
 							<td><button type="button" class="btn btn-warning"
@@ -77,6 +82,7 @@ function deleteUser(id) {
 
 function updateUser(id) {
 	var selected = $("select[name='userRole']").val();
+	console.log(selected);
 	var data = {
 			"id" : id,
 			"userRole" : selected

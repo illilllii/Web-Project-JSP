@@ -1,8 +1,8 @@
 var file = document.querySelector('#menu-file-input');
-
+var reader = new FileReader();
 file.onchange = function () { 
     var fileList = file.files ;
-    var reader = new FileReader();
+   
     reader.readAsDataURL(fileList [0]);
 
     reader.onload = function  () {
@@ -15,20 +15,12 @@ function updateMenu(id, oldImageSrc) {
 	var fileName = fakePath.split('\\');
 	var imageSrc;
 	var pageData = $("#menuAdmin-detail").data().menu;
-	$('input:radio[name="kind"]').each(function(i) {
-		if ($(this).is(":checked") == true) {
-			filePath = "/ediya/assets/img/menu/";
-			filePath += pageData + "/";
-			filePath += $(this).data().kind + "/";
-			filePath += fileName[2];
-		}
 
-	});
 
 	if(!fakePath) {
 		imageSrc = oldImageSrc;
 	} else {
-		imageSrc = filePath;
+		imageSrc = reader.result;
 	}
 
 	var name = $("#detail-name").val();
