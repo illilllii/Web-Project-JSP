@@ -79,7 +79,6 @@ public class NoticeController extends HttpServlet {
 
 			int result = noticeService.공지사항등록(dto);
 			if (result == 1) { // 등록성공
-
 				RequestDispatcher dis = request.getRequestDispatcher("index.jsp"); // 나중에 수정하기
 				dis.forward(request, response);
 			} else {

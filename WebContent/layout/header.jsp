@@ -48,6 +48,7 @@
 <link href="/ediya/assets/css/myPage.css" rel="stylesheet">
 <link href="/ediya/assets/css/editPage.css" rel="stylesheet">
 <link href="/ediya/assets/css/notice.css" rel="stylesheet">
+<link href="/ediya/assets/css/youtube.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="/ediya/assets/css/summernote/summernote-lite.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -133,7 +134,6 @@
 					<a href="/ediya/notice?cmd=noticeList&page=0">이디야 소식</a>
 						<ul>
 							<li><a href="/ediya/notice?cmd=noticeList&page=0">공지사항</a></li>
-							<li><a href="/ediya/menu?cmd=event">이벤트</a></li>
 							<li><a href="/ediya/menu/snack.jsp">이디야 유튜브</a></li>
 							<li><a href="https://blog.naver.com/ediya-coffee">이디야
 									블로그</a></li>
