@@ -12,7 +12,48 @@ import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.bakery.Bakery;
 
 public class AdminMenuBakeryDao {
-	public List<Bakery> findAllTest(int page) {		
+	public int count() {
+		String sql = "SELECT count(*) FROM bakery";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1); // index count(*)->1, count(*), id이면 id->2
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+		
+	}
+	/*public int count() {
+		String sql = "SELECT count(*) FROM board";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1); // index count(*)->1, count(*), id이면 id->2
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+	}*/
+	public List<Bakery> findAll(int page) {		
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -140,38 +181,5 @@ public class AdminMenuBakeryDao {
 		return -1;
 	}
 	
-	public List<Bakery> findAll() {
-		Connection conn = DB.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<Bakery> bakerys = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM bakery ORDER BY id DESC";
-	
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Bakery bakery = Bakery.builder()
-						.id(rs.getInt("id"))
-						.name(rs.getString("name"))
-						.subname(rs.getString("subname"))
-						.content(rs.getString("content"))
-						.imageSrc(rs.getString("imageSrc"))
-						.kind(rs.getString("kind"))
-						.recommend(rs.getString("recommend"))
-						.build();
-				bakerys.add(bakery);
-			}
-			return bakerys;
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DB.close(conn, pstmt, rs);
-		}
-		return null;
-	}
 	
 }

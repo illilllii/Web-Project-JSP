@@ -13,6 +13,27 @@ import com.cos.ediya.domain.md.Md;
 
 public class AdminMenuMdDao {
 
+	public int count() {
+		String sql = "SELECT count(*) FROM md";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1); // index count(*)->1, count(*), id이면 id->2
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+		
+	}
 	public int insertAll(String name, String content, String imageSrc,  String recommend) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
@@ -100,15 +121,16 @@ public class AdminMenuMdDao {
 		return -1;
 	}
 
-	public List<Md> findAll() {
+	public List<Md> findAll(int page) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Md> mds = new ArrayList<>();
-		String sql = "SELECT id, name, content, imageSrc, recommend FROM md ORDER BY id DESC";
-	
+		String sql = "SELECT id, name, content, imageSrc, recommend FROM md ORDER BY id ASC LIMIT ?, 4";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, page*4);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

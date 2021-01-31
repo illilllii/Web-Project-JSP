@@ -9,9 +9,31 @@ import java.util.List;
 import com.cos.ediya.config.DB;
 import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryDetailRespDto;
 import com.cos.ediya.domain.admin.menu.snack.dto.SnackDetailRespDto;
+import com.cos.ediya.domain.bakery.Bakery;
 import com.cos.ediya.domain.snack.Snack;
 
 public class AdminMenuSnackDao {
+	public int count() {
+		String sql = "SELECT count(*) FROM snack";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1); // index count(*)->1, count(*), id이면 id->2
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+		
+	}
 	public int insertAll(String name, String subname, String content, String imageSrc, String kind, String recommend) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
@@ -105,15 +127,16 @@ public class AdminMenuSnackDao {
 		return -1;
 	}
 	
-	public List<Snack> findAll() {
+	public List<Snack> findAll(int page) {		
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Snack> snacks = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM snack ORDER BY id DESC";
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM snack ORDER BY id ASC LIMIT ?, 4";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, page*4);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -137,5 +160,6 @@ public class AdminMenuSnackDao {
 			DB.close(conn, pstmt, rs);
 		}
 		return null;
+		
 	}
 }

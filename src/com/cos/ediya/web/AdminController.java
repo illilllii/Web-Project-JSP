@@ -18,12 +18,15 @@ import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryPageRespDto;
 import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryUpdateReqDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksInsertReqDto;
+import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksPageRespDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksUpdateReqDto;
 import com.cos.ediya.domain.admin.menu.md.dto.MdDetailRespDto;
 import com.cos.ediya.domain.admin.menu.md.dto.MdInsertReqDto;
+import com.cos.ediya.domain.admin.menu.md.dto.MdPageRespDto;
 import com.cos.ediya.domain.admin.menu.md.dto.MdUpdateReqDto;
 import com.cos.ediya.domain.admin.menu.snack.dto.SnackDetailRespDto;
 import com.cos.ediya.domain.admin.menu.snack.dto.SnackInsertReqDto;
+import com.cos.ediya.domain.admin.menu.snack.dto.SnackPageRespDto;
 import com.cos.ediya.domain.admin.menu.snack.dto.SnackUpdateReqDto;
 import com.cos.ediya.domain.admin.user.dto.UpdateRespDto;
 import com.cos.ediya.domain.bakery.Bakery;
@@ -103,17 +106,30 @@ public class AdminController extends HttpServlet {
 			out.print(respData);
 			out.flush();
 		} else if (cmd.equals("menuList")) {
-			List<Drinks> drinks = adminService.음료목록보기();
-			List<Bakery> bakerys = adminService.베이커리목록보기();
-			List<Snack> snacks = adminService.스낵목록보기();
-			List<Md> mds = adminService.MD목록보기();
-			request.setAttribute("drinks", drinks);
-			request.setAttribute("bakerys", bakerys);
-			request.setAttribute("snacks", snacks);
-			request.setAttribute("mds", mds);
 
+			int bakeryCount = adminService.베이커리개수();
+			System.out.println("bakeryCount: "+bakeryCount);
+			int bakeryLastPage = (bakeryCount-1)/4;
+			request.setAttribute("bakeryLastPage", bakeryLastPage);
+			
+			int drinksCount = adminService.음료개수();
+			int drinksLastPage = (drinksCount-1)/8;
+			System.out.println("drinksCount: "+drinksCount);
+			request.setAttribute("drinksLastPage", drinksLastPage);
+			
+			int snackCount = adminService.스낵개수();
+			int snackLastPage = (snackCount-1)/4;
+			System.out.println("snackCount: "+snackCount);
+			request.setAttribute("snackLastPage", snackLastPage);
+			
+			int mdCount = adminService.MD개수();
+			int mdLastPage = (mdCount-1)/4;
+			System.out.println("mdCount: "+mdCount);
+			request.setAttribute("mdLastPage", mdLastPage);
+			
 			RequestDispatcher dis = request.getRequestDispatcher("admin/menuList.jsp");
 			dis.forward(request, response);
+			
 		} else if (cmd.equals("drinksDelete")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			int result = adminService.음료삭제(id);
@@ -418,41 +434,82 @@ public class AdminController extends HttpServlet {
 		} else if (cmd.equals("mdInsertForm")) {
 			RequestDispatcher dis = request.getRequestDispatcher("admin/menuMdInsertForm.jsp");
 			dis.forward(request, response);
-		} else if (cmd.equals("menuLIstTest")) {
-			List<Drinks> drinks = adminService.음료목록보기();
-		//List<Bakery> bakerys = adminService.베이커리목록보기();
-			List<Snack> snacks = adminService.스낵목록보기();
-			List<Md> mds = adminService.MD목록보기();
-			request.setAttribute("drinks", drinks);
-			//request.setAttribute("bakerys", bakerys);
-			request.setAttribute("snacks", snacks);
-			request.setAttribute("mds", mds);
-
-			RequestDispatcher dis = request.getRequestDispatcher("admin/listTest.jsp");
-			dis.forward(request, response);
 		} else if(cmd.equals("bakeryList")) {
 			BufferedReader br = request.getReader();
 			String requestData = br.readLine();
 			Gson gson = new Gson();
 			BakeryPageRespDto bakeryPageRespDto = gson.fromJson(requestData, BakeryPageRespDto.class);
 			int page = bakeryPageRespDto.getPage();
-			System.out.println("bakeryPage:" + page);
-			List<Bakery> bakeries = adminService.베이커리목록보기Test(page);
-			CommonRespDto<List<Bakery>> commonRespDto = new CommonRespDto<>();
-			
-//			List<Bakery> bakeries = menuService.베이커리메뉴검색(keyword, kinds);
-//			CommonRespDto<List<Bakery>> commonRespDto = new CommonRespDto<>();
-//			
+			List<Bakery> bakeries = adminService.베이커리목록보기(page);
+			CommonRespDto<List<Bakery>> commonRespDto = new CommonRespDto<>();		
 			if(bakeries != null) {
 				commonRespDto.setStatusCode(1);
 				commonRespDto.setData(bakeries);
 			} else {
 				commonRespDto.setStatusCode(-1);
 			}
+
 			String responseData = gson.toJson(commonRespDto);
 			response.setContentType("application/json;charset=utf-8");
 			Script.responseData(response, responseData);
-			System.out.println("commonRespDto : "+ commonRespDto);
+			
+
+		} else if(cmd.equals("drinksList")) {
+			BufferedReader br = request.getReader();
+			String requestData = br.readLine();
+			Gson gson = new Gson();
+			DrinksPageRespDto drinksPageRespDto = gson.fromJson(requestData, DrinksPageRespDto.class);
+			int page = drinksPageRespDto.getPage();
+			List<Drinks> drinks = adminService.음료목록보기(page);
+			CommonRespDto<List<Drinks>> commonRespDto = new CommonRespDto<>();		
+			if(drinks != null) {
+				commonRespDto.setStatusCode(1);
+				commonRespDto.setData(drinks);
+			} else {
+				commonRespDto.setStatusCode(-1);
+			}
+
+			String responseData = gson.toJson(commonRespDto);
+			response.setContentType("application/json;charset=utf-8");
+			Script.responseData(response, responseData);
+		} else if(cmd.equals("snackList")) {
+			BufferedReader br = request.getReader();
+			String requestData = br.readLine();
+			Gson gson = new Gson();
+			SnackPageRespDto snackPageRespDto = gson.fromJson(requestData, SnackPageRespDto.class);
+			int page = snackPageRespDto.getPage();
+			List<Snack> snacks = adminService.스낵목록보기(page);
+			CommonRespDto<List<Snack>> commonRespDto = new CommonRespDto<>();		
+			if(snacks != null) {
+				commonRespDto.setStatusCode(1);
+				commonRespDto.setData(snacks);
+			} else {
+				commonRespDto.setStatusCode(-1);
+			}
+
+			String responseData = gson.toJson(commonRespDto);
+			response.setContentType("application/json;charset=utf-8");
+			Script.responseData(response, responseData);
+		} else if(cmd.equals("mdList")) {
+			BufferedReader br = request.getReader();
+			String requestData = br.readLine();
+			Gson gson = new Gson();
+			MdPageRespDto mdPageRespDto = gson.fromJson(requestData, MdPageRespDto.class);
+			int page = mdPageRespDto.getPage();
+			List<Md> mds = adminService.MD목록보기(page);
+			CommonRespDto<List<Md>> commonRespDto = new CommonRespDto<>();
+			
+			if(mds != null) {
+				commonRespDto.setStatusCode(1);
+				commonRespDto.setData(mds);
+
+			} else {
+				commonRespDto.setStatusCode(-1);
+			}
+			
+			String responseData = gson.toJson(commonRespDto);
+			response.setContentType("application/json;charset=utf-8");
+			Script.responseData(response, responseData);
 		}
 	}
 

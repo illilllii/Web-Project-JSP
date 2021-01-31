@@ -27,10 +27,8 @@
 							<td>${user.phone}</td>
 							<td>${user.nickname}</td>
 							<td><select name="userRole">
-									<option value="USERADMIN"
-										<c:if test="${user.userRole == 'USERADMIN'}">selected</c:if>>USERADMIN</option>
-									<option value="MENUADMIN"
-										<c:if test="${user.userRole == 'MENUADMIN'}">selected</c:if>>MENUADMIN</option>
+									<option value="ADMIN"
+										<c:if test="${user.userRole == 'ADMIN'}">selected</c:if>>ADMIN</option>
 									<option value="USER"
 										<c:if test="${user.userRole == 'USER'}">selected</c:if>>USER</option>
 							</select></td>

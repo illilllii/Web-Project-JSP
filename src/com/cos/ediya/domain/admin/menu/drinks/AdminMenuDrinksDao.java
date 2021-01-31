@@ -8,9 +8,66 @@ import java.util.List;
 
 import com.cos.ediya.config.DB;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
+import com.cos.ediya.domain.bakery.Bakery;
 import com.cos.ediya.domain.drinks.Drinks;
 
 public class AdminMenuDrinksDao {
+	public int count() {
+		String sql = "SELECT count(*) FROM drinks";
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getInt(1); // index count(*)->1, count(*), id이면 id->2
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return -1;
+		
+	}
+	public List<Drinks> findAll(int page) {		
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Drinks> drinks = new ArrayList<>();
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM drinks ORDER BY id ASC LIMIT ?, 8";
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, page*8);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Drinks drink = Drinks.builder()
+						.id(rs.getInt("id"))
+						.name(rs.getString("name"))
+						.subname(rs.getString("subname"))
+						.content(rs.getString("content"))
+						.imageSrc(rs.getString("imageSrc"))
+						.kind(rs.getString("kind"))
+						.recommend(rs.getString("recommend"))
+						.build();
+				drinks.add(drink);
+			}
+			return drinks;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+		
+	}
 	public int insertAll(String name, String subname, String content, String imageSrc, String kind, String recommend) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;
@@ -104,37 +161,5 @@ public class AdminMenuDrinksDao {
 		return -1;
 	}
 	
-	public List<Drinks> findAll() {
-		Connection conn = DB.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<Drinks> drinks = new ArrayList<>();
-		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM drinks ORDER BY id DESC";
 	
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Drinks drink = Drinks.builder()
-						.id(rs.getInt("id"))
-						.name(rs.getString("name"))
-						.subname(rs.getString("subname"))
-						.content(rs.getString("content"))
-						.imageSrc(rs.getString("imageSrc"))
-						.kind(rs.getString("kind"))
-						.recommend(rs.getString("recommend"))
-						.build();
-				drinks.add(drink);
-			}
-			return drinks;
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DB.close(conn, pstmt, rs);
-		}
-		return null;
-	}
 }

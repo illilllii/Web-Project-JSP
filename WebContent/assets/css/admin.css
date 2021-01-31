@@ -230,3 +230,17 @@ input[type=radio] {
 .recommend-radio-form-title {
 	width: 20%;
 }
+
+
+/*--------------------------------------------------------------
+# paging
+--------------------------------------------------------------*/
+.pagination {
+	text-align:center;
+	align-items: center;
+}
+.page-number {
+	width: 20px;
+	cursor: pointer;
+	color: #ccc;
+}

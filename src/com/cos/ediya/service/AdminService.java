@@ -43,8 +43,8 @@ public class AdminService {
 		return adminUserDao.updateById(id, userRole);
 	}
 
-	public List<Drinks> 음료목록보기() {
-		return adminMenuDrinksDao.findAll();
+	public List<Drinks> 음료목록보기(int page) {
+		return adminMenuDrinksDao.findAll(page);
 	}
 	public int 음료삭제(int id) {
 		return adminMenuDrinksDao.deleteById(id);
@@ -60,8 +60,8 @@ public class AdminService {
 	public DrinksDetailRespDto 음료상세보기(int id) {
 		return adminMenuDrinksDao.findById(id);
 	}
-	public List<Bakery> 베이커리목록보기() {
-		return adminMenuBakeryDao.findAll();
+	public List<Bakery> 베이커리목록보기(int page) {
+		return adminMenuBakeryDao.findAll(page);
 	}
 	public int 베이커리삭제(int id) {
 		return adminMenuBakeryDao.deleteById(id);
@@ -78,8 +78,8 @@ public class AdminService {
 		return adminMenuBakeryDao.insertAll(name, subname, content, imageSrc, kind, recommend);
 	}
 	
-	public List<Snack> 스낵목록보기() {
-		return adminMenuSnackDao.findAll();
+	public List<Snack> 스낵목록보기(int page) {
+		return adminMenuSnackDao.findAll(page);
 	}
 	public int 스낵삭제(int id) {
 		return adminMenuSnackDao.deleteById(id);
@@ -95,8 +95,8 @@ public class AdminService {
 	public int 스낵메뉴추가(String name, String subname, String content, String imageSrc, String kind, String recommend) {
 		return adminMenuSnackDao.insertAll(name, subname, content, imageSrc, kind, recommend);
 	}
-	public List<Md> MD목록보기() {
-		return adminMenuMdDao.findAll();
+	public List<Md> MD목록보기(int page) {
+		return adminMenuMdDao.findAll(page);
 	}
 	public int MD삭제(int id) {
 		return adminMenuMdDao.deleteById(id);
@@ -111,7 +111,21 @@ public class AdminService {
 		return adminMenuMdDao.insertAll(name, content, imageSrc, recommend);
 	}
 	
-	public List<Bakery> 베이커리목록보기Test(int page) {
-		return adminMenuBakeryDao.findAllTest(page);
+	
+	
+	public int 베이커리개수() {
+		return adminMenuBakeryDao.count();
+	}
+	
+	public int 음료개수() {
+		return adminMenuDrinksDao.count();
+	}
+	
+	public int 스낵개수() {
+		return adminMenuSnackDao.count();
+	}
+	
+	public int MD개수() {
+		return adminMenuMdDao.count();
 	}
 }

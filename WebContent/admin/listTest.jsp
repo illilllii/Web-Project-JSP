@@ -6,9 +6,9 @@
 		<div class="container">
 			<h2>메뉴정보</h2>
 			<ul class="tabs">
-				<li class="tab-link current" data-tab="tab-1">음료</li>
+				<li class="tab-link current" data-tab="tab-1" data-cmd="drinks">음료</li>
 				<li class="tab-link" data-tab="tab-2" data-cmd="bakery">베이커리</li>
-				<li class="tab-link" data-tab="tab-3">스낵</li>
+				<li class="tab-link" data-tab="tab-3" data-cmd="snack">스낵</li>
 				<li class="tab-link" data-tab="tab-4">MD</li>
 			</ul>
 
@@ -39,26 +39,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="drink" items="${drinks}">
-							<tr id="drink-${drink.id}"
-								onclick="location.href ='/ediya/admin?cmd=drinksDetail&id=${drink.id}'"
-								class="menu-item">
-								<td>${drink.id}</td>
-								<td>${drink.name}</td>
-								<td>${drink.subname}</td>
-								<td class="menuList-content">${drink.content}</td>
-								<td><img src="${drink.imageSrc}" /></td>
-								<td>${drink.kind}</td>
-								<td>${drink.recommend}</td>
-								<td><button type="button" class="btn btn-danger"
-										onclick="deleteDrinks(${drink.id})">삭제</button></td>
-							</tr>
-						</c:forEach>
+						
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item page-prev disabled"><a class="page-link"
+						href="#">Previous</a></li>
+					<c:forEach var="i" begin="0" end="${drinksLastPage}">
+						<li class="page-number" id="drinks-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
+					</c:forEach>
+					<li class="page-item page-next" id="page-next"><a
+						class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -90,26 +81,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="bakery" items="${bakerys}">
-							<tr class="menu-item"
-								onclick="location.href ='/ediya/admin?cmd=bakeryDetail&id=${bakery.id}'">
-								<td>${bakery.id}</td>
-								<td>${bakery.name}</td>
-								<td>${bakery.subname}</td>
-								<td class="menuList-content">${bakery.content}</td>
-								<td><img src="${bakery.imageSrc}" /></td>
-								<td>${bakery.kind}</td>
-								<td>${bakery.recommend}</td>
-								<td><button type="button" class="btn btn-danger"
-										onclick="deleteBakery(${bakery.id})">삭제</button></td>
-							</tr>
-						</c:forEach>
+
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item page-prev"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item page-next" id="page-next"><a
-						class="page-link" href="#">Next</a></li>
+					<li class="page-item page-prev disabled"><span class="page-link"
+						>Previous</span></li>
+					<c:forEach var="i" begin="0" end="${bakeryLastPage}">
+						<li class="page-number" id="bakery-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
+					</c:forEach>
+					<li class="page-item page-next" id="page-next"><span
+						class="page-link">Next</span></li>
 				</ul>
 			</div>
 
@@ -141,25 +123,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="snack" items="${snacks}">
-							<tr id="snack-${snack.id}" class="menu-item"
-								onclick="location.href ='/ediya/admin?cmd=snackDetail&id=${snack.id}'">
-								<td>${snack.id}</td>
-								<td>${snack.name}</td>
-								<td>${snack.subname}</td>
-								<td class="menuList-content">${snack.content}</td>
-								<td><img src="${snack.imageSrc}" /></td>
-								<td>${snack.kind}</td>
-								<td>${snack.recommend}</td>
-								<td><button type="button" class="btn btn-danger"
-										onclick="deleteSnack(${snack.id})">삭제</button></td>
-							</tr>
-						</c:forEach>
+						
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item page-prev disabled"><span class="page-link"
+						>Previous</span></li>
+					<c:forEach var="i" begin="0" end="${snackLastPage}">
+						<li class="page-number" id="bakery-page-${i}" data-page="${i}"><c:out value="${i+1}" /></li>
+					</c:forEach>
+					<li class="page-item page-next" id="page-next"><span
+						class="page-link">Next</span></li>
 				</ul>
 			</div>
 
@@ -204,8 +178,8 @@
 				</table>
 
 				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item"><span class="page-link" >Previous</span></li>
+					<li class="page-item disabled"><span class="page-link" >Next</span></li>
 				</ul>
 			</div>
 
@@ -215,6 +189,12 @@
 </main>
 <%@ include file="../layout/footer.jsp"%>
 <script>
+var page = 0;
+var cmd = 'drinks';
+var data;
+var tab_id;
+var lastPage;
+
 function addContent(data) {
 	
 	
@@ -236,16 +216,53 @@ function addContent(data) {
 		$("tbody").html(contentItem);
 		
 	}
+	if(page>0) {
+		$(".page-prev").removeClass("disabled");
+	} else {
+		$(".page-prev").addClass("disabled");
+	}
+	if(page<lastPage) {
+		$(".page-next").removeClass("disabled");
+	} else {
+		$(".page-next").addClass("disabled");
+	}
 }
-	//var totalCount = ($('.current table tr').length)-1;
-	var page = 0;
-	var cmd;
-	var data;
-	var tab_id;
-	
-	$('ul.tabs li').click(function() {
-		tab_id = "#"+($(this).attr('data-tab'));
 
+function pagingAjax() {
+
+	data = {
+			"page" : page
+		};
+	$.ajax({
+		type : "post",
+		url : "/ediya/admin?cmd="+cmd+"List",
+		data : JSON.stringify(data),
+		contentType : "application/json; charset=utf-8",
+		dataType : "json"
+		
+	}).done(function(result) {
+		if (result.statusCode == 1) {
+			console.log(result.data);
+			addContent(result.data)
+		}
+
+	}).fail(function() {
+		alert("실패");
+	});
+	
+	currentPageId = '#'+cmd+'-page-'+page;
+	$('#'+cmd+'-page-'+page ).css( 'color', '#222' );
+
+}
+lastPage = "${drinksLastPage}";	
+pagingAjax();
+
+	$('ul.tabs li').click(function() {
+		$('#'+cmd+'-page-'+page ).css( 'color', '#ccc' );
+		page = 0;
+		$('#'+cmd+'-page-'+page ).css( 'color', '#222' );
+		console.log(lastPage);
+		tab_id = "#"+($(this).attr('data-tab'));
 		$('ul.tabs li').removeClass('current');
 		$('.tab-content').removeClass('current');
 
@@ -254,89 +271,50 @@ function addContent(data) {
 		
 		cmd = $(this).attr('data-cmd');
 		
-		//totalCount = ($('.current table tr').length)-1;
-		/*if(totalCount % 4 == 0) {
-			page = (totalCount / 4)-1;
-		} else {
-			page = totalCount / 4;
-		}*/
+		if(cmd=='bakery') {
+			lastPage = "${bakeryLastPage}";
+		} else if(cmd=='drinks') {
+			lastPage = "${drinksLastPage}";
+		} else if(cmd=='snack') {
+			lastPage = "${snackLastPage}";
+		}
 
-		data = {
-				"page" : page
-			};
-		
-		$.ajax({
-			type : "post",
-			url : "/ediya/admin?cmd="+cmd+"List",
-			data : JSON.stringify(data),
-			contentType : "application/json; charset=utf-8",
-			dataType : "json"
-			
-		}).done(function(result) {
-			if (result.statusCode == 1) {
-				console.log(result.data);
-				addContent(result.data)
-			}
-
-		}).fail(function() {
-			alert("실패");
-		});
+		pagingAjax();
 	
 	});
+	
 
+	$('.page-number').click(function() {
+		$('#'+cmd+'-page-'+page ).css( 'color', '#ccc' );
+		page=$(this).attr('data-page');
+		pagingAjax();
+		//$(this).css('color', 'red');
+			//console.log("data-page:"+$(this).attr('data-page'));
+	});
+	
 	$('.page-next').click(function() {
-		page++;
-		data = {
-				"page" : page
-			};
 		
-		$.ajax({
-			type : "post",
-			url : "/ediya/admin?cmd="+cmd+"List",
-			data : JSON.stringify(data),
-			contentType : "application/json; charset=utf-8",
-			dataType : "json"
+		if(page<lastPage) {
+			$('#'+cmd+'-page-'+page ).css( 'color', '#ccc' );
+			page++;
 			
-		}).done(function(result) {
-			if (result.statusCode == 1) {
-				console.log(result.data);
-				addContent(result.data)
-			}
+			pagingAjax();
 
-		}).fail(function() {
-			alert("실패");
-		});
+			
+		} 		
 	});
+	
 	$('.page-prev').click(function() {
-		page--;
-		data = {
-				"page" : page
-			};
 		
-		$.ajax({
-			type : "post",
-			url : "/ediya/admin?cmd="+cmd+"List",
-			data : JSON.stringify(data),
-			contentType : "application/json; charset=utf-8",
-			dataType : "json"
-			
-		}).done(function(result) {
-			if (result.statusCode == 1) {
-				console.log(result.data);
-				addContent(result.data)
-			}
-
-		}).fail(function() {
-			alert("실패");
-		});
+		if (page > 0) {
+			$('#'+cmd+'-page-'+page ).css( 'color', '#ccc' );
+			page--;
+			pagingAjax();
+		} 
+		
 	});
-
 	
-
-	
-	
-	
-	function deleteDrinks(id) {
+	function drinksDelete(id) {
 		$.ajax({
 			type : "post",
 			url : "/ediya/admin?cmd=drinksDelete&id=" + id,
@@ -361,14 +339,13 @@ function addContent(data) {
 			if (result.statusCode == 1) {
 				console.log(result);
 				$("#bakery-" + id).remove();
-				//$("#tab-2").load(location.href + "#tab-2");
-				//location.reload();
+				location.reload();
 				
 			}
 		});
 	}
 	
-	function deleteSnack(id) {
+	function snackDelete(id) {
 		$.ajax({
 			type : "post",
 			url : "/ediya/admin?cmd=snackDelete&id=" + id,
