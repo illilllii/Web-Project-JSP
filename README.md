@@ -10,6 +10,8 @@
 - lombok
 - jstl
 - gson(json 파싱)
+- summernote
+- lucy-xss-filter
 - git
 
 ## MySQL 데이터베이스 생성 및 사용자 생성
@@ -187,22 +189,106 @@ public class DB {
 </p>
 
 ### 메뉴화면
+
+#### nav-bar의 메뉴 클릭 시 나오는 페이지
 <p align = "center">
 	<img src="./mdImg/menuIntro.png" width="800" />
 </p>
+
+#### 메뉴 리스트
+- 더보기 페이징
+- 비동기 검색 기능
 
 <p align = "center">
 	<img src="./mdImg/menu.png" width="800" />
 </p>
 
+
+
 ### 회원가입화면
+- 아이디 중복 체크
+
 <p align = "center">
 	<img src="./mdImg/join.png" width="800" />
 </p>
 
+
+
 ### 로그인화면
+- 이메일 찾기
+- 비밀번호 찾기
+
 <p align = "center">
 	<img src="./mdImg/login.png" width="800" />
+</p>
+
+### 회원정보화면
+
+<p align = "center">
+	<img src="./mdImg/userInfo.png" width="800" />
+</p>
+
+### 회원정보수정
+- 회원탈퇴 기능
+
+<p align = "center">
+	<img src="./mdImg/userInfoUpdate.png" width="800" />
+</p>
+
+### 공지사항
+#### 공지사항 리스트
+- 페이징
+
+<p align = "center">
+	<img src="./mdImg/noticeList.png" width="800" />
+</p>
+
+#### 공지사항 글쓰기
+- summernote 사용
+
+<p align = "center">
+	<img src="./mdImg/noticeInsert.png" width="800" />
+</p>
+
+#### 공지사항 상세보기
+- 수정, 삭제 가능
+
+<p align = "center">
+	<img src="./mdImg/noticeDetail.png" width="800" />
+</p>
+
+### 관리자화면
+#### 회원관리
+- userRole == USERADMIN일 때, 활성화
+- userRole 수정 기능
+- user 삭제 기능
+
+<p align = "center">
+	<img src="./mdImg/userList.png" width="800" />
+</p>
+
+#### 메뉴관리
+- userRole == MENUADMIN일 때, 활성화
+
+##### 메뉴 리스트
+- tab 메뉴
+- 페이징
+- 메뉴 삭제 기능
+
+<p align = "center">
+	<img src="./mdImg/menuList.png" width="800" />
+</p>
+
+##### 메뉴 상세, 수정
+
+<p align = "center">
+	<img src="./mdImg/menuDetail.png" width="800" />
+</p>
+
+##### 메뉴 추가
+
+<p align = "center">
+	<img src="./mdImg/menuInsert.png" width="800" />
 </p>
 
 ## 필터

@@ -17,4 +17,8 @@ public class Notice {
 	private String content;
 	private Timestamp createDate;
 	private String importantNotice; // 중요한 공지(맨 처음)
+	
+	public String getContent() {
+		return content.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+	}
 }

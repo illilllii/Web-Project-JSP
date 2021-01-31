@@ -11,4 +11,8 @@ public class DetailRespDto {
 	private String content;
 	private Timestamp createDate;
 	private String importantNotice;
+	
+	public String getContent() {
+		return content.replaceAll("&lt;", "<").replaceAll("&gt;", ">");
+	}
 }
