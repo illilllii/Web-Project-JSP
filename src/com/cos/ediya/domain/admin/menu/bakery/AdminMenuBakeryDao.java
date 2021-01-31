@@ -12,6 +12,41 @@ import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.bakery.Bakery;
 
 public class AdminMenuBakeryDao {
+	public List<Bakery> findAllTest(int page) {		
+		Connection conn = DB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Bakery> bakerys = new ArrayList<>();
+		String sql = "SELECT id, name, subname, content, imageSrc, kind, recommend FROM bakery ORDER BY id ASC LIMIT ?, 4";
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, page*4);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Bakery bakery = Bakery.builder()
+						.id(rs.getInt("id"))
+						.name(rs.getString("name"))
+						.subname(rs.getString("subname"))
+						.content(rs.getString("content"))
+						.imageSrc(rs.getString("imageSrc"))
+						.kind(rs.getString("kind"))
+						.recommend(rs.getString("recommend"))
+						.build();
+				bakerys.add(bakery);
+			}
+			return bakerys;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.close(conn, pstmt, rs);
+		}
+		return null;
+		
+	}
 	public int insertAll(String name, String subname, String content, String imageSrc, String kind, String recommend) {
 		Connection conn = DB.getConnection();
 		PreparedStatement pstmt = null;

@@ -6,11 +6,12 @@
 		<div class="container">
 			<h2>메뉴정보</h2>
 			<ul class="tabs">
-				<li id="tab-drinks" class="tab-link current" data-tab="tab-1">음료</li>
-				<li id="tab-bakery" class="tab-link" data-tab="tab-2">베이커리</li>
-				<li id="tab-snack" class="tab-link" data-tab="tab-3">스낵</li>
-				<li id="tab-md" class="tab-link" data-tab="tab-4">MD</li>
+				<li class="tab-link current" data-tab="tab-1">음료</li>
+				<li class="tab-link" data-tab="tab-2" data-cmd="bakery">베이커리</li>
+				<li class="tab-link" data-tab="tab-3">스낵</li>
+				<li class="tab-link" data-tab="tab-4">MD</li>
 			</ul>
+
 			<div id="tab-1" class="tab-content current">
 				<button type="button" class="btn btn-primary btn-add"
 					onclick="location.href ='/ediya/admin?cmd=drinksInsertForm'">추가하기</button>
@@ -90,7 +91,7 @@
 					</thead>
 					<tbody>
 						<c:forEach var="bakery" items="${bakerys}">
-							<tr id="bakery-${bakery.id}" class="menu-item"
+							<tr class="menu-item"
 								onclick="location.href ='/ediya/admin?cmd=bakeryDetail&id=${bakery.id}'">
 								<td>${bakery.id}</td>
 								<td>${bakery.name}</td>
@@ -106,8 +107,9 @@
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item" id="page-previous"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item" id="page-next"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item page-prev"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item page-next" id="page-next"><a
+						class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -156,10 +158,12 @@
 					</tbody>
 				</table>
 				<ul class="pagination justify-content-center">
-					<li class="page-item" id="page-previous"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item" id="page-next"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
+
+
 
 			<div id="tab-4" class="tab-content">
 				<button type="button" class="btn btn-primary btn-add"
@@ -200,8 +204,8 @@
 				</table>
 
 				<ul class="pagination justify-content-center">
-					<li class="page-item" id="page-previous"><a class="page-link" href="#">Previous</a></li>
-					<li class="page-item" id="page-next"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
 				</ul>
 			</div>
 
@@ -211,32 +215,127 @@
 </main>
 <%@ include file="../layout/footer.jsp"%>
 <script>
-	var totalCount = ($('.current table tr').length)-1;
+function addContent(data) {
+	
+	
+	var contentItem = [];
+	
+	for (var i = 0; i <data.length; i++) {
+		console.log("data:" + data[i].id);
+		contentItem[i] = [''];
+		contentItem[i] += '<tr class="menu-item" onclick="location.href =\'/ediya/admin?cmd='+cmd+'Detail&id='+data[i].id+'\'">';
+		contentItem[i] += '<td>'+data[i].id+'</td>';
+		contentItem[i] += '<td>'+data[i].name+'</td>';
+		contentItem[i] += '<td>'+data[i].subname+'</td>';
+		contentItem[i] += '<td class="menuList-content">'+data[i].content+'</td>';
+		contentItem[i] += '<td><img src="'+data[i].imageSrc+'" /></td>';
+		contentItem[i] += '<td>'+data[i].kind+'</td>';
+		contentItem[i] += '<td>'+data[i].recommend+'</td>';
+		contentItem[i] += '<td onclick="event.cancelBubble=true"><button type="button" class="btn btn-danger" onclick="'+cmd+'Delete('+data[i].id+')">삭제</button></td></tr>';
+			
+		$("tbody").html(contentItem);
+		
+	}
+}
+	//var totalCount = ($('.current table tr').length)-1;
 	var page = 0;
-	console.log("tr의 개수 :"+totalCount);
+	var cmd;
+	var data;
+	var tab_id;
+	
 	$('ul.tabs li').click(function() {
-		var tab_id = $(this).attr('data-tab');
+		tab_id = "#"+($(this).attr('data-tab'));
 
 		$('ul.tabs li').removeClass('current');
 		$('.tab-content').removeClass('current');
 
 		$(this).addClass('current');
-		$("#" + tab_id).addClass('current');
-		totalCount = ($('.current table tr').length)-1;
-		console.log("tr의 개수 :"+totalCount);
+		$(tab_id).addClass('current');
 		
-	});
-	
-	$('#tab-bakery').click(function() {
+		cmd = $(this).attr('data-cmd');
 		
-		if(totalCount % 4 == 0) {
+		//totalCount = ($('.current table tr').length)-1;
+		/*if(totalCount % 4 == 0) {
 			page = (totalCount / 4)-1;
 		} else {
 			page = totalCount / 4;
-		}
-		console.log("page:"+page);
+		}*/
+
+		data = {
+				"page" : page
+			};
+		
+		$.ajax({
+			type : "post",
+			url : "/ediya/admin?cmd="+cmd+"List",
+			data : JSON.stringify(data),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json"
+			
+		}).done(function(result) {
+			if (result.statusCode == 1) {
+				console.log(result.data);
+				addContent(result.data)
+			}
+
+		}).fail(function() {
+			alert("실패");
+		});
+	
 	});
 
+	$('.page-next').click(function() {
+		page++;
+		data = {
+				"page" : page
+			};
+		
+		$.ajax({
+			type : "post",
+			url : "/ediya/admin?cmd="+cmd+"List",
+			data : JSON.stringify(data),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json"
+			
+		}).done(function(result) {
+			if (result.statusCode == 1) {
+				console.log(result.data);
+				addContent(result.data)
+			}
+
+		}).fail(function() {
+			alert("실패");
+		});
+	});
+	$('.page-prev').click(function() {
+		page--;
+		data = {
+				"page" : page
+			};
+		
+		$.ajax({
+			type : "post",
+			url : "/ediya/admin?cmd="+cmd+"List",
+			data : JSON.stringify(data),
+			contentType : "application/json; charset=utf-8",
+			dataType : "json"
+			
+		}).done(function(result) {
+			if (result.statusCode == 1) {
+				console.log(result.data);
+				addContent(result.data)
+			}
+
+		}).fail(function() {
+			alert("실패");
+		});
+	});
+
+	
+
+	
+	
+	
 	function deleteDrinks(id) {
 		$.ajax({
 			type : "post",
@@ -251,7 +350,8 @@
 			}
 		});
 	}
-	function deleteBakery(id) {
+	
+	function bakeryDelete(id) {
 		$.ajax({
 			type : "post",
 			url : "/ediya/admin?cmd=bakeryDelete&id=" + id,
@@ -261,10 +361,13 @@
 			if (result.statusCode == 1) {
 				console.log(result);
 				$("#bakery-" + id).remove();
-				location.reload();
+				//$("#tab-2").load(location.href + "#tab-2");
+				//location.reload();
+				
 			}
 		});
 	}
+	
 	function deleteSnack(id) {
 		$.ajax({
 			type : "post",

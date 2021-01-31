@@ -60,9 +60,9 @@
 <script src="/ediya/assets/vendor/jquery/jquery.als-2.1.min.js"></script>
 
 <!-- summernote -->
-<script type="text/javascript">
+<!--  <script type="text/javascript">
 var jQuery =$.noConflict();
-</script>
+</script>-->
 <script type="text/javascript" src="/ediya/assets/summernote/summernote-lite.js"></script>
 <script type="text/javascript" src="/ediya/assets/summernote/summernote-ko-KR.js"></script>
 <!--  

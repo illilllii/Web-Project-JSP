@@ -110,4 +110,8 @@ public class AdminService {
 	public int MD메뉴추가(String name, String content, String imageSrc, String recommend) {
 		return adminMenuMdDao.insertAll(name, content, imageSrc, recommend);
 	}
+	
+	public List<Bakery> 베이커리목록보기Test(int page) {
+		return adminMenuBakeryDao.findAllTest(page);
+	}
 }

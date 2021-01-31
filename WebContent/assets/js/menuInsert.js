@@ -47,7 +47,7 @@ function insertMenu() {
 		if (result.statusCode == 1) {
 			console.log(result);
 			alert("등록 성공");
-			location.replace("/ediya/admin?cmd=menuList");
+			location.replace("/ediya/admin?cmd=menuLIstTest");
 
 		}
 	});

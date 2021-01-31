@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryDetailRespDto;
 import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryInsertReqDto;
+import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryPageRespDto;
 import com.cos.ediya.domain.admin.menu.bakery.dto.BakeryUpdateReqDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksDetailRespDto;
 import com.cos.ediya.domain.admin.menu.drinks.dto.DrinksInsertReqDto;
@@ -417,6 +418,41 @@ public class AdminController extends HttpServlet {
 		} else if (cmd.equals("mdInsertForm")) {
 			RequestDispatcher dis = request.getRequestDispatcher("admin/menuMdInsertForm.jsp");
 			dis.forward(request, response);
+		} else if (cmd.equals("menuLIstTest")) {
+			List<Drinks> drinks = adminService.음료목록보기();
+		//List<Bakery> bakerys = adminService.베이커리목록보기();
+			List<Snack> snacks = adminService.스낵목록보기();
+			List<Md> mds = adminService.MD목록보기();
+			request.setAttribute("drinks", drinks);
+			//request.setAttribute("bakerys", bakerys);
+			request.setAttribute("snacks", snacks);
+			request.setAttribute("mds", mds);
+
+			RequestDispatcher dis = request.getRequestDispatcher("admin/listTest.jsp");
+			dis.forward(request, response);
+		} else if(cmd.equals("bakeryList")) {
+			BufferedReader br = request.getReader();
+			String requestData = br.readLine();
+			Gson gson = new Gson();
+			BakeryPageRespDto bakeryPageRespDto = gson.fromJson(requestData, BakeryPageRespDto.class);
+			int page = bakeryPageRespDto.getPage();
+			System.out.println("bakeryPage:" + page);
+			List<Bakery> bakeries = adminService.베이커리목록보기Test(page);
+			CommonRespDto<List<Bakery>> commonRespDto = new CommonRespDto<>();
+			
+//			List<Bakery> bakeries = menuService.베이커리메뉴검색(keyword, kinds);
+//			CommonRespDto<List<Bakery>> commonRespDto = new CommonRespDto<>();
+//			
+			if(bakeries != null) {
+				commonRespDto.setStatusCode(1);
+				commonRespDto.setData(bakeries);
+			} else {
+				commonRespDto.setStatusCode(-1);
+			}
+			String responseData = gson.toJson(commonRespDto);
+			response.setContentType("application/json;charset=utf-8");
+			Script.responseData(response, responseData);
+			System.out.println("commonRespDto : "+ commonRespDto);
 		}
 	}
 
