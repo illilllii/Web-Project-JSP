@@ -100,7 +100,7 @@ create table snack (
 ### MD 테이블
 ```sql
 create table md (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     name varchar(50) not null,
     content varchar(200) not null,
     imageSrc longtext not null,
