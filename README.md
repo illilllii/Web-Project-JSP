@@ -55,7 +55,7 @@ create table notice(
 ### 음료 테이블
 ```sql
 create table drinks (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     name varchar(50) not null,
     subname varchar(100) not null,
     content varchar(200) not null,
@@ -70,7 +70,7 @@ create table drinks (
 ### 베이커리 테이블
 ```sql
 create table bakery (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     name varchar(50) not null,
     subname varchar(100) not null,
     content varchar(200) not null,
@@ -85,7 +85,7 @@ create table bakery (
 ### 스낵 테이블
 ```sql
 create table snack (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     name varchar(50) not null,
     subname varchar(100) not null,
     content varchar(200) not null,
